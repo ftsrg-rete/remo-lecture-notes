@@ -15,6 +15,8 @@ This laboratory exercise assumes pairs of people working together. Some steps re
 
 ## Setup
 
+**Both people**: Set up GitHub authentication in SmartGit. You can find information on how to do this [here](https://ftsrg-rete.github.io/remo-lecture-notes/rete-install-basics-en/).
+
 **Person A**: Create a private repository on GitHub. Tick **Add a README file** so that the repository is initialized properly. Invite **Person B** as a collaborator. Add the linked model file (`espd.qeax`) to the repository, either via the web interface, or SmartGit.
 
 **Both people**: clone the repository in SmartGit. Ensure you both can open the model file using Enterprise Architect.
