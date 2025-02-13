@@ -75,4 +75,4 @@ Next, you'll create an activity diagram showcasing how information may flow usin
 1. [Link](https://docs.github.com/en/issues/tracking-your-work-with-issues/using-issues/linking-a-pull-request-to-an-issue) the pull request to the issue so that when the PR is merged, the issue is automatically closed.
 1. Merge the PR.
 
-> In Enterprise Architect, creating an Activity Diagram can be a bit complicated. Feel free to search online for guides and documentation, such as [this](https://sparxsystems.com/resources/tutorials/uml2/activity-diagram.html) one, or our own modeling guide [here](./behavior-modeling-guide).
+> In Enterprise Architect, creating an Activity Diagram can be a bit complicated. Feel free to search online for guides and documentation, such as [this](https://sparxsystems.com/resources/tutorials/uml2/activity-diagram.html) one, or our own modeling guide [here](../behavior-modeling-guide).
