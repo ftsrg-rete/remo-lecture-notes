@@ -1,5 +1,5 @@
 ---
-title: Use case and requirement modeling using Enterprise Architect
+title: Requirement and use case modeling using Enterprise Architect
 subtitle: System Modeling (VIMIAD03)
 header: System Modeling (VIMIAD03)
 ---
@@ -18,6 +18,22 @@ A glossary can be created in multiple ways; this tutorial shows the simplest one
 ![Alt text](figs/ea-uc-and-req-modeling/image-3.png)
 1. Alternatively, you can add glossary entries if you set the perspective to "*Publishing/Glossary*" and click on "*Add New*".
 ![Alt text](figs/ea-uc-and-req-modeling/image-4.png)
+
+
+
+# Requirement modeling
+
+1. Create a requirement diagram. Define some requirements using the Toolbox.
+![Alt text](figs/ea-uc-and-req-modeling/image-9.png)
+1. Set the ID of the requirement in the Properties window.
+![Alt text](figs/ea-uc-and-req-modeling/image-10.png)
+1. Set the Text of the requirement by clicking the three-dot icon in the Properties window. Write the text of the requirement in the pop-up window and press OK.
+![Alt text](figs/ea-uc-and-req-modeling/image-11.png)
+1. If the Text and the ID do not appear in the diagram, then click on the diagram, and in the Compartments tab of the Properties window, turn on the visibility of tags.
+![Alt text](figs/ea-uc-and-req-modeling/image-12.png)
+1. For SysML Requirement Extensions, the attributes of the requirements can be specified in the Properties window.
+![Alt text](figs/ea-uc-and-req-modeling/image-13.png)
+
 
 # Use case modeling
 
@@ -67,18 +83,3 @@ A glossary can be created in multiple ways; this tutorial shows the simplest one
 ![Alt text](figs/ea-scenarios-and-constraints/image-14.png)
 ![Alt text](figs/ea-scenarios-and-constraints/image-15.png)
 
-
-
-
-# Requirement modeling
-
-1. Create a requirement diagram. Define some requirements using the Toolbox.
-![Alt text](figs/ea-uc-and-req-modeling/image-9.png)
-1. Set the ID of the requirement in the Properties window.
-![Alt text](figs/ea-uc-and-req-modeling/image-10.png)
-1. Set the Text of the requirement by clicking the three dot icon in the Properties window. Write the text of the requirement in the pop-up window and press OK.
-![Alt text](figs/ea-uc-and-req-modeling/image-11.png)
-1. If the Text and the ID do not appear in the diagram, then click on the diagram, and in the Compartments tab of the Properties window, turn on the visibility of tags.
-![Alt text](figs/ea-uc-and-req-modeling/image-12.png)
-1. For SysML Requirement Extensions, the attributes of the requirements can be specified in the Properties window.
-![Alt text](figs/ea-uc-and-req-modeling/image-13.png)
