@@ -1,0 +1,347 @@
+
+<!DOCTYPE html>
+
+<html class="no-js" lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width,initial-scale=1" name="viewport"/>
+<link href="../assets/images/favicon.png" rel="icon"/>
+<meta content="mkdocs-1.3.0, mkdocs-material-8.3.9" name="generator"/>
+<title>Requirement and Use case modeling Papyrus guidebook - ReTe Papyrus Tutorial</title>
+<link href="../assets/stylesheets/main.1d29e8d0.min.css" rel="stylesheet"/>
+<link href="../assets/stylesheets/palette.cbb835fc.min.css" rel="stylesheet"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&amp;display=fallback" rel="stylesheet"/>
+<style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+<link href="../mkdocs.css" rel="stylesheet"/>
+<script>__md_scope=new URL("..",location),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+<link href="../assets/stylesheets/glightbox.min.css" rel="stylesheet"/><style>html.glightbox-open { overflow: initial; height: 100%; }</style><script src="../assets/javascripts/glightbox.min.js"></script></head>
+<body data-md-color-accent="none" data-md-color-primary="none" data-md-color-scheme="" dir="ltr">
+<input autocomplete="off" class="md-toggle" data-md-toggle="drawer" id="__drawer" type="checkbox"/>
+<input autocomplete="off" class="md-toggle" data-md-toggle="search" id="__search" type="checkbox"/>
+<label class="md-overlay" for="__drawer"></label>
+<div data-md-component="skip">
+<a class="md-skip" href="#requirement-modeling">
+          Skip to content
+        </a>
+</div>
+<div data-md-component="announce">
+</div>
+<header class="md-header" data-md-component="header">
+<nav aria-label="Header" class="md-header__inner md-grid">
+<a aria-label="ReTe Papyrus Tutorial" class="md-header__button md-logo" data-md-component="logo" href=".." title="ReTe Papyrus Tutorial">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"></path></svg>
+</a>
+<label class="md-header__button md-icon" for="__drawer">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"></path></svg>
+</label>
+<div class="md-header__title" data-md-component="header-title">
+<div class="md-header__ellipsis">
+<div class="md-header__topic">
+<span class="md-ellipsis">
+            ReTe Papyrus Tutorial
+          </span>
+</div>
+<div class="md-header__topic" data-md-component="header-topic">
+<span class="md-ellipsis">
+            
+              Requirement and Use case modeling Papyrus guidebook
+            
+          </span>
+</div>
+</div>
+</div>
+<label class="md-header__button md-icon" for="__search">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"></path></svg>
+</label>
+<div class="md-search" data-md-component="search" role="dialog">
+<label class="md-search__overlay" for="__search"></label>
+<div class="md-search__inner" role="search">
+<form class="md-search__form" name="search">
+<input aria-label="Search" autocapitalize="off" autocomplete="off" autocorrect="off" class="md-search__input" data-md-component="search-query" name="query" placeholder="Search" required="" spellcheck="false" type="text"/>
+<label class="md-search__icon md-icon" for="__search">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"></path></svg>
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"></path></svg>
+</label>
+<nav aria-label="Search" class="md-search__options">
+<button aria-label="Clear" class="md-search__icon md-icon" tabindex="-1" type="reset">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"></path></svg>
+</button>
+</nav>
+</form>
+<div class="md-search__output">
+<div class="md-search__scrollwrap" data-md-scrollfix="">
+<div class="md-search-result" data-md-component="search-result">
+<div class="md-search-result__meta">
+            Initializing search
+          </div>
+<ol class="md-search-result__list"></ol>
+</div>
+</div>
+</div>
+</div>
+</div>
+</nav>
+</header>
+<div class="md-container" data-md-component="container">
+<main class="md-main" data-md-component="main">
+<div class="md-main__inner md-grid">
+<div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation">
+<div class="md-sidebar__scrollwrap">
+<div class="md-sidebar__inner">
+<nav aria-label="Navigation" class="md-nav md-nav--primary" data-md-level="0">
+<label class="md-nav__title" for="__drawer">
+<a aria-label="ReTe Papyrus Tutorial" class="md-nav__button md-logo" data-md-component="logo" href=".." title="ReTe Papyrus Tutorial">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"></path></svg>
+</a>
+    ReTe Papyrus Tutorial
+  </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="..">
+        Papyrus Tutorial
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../rete-install-basics-en/">
+        Installing and Papyrus basics guidebook
+      </a>
+</li>
+<li class="md-nav__item md-nav__item--active">
+<input class="md-nav__toggle md-toggle" data-md-toggle="toc" id="__toc" type="checkbox"/>
+<label class="md-nav__link md-nav__link--active" for="__toc">
+          Requirement and Use case modeling Papyrus guidebook
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<a class="md-nav__link md-nav__link--active" href="./">
+        Requirement and Use case modeling Papyrus guidebook
+      </a>
+<nav aria-label="Table of contents" class="md-nav md-nav--secondary">
+<label class="md-nav__title" for="__toc">
+<span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+<ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#diagram-creation">
+    Diagram Creation
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#requirement-decomposition">
+    Requirement Decomposition
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#deriving-requirements">
+    Deriving Requirements
+  </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../rete-bdd-ibd-modeling-guidebook-en/">
+        BDD and IBD modeling Papyrus guidebook
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../rete-ftedit/">
+        FTEdit - Fault Tree Editing tool
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../rete-activity/">
+        Activity Diagrams Papyrus guidebook
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../rete-stm/">
+        State Machine Diagrams Papyrus guidebook
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../rete-seq/">
+        Sequence Diagrams Papyrus guidebook
+      </a>
+</li>
+</ul>
+</nav>
+</div>
+</div>
+</div>
+<div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc">
+<div class="md-sidebar__scrollwrap">
+<div class="md-sidebar__inner">
+<nav aria-label="Table of contents" class="md-nav md-nav--secondary">
+<label class="md-nav__title" for="__toc">
+<span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+<ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#diagram-creation">
+    Diagram Creation
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#requirement-decomposition">
+    Requirement Decomposition
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#deriving-requirements">
+    Deriving Requirements
+  </a>
+</li>
+</ul>
+</nav>
+</div>
+</div>
+</div>
+<div class="md-content" data-md-component="content">
+<article class="md-content__inner md-typeset">
+<h1 id="requirement-modeling">Requirement modeling</h1>
+<h2 id="diagram-creation">Diagram Creation</h2>
+<ol>
+<li><strong>Right click</strong> on the selected <em>Package</em> (<em>Requirements</em> in this example) -&gt; <strong>New Diagram</strong> -&gt; <strong>SysML 1.6 Requirement Diagram</strong>.</li>
+</ol>
+<p><a class="glightbox" href="../figs/req-new-diag.png"><img alt="" src="../figs/req-new-diag.png"/></a></p>
+<ol>
+<li>To add a <em>Requirement</em> select <strong>Requirement</strong> from the <strong>Palette</strong> and place it on the diagram, then on the <strong>Properties</strong> window, in the <strong>SysML 1.6</strong> tab fill out the <strong>Id</strong> and the <strong>Text</strong> fields.</li>
+</ol>
+<p><a class="glightbox" href="../figs/req-new-req.png"><img alt="" src="../figs/req-new-req.png"/></a>
+<a class="glightbox" href="../figs/req-properties.png"><img alt="" src="../figs/req-properties.png"/></a></p>
+<h2 id="requirement-decomposition">Requirement Decomposition</h2>
+<ol>
+<li>For <em>Requirement Decomposition</em> select <strong>Containment Link</strong> from the <strong>Palette</strong> and connect two <em>Requirements</em>. Pay attention to the direction of the connection!</li>
+</ol>
+<p><a class="glightbox" href="../figs/req-containment.png"><img alt="" src="../figs/req-containment.png"/></a>
+<a class="glightbox" href="../figs/req-containment2.png"><img alt="" src="../figs/req-containment2.png"/></a></p>
+<h2 id="deriving-requirements">Deriving Requirements</h2>
+<ol>
+<li>To <em>Derive Requirements</em> select <strong>DeriveReqt</strong> from the <strong>Palette</strong> and connect two <em>Requirements</em>. Pay attention to the direction of the connection!</li>
+</ol>
+<p><a class="glightbox" href="../figs/req-derived-req.png"><img alt="" src="../figs/req-derived-req.png"/></a>
+<a class="glightbox" href="../figs/req-derived-req-2.png"><img alt="" src="../figs/req-derived-req-2.png"/></a></p>
+<h1 id="use-case-modeling">Use Case modeling</h1>
+<h2 id="diagram-creation_1">Diagram Creation</h2>
+<ol>
+<li><strong>Right click</strong> on the selected <em>Package</em> (<em>UseCases</em> in this example) -&gt; <strong>New Diagram</strong> -&gt; <strong>SysML 1.6 Use Case Diagram</strong>.</li>
+</ol>
+<p><a class="glightbox" href="../figs/use-case-new-diag.png"><img alt="" src="../figs/use-case-new-diag.png"/></a></p>
+<ol>
+<li><strong>Drag-and-drop</strong> a block representing the boundry of the system (<em>System Boundary</em>) from the <strong>Model Explorer</strong> to the diagram.</li>
+</ol>
+<p><a class="glightbox" href="../figs/use-case-system-boundary.png"><img alt="" src="../figs/use-case-system-boundary.png"/></a></p>
+<h2 id="adding-actors-and-use-cases">Adding Actors and Use Cases</h2>
+<ol>
+<li>To add an <em>Actor</em> select <strong>Actor</strong> from the <strong>Palette</strong> and place it on the diagram. </li>
+</ol>
+<p><a class="glightbox" href="../figs/use-case-new-actor.png"><img alt="" src="../figs/use-case-new-actor.png"/></a></p>
+<ol>
+<li>To add a <em>Use Case</em> select <strong>Use Case</strong> from the <strong>Palette</strong> and place it on the diagram. </li>
+</ol>
+<p><a class="glightbox" href="../figs/use-case-new-uc.png"><img alt="" src="../figs/use-case-new-uc.png"/></a></p>
+<ol>
+<li>To add an <em>Association</em> between the <em>Actor</em> and the <em>Use Case</em> select <strong>Communication Path</strong> from the <strong>Palette</strong> and connect the <em>Actor</em> and the <em>Use Case</em>. </li>
+</ol>
+<p><a class="glightbox" href="../figs/use-case-actor-uc-assoc.png"><img alt="" src="../figs/use-case-actor-uc-assoc.png"/></a></p>
+<p><a class="glightbox" href="../figs/use-case-actor-uc-assoc-2.png"><img alt="" src="../figs/use-case-actor-uc-assoc-2.png"/></a></p>
+<h2 id="relations-between-actors">Relations between Actors</h2>
+<ol>
+<li>To <em>Generalize</em> <em>Actors</em> select <strong>Generalization</strong> from the <strong>Palette</strong> and connect two <em>Actors</em>. Pay attention to the direction of the connection!</li>
+</ol>
+<p><a class="glightbox" href="../figs/use-case-generalization.png"><img alt="" src="../figs/use-case-generalization.png"/></a></p>
+<p><a class="glightbox" href="../figs/use-case-generalization-2.png"><img alt="" src="../figs/use-case-generalization-2.png"/></a></p>
+<h2 id="relations-between-use-cases">Relations between Use Cases</h2>
+<ol>
+<li>To <em>Generalize</em> <em>Use Cases</em> select <strong>Generalization</strong> from the <strong>Palette</strong> and connect two <em>Use Cases</em>. Pay attention to the direction of the connection!</li>
+</ol>
+<p><a class="glightbox" href="../figs/use-case-generalization-3.png"><img alt="" src="../figs/use-case-generalization-3.png"/></a></p>
+<ol>
+<li>To <em>Refine</em> a <em>Use Case</em> select <strong>Include</strong> from the <strong>Palette</strong> and connect two <em>Use Cases</em>. Pay attention to the direction of the connection!</li>
+</ol>
+<p><a class="glightbox" href="../figs/use-case-include.png"><img alt="" src="../figs/use-case-include.png"/></a></p>
+<p><a class="glightbox" href="../figs/use-case-include-2.png"><img alt="" src="../figs/use-case-include-2.png"/></a></p>
+<ol>
+<li>To <em>Extend</em> a <em>Use Case</em> select <strong>Extend</strong> from the <strong>Palette</strong> and connect two <em>Use Cases</em>. Pay attention to the direction of the connection!</li>
+</ol>
+<p><a class="glightbox" href="../figs/use-case-extend.png"><img alt="" src="../figs/use-case-extend.png"/></a></p>
+<p><a class="glightbox" href="../figs/use-case-extend-2.png"><img alt="" src="../figs/use-case-extend-2.png"/></a></p>
+<h1 id="traceability">Traceability</h1>
+<h2 id="diagram-creation_2">Diagram Creation</h2>
+<ol>
+<li><strong>Right click</strong> on the selected <em>Package</em> (<em>UseCases</em> in this example) -&gt; <strong>New Diagram</strong> -&gt; <strong>SysML 1.6 Block Definition Diagram</strong>.</li>
+</ol>
+<p><a class="glightbox" href="../figs/trace-new-diag.png"><img alt="" src="../figs/trace-new-diag.png"/></a></p>
+<ol>
+<li><strong>Drag-and-drop</strong> the <em>Requirement</em> (<em>Transport Cargo</em>) from the <strong>Model Explorer</strong> to the diagram.</li>
+</ol>
+<p><a class="glightbox" href="../figs/trace-req-from-me.png"><img alt="" src="../figs/trace-req-from-me.png"/></a></p>
+<ol>
+<li><strong>Drag-and-drop</strong> the <em>Block</em> satisfying the <em>Requirement</em> (<em>Transportation Subsystem</em>) from the <strong>Model Explorer</strong> to the diagram.</li>
+</ol>
+<p><a class="glightbox" href="../figs/trace-block-from-me.png"><img alt="" src="../figs/trace-block-from-me.png"/></a></p>
+<ol>
+<li>To <em>Satisfy</em> the <em>Requirement</em> select <strong>Abstraction</strong> from the <strong>Palette</strong> and connect the <em>Block</em> to the <em>Requirement</em>. Than on the <strong>Properties</strong> window, on the <strong>Profile</strong> tab add the <strong>Satisfy</strong> <em>Stereotype</em>-t. The <strong>Satisfy</strong> <em>Stereotype</em> must be in the <strong>Applied Stereotypes</strong> column!</li>
+</ol>
+<p><a class="glightbox" href="../figs/trace-satisfy.png"><img alt="" src="../figs/trace-satisfy.png"/></a>
+<a class="glightbox" href="../figs/trace-satisfy-2.png"><img alt="" src="../figs/trace-satisfy-2.png"/></a>
+<a class="glightbox" href="../figs/trace-satisfy-3.png"><img alt="" src="../figs/trace-satisfy-3.png"/></a>
+<a class="glightbox" href="../figs/trace-satisfy-4.png"><img alt="" src="../figs/trace-satisfy-4.png"/></a></p>
+</article>
+</div>
+</div>
+</main>
+<footer class="md-footer">
+<nav aria-label="Footer" class="md-footer__inner md-grid">
+<a aria-label="Previous: Installing and Papyrus basics guidebook" class="md-footer__link md-footer__link--prev" href="../rete-install-basics-en/" rel="prev">
+<div class="md-footer__button md-icon">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"></path></svg>
+</div>
+<div class="md-footer__title">
+<div class="md-ellipsis">
+<span class="md-footer__direction">
+                Previous
+              </span>
+              Installing and Papyrus basics guidebook
+            </div>
+</div>
+</a>
+<a aria-label="Next: BDD and IBD modeling Papyrus guidebook" class="md-footer__link md-footer__link--next" href="../rete-bdd-ibd-modeling-guidebook-en/" rel="next">
+<div class="md-footer__title">
+<div class="md-ellipsis">
+<span class="md-footer__direction">
+                Next
+              </span>
+              BDD and IBD modeling Papyrus guidebook
+            </div>
+</div>
+<div class="md-footer__button md-icon">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4Z"></path></svg>
+</div>
+</a>
+</nav>
+<div class="md-footer-meta md-typeset">
+<div class="md-footer-meta__inner md-grid">
+<div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" rel="noopener" target="_blank">
+      Material for MkDocs
+    </a>
+</div>
+</div>
+</div>
+</footer>
+</div>
+<div class="md-dialog" data-md-component="dialog">
+<div class="md-dialog__inner md-typeset"></div>
+</div>
+<script id="__config" type="application/json">{"base": "..", "features": [], "search": "../assets/javascripts/workers/search.b97dbffb.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version.title": "Select version"}}</script>
+<script src="../assets/javascripts/bundle.6c7ad80a.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script>document$.subscribe(() => {const lightbox = GLightbox({"touchNavigation": true, "loop": false, "width": "10vw", "height": "10vw", "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom"});})</script></body>
+</html>
