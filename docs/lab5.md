@@ -24,4 +24,4 @@ Refine the System Context of the ACC system with Activity Diagrams. Model the be
         2. The Distance Sensor can *send a signal* if the vehicle before the ego vehicle is too close.
         3. The behavior of the Distance Sensor can be interrupted if the user decides to turn of the ACC, when the behavior of the Distance Sensor is terminted.
 
-*In the Enterprise Architect you cannot add *part properties* as partitions. In this exercise it is sufficient to add *blocks* as partitions. Otherwise you can add partitions to the model and set *part properties* in the Properties > ActivityPartition > Represents settings.
+*In the Enterprise Architect you cannot add _part properties_ as partitions. In this exercise it is sufficient to add _blocks_ as partitions. Otherwise you can add partitions to the model and set _part properties_ in the Properties > ActivityPartition > Represents settings.
