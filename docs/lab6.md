@@ -38,8 +38,8 @@ Refine the behavior of the ACC Function with Statemachine Diagrams.
         1. Set the ports of the triggers[^5].
         1. Set the appropriate signal as the effects of the transitions where applicable, use clear, easy to follow expressions elsewhere.
 
-    [^1] Which modeling construct can be used to model paralell behavior?
-    [^2] Is region defining the engine control (_KeepState_) complete?
-    [^3] You cannot reference ports and signals as triggers, thus use clear, easy to follow trigger names!
-    [^4] The transition guard are simple string expression, thus use clear, easy to follow guard expressions!
-    [^5] The current version of the EA does not display the port of the trigger.
+[^1]: Which modeling construct can be used to model paralell behavior?
+[^2]: Is region defining the engine control (_KeepState_) complete?
+[^3]: You cannot reference ports and signals as triggers, thus use clear, easy to follow trigger names!
+[^4]: The transition guard are simple string expression, thus use clear, easy to follow guard expressions!
+[^5]: The current version of the EA does not display the port of the trigger.
