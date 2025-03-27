@@ -31,7 +31,7 @@ Refine the behavior of the ACC Function with Statemachine Diagrams.
         | MaintainSpeed | The measured speed is registered through the _SpeedPort_. | The measured speed is more then set speed limit. | The ACC sends _Decelerate_ signal to the _Engine_ | Decelerate |
         | Accelerate | The measured speed is registered through the _SpeedPort_. | The measured speed equals the set speed limit. | The ACC sends _MaintainSpeed_ signal to the _Engine_ | MaintainSpeed |
         | Accelerate | The measured speed is registered through the _SpeedPort_. | The measured speed is less then set speed limit. | The ACC sends _Accelarate_ signal to the _Engine_ | Accelerate |
-        | MaintainSpeed | The measured speed is registered through the _SpeedPort_. | The measured speed is more then set speed limit. | The ACC sends _Decelerate_ signal to the _Engine_ | Decelerate |
+        | Accelerate | The measured speed is registered through the _SpeedPort_. | The measured speed is more then set speed limit. | The ACC sends _Decelerate_ signal to the _Engine_ | Decelerate |
 
     1. Set the necessary references in the model:
         1. Set the newly defined statemachine as the behavior of the ACC Function.
