@@ -8,7 +8,7 @@ This lab focuses on practicing the definitions related to safety requirements an
 
 # Task 1
 
-Given an electronic component with failure rate 0.0005 failures/hour, how long can its repair last on average to satisfy the availability requirement of being down for at most 24 hours a year on average?
+Given an electronic component with a failure rate of 0.0005 failures/hour, how long can its repair last on average to satisfy the availability requirement of being down for at most 24 hours a year on average?
 
 # Task 2
 
@@ -39,22 +39,22 @@ ISO26262 also has a qualitative scale for probabilities ("exposure"):
 How can each architectural pattern be applied in the context of the ACC? As a reminder, we consider the following patterns in this course:
 
 - Fault detection (fail-stop behavior):
-  - Single-channel architecture with self-test
-  - Two-channels architecture with comparison 
-  - Two-channels architecture with safety checking
+    - Single-channel architecture with self-test
+    - Two-channels architecture with comparison 
+    - Two-channels architecture with safety checking
 - Fault tolerance (fail-operational behavior):
-  - For permanent HW faults:
-    - Duplication with diagnostics
-    - Triple Modular Redundancy
-    - N-modular redundancy 
-  - Recovery patterns for transient HW faults
-    - Forward recovery
-    - Backward recovery
-    - Compensation 
-  - For software faults:
-    - N-version Programming 
-    - Recovery Block
+    - For permanent HW faults:
+        - Duplication with diagnostics
+        - Triple Modular Redundancy
+        - N-modular redundancy
+    - Recovery patterns for transient HW faults
+        - Forward recovery
+        - Backward recovery
+        - Compensation 
+    - For software faults:
+        - N-version Programming 
+        - Recovery Block
 
 Try to define the details of implementing each pattern: what kinds of self-tests and safety checks can be executed? Is a numeric output or a binary decision compared? Is there a tolerance in the comparison? What safety rules can you think of? If redundancy is used, what kind of redundancy? Etc.
 
-Compare the architectures in terms of their safety, reliability, availability and costs. Identify the trade-offs between these aspects.
+Compare the architectures in terms of their safety, reliability, availability, and costs. Identify the trade-offs between these aspects.
