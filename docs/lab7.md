@@ -20,12 +20,14 @@ Identify potential harms and hazards for an Adaptive Cruise Control System (unli
 - Minor: Temporary discomfort or minor injuries.
 
 ISO26262 defines another scale tailored to the automotive context:
+
 - S0: No injuries.
 - S1: Light to moderate injuries.
 - S2: Severe to life-threatening (survivable) injuries.
 - S3: Fatal injuries.
 
 ISO26262 also has a qualitative scale for probabilities ("exposure"):
+
 - E0 Incredibly rare: Only happens in extreme edge cases.
 - E1 Very low: Unusual driving conditions (e.g., empty highway at night).
 - E2 Low: Moderate traffic but still controllable.
@@ -34,7 +36,8 @@ ISO26262 also has a qualitative scale for probabilities ("exposure"):
 
 # Task 3
 
-1. How can each architectural pattern be applied in the context of the ACC? As a reminder, we consider the following patterns in this course:
+How can each architectural pattern be applied in the context of the ACC? As a reminder, we consider the following patterns in this course:
+
 - Fault detection (fail-stop behavior):
   - Single-channel architecture with self-test
   - Two-channels architecture with comparison 
@@ -54,4 +57,4 @@ ISO26262 also has a qualitative scale for probabilities ("exposure"):
 
 Try to define the details of implementing each pattern: what kinds of self-tests and safety checks can be executed? Is a numeric output or a binary decision compared? Is there a tolerance in the comparison? What safety rules can you think of? If redundancy is used, what kind of redundancy? Etc.
 
-3. Compare the architectures in terms of their safety, reliability, availability and costs. Identify the trade-offs between these aspects.
+Compare the architectures in terms of their safety, reliability, availability and costs. Identify the trade-offs between these aspects.
