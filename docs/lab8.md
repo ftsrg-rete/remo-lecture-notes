@@ -76,10 +76,10 @@ We do not know the exact failure rate of the microcontrollers, but they are *SIL
    *Hint:* The availability of a component with exponential failure time and deterministic maintenance periods can be computed as:
 
    \[
-   	ext{Availability} = rac{1 - e^{-\lambda \cdot M}}{\lambda \cdot M}
+   	\mathit{Availability} = \frac{1 - e^{-\lambda \cdot M}}{\lambda \cdot M}
    \]
 
    Where:
+
    - \( M \) is the length of a maintenance period.
-   - \( \lambda \) is the failure rate of the component.  
-   *(See the auxiliary slides of the safety practice for derivation.)*
+   - \( \lambda \) is the failure rate of the component.
