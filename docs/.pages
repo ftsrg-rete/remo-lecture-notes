@@ -11,6 +11,7 @@ nav:
         - structural-modeling-guide.md
         - allocation-modeling-guide.md
         - behavior-modeling-guide.md
+        - parametric-modeling-guide.md
         - safest.md
         - ftedit.md
         - SmartGit.md
@@ -23,3 +24,4 @@ nav:
         - lab6.md
         - lab7.md
         - lab8.md
+        - lab9.md

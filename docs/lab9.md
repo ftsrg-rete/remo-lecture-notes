@@ -9,6 +9,10 @@ This lab focuses on creating physical models using SysPhS and simulating their b
 # Useful links
 
 * SysPhS Specification: https://www.omg.org/spec/SysPhS/1.0/PDF
+* EA data and interface modeling guide: https://ftsrg-rete.github.io/remo-lecture-notes/data-and-interface-modeling-guide/
+* EA composition modeling guide: https://ftsrg-rete.github.io/remo-lecture-notes/composition-modeling-guide/
+* EA structural modeling guide: https://ftsrg-rete.github.io/remo-lecture-notes/structural-modeling-guide/
+* EA paramtric modeling guide:https://ftsrg-rete.github.io/remo-lecture-notes/parametric-modeling-guide/
 * Official Enterprise Architect documentation:
   * https://sparxsystems.com/enterprise_architect_user_guide/16.1/model_simulation/sysml_parametric_models_2.html
   * https://sparxsystems.com/enterprise_architect_user_guide/16.1/model_simulation/sysml_sim_window.html
@@ -28,6 +32,7 @@ The following steps will show you how to install OpenModelica and configure it i
  ![alt text](figs/ea-simulation/image-3.png)
  1. Select the location the "*omc.exe*" (on Linux, the omc binary)
  ![alt text](figs/ea-simulation/image-4.png)
+ 1. Make shure that in the Portal>Window menu you opened the "*Features*" and "*Properties*" windows: https://ftsrg-rete.github.io/remo-lecture-notes/general-modeling-guide/#ablakok-beallitasa 
 
 # Try out simulation
 
@@ -46,48 +51,18 @@ This part of this document presents the preliminary structural modeling steps, w
 
  1. Create "*Primitive Value Type Library*" using modeling pattern:
  ![alt text](figs/ea-simulation/image-12.png)
+ 1. Create packages for the Value Types, Components, Interfaces and Constraint blocks:
+ ![alt text](figs/ea-simulation/image-222.png)
  2. Create value types to model the physical quantities in the system:
  ![alt text](figs/ea-simulation/image-8.png)
  1. Create interface blocks to model the interactions between the components, because of the simulation, the direction of the flow properties shall be set to "*none*":
  ![alt text](figs/ea-simulation/image-9.png)
  1. Create the structural composition model of the vehicle with ACC, similarly to laboratory 4:
- ![alt text](figs/ea-simulation/image-10.png)
- 1. Create the internal block diagram of the system context:
+![alt text](figs/ea-simulation/image220.png)
+ 2. Create the internal block diagram of the system context:
  ![alt text](figs/ea-simulation/image-11.png)
 
 **Take a screenshot of the IBD, and put it into your documentation.**
-
-# General information about parametric diagrams
-
-This section presents general information about physical modeling. All the later parts of this document will strongly build on the know-how presented in this section.
-
-## Creating constraint blocks
-
-This part shows how one can define constraint blocks.
- 1. Use the "*SysML Block Definition*" toolbox to create constraint blocks. 
- ![alt text](figs/ea-simulation/image-13.png)
- 1. In the pop-up window, you can edit the differential equations. You can define any number of constraints within the constraint block. The tool will automatically create parameters by parsing the expressions with a pre-defined "Real" type. If you close the window, a pop-up window will appear. Click "*Yes*" or press ENTER.
- ![alt text](figs/ea-simulation/image-14.png)
- 1. Later, you can reopen the constraint block wizard if you right-click on the constraint block and select "*Edit ConstraintBlock ...*":
- ![alt text](figs/ea-simulation/image-15.png)
- 1. If you edit the constraints and some parameters are not in the equations anymore, then the wizard will move the parameters into the "*Not Required Parameters*" category, where you can easily delete the unnecessary parameters:
- ![alt text](figs/ea-simulation/image-16.png)
- 1. **After you create the block, the type of the parameter must be changed from the default built-in "Real" type to some value type.**
- 2. Additionally, you can add parameters by defining normal properties. The Enterprise Architect will handle them correctly.
-
-## Creating custom functions within the constraint blocks
-
-Sometimes, it is needed to specify complex relations between the parameters in the constraint blocks. You can define complex relations using functions and algorithms.
-  1. Click on a constraint block and in the "*Features*" window, create an operation:
-  ![alt text](figs/ea-simulation/image-17.png)
-  1. In the pop-up windows between the brackets, the input and output parameters of the operation can be defined:
-  ![alt text](figs/ea-simulation/image-18.png)
-  1. In the "*Code*" tab, the function can be defined:
-  ![alt text](figs/ea-simulation/image-19.png)
-  1. **Click on "*Save*", and then click on "*Close*"**
-  2. Add the *\<\<SimFunction\>\>* stereotype to the operation, by clicking on the stereotype editing button in the "*Properties*" window and clicking on "*New*".
-  ![alt text](figs/ea-simulation/image-20.png)
-
 
 # Create the physical model
 
@@ -156,6 +131,11 @@ The overall behavior of the ACC can be defined using a parametric diagram, where
 ![alt text](figs/ea-simulation/image-31.png)
 
 **Take a screenshot of the parametric diagram, and put it into your documentation.**
+
+
+After you created all modeling element, the BDD of the system context will look like similarly this:
+![alt text](figs/ea-simulation/image-221.png)
+
 
 # Simulation of system behavior
 
