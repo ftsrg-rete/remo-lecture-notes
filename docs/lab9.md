@@ -168,6 +168,6 @@ After you have created the detailed model of the ACC and the vehicle, you can si
 **Overall, your documentation should contain a screenshot (or a diagram export) for each of the following:**
 - the IBD
 - the Parametric Diagram of the vehicle dynamics
-- the ACC's Parametric Diagrams
+- the ACC's Parametric Diagram
 - the simulation configuration
 - the generated plots for at least two setups (different gain values, reference speeds, initial speed values).
