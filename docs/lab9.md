@@ -9,15 +9,15 @@ This lab focuses on creating physical models using SysPhS and simulating their b
 # Useful links
 
 
-* EA data and interface modeling guide: https://ftsrg-rete.github.io/remo-lecture-notes/data-and-interface-modeling-guide/
-* EA composition modeling guide: https://ftsrg-rete.github.io/remo-lecture-notes/composition-modeling-guide/
-* EA structural modeling guide: https://ftsrg-rete.github.io/remo-lecture-notes/structural-modeling-guide/
-* EA parametric modeling guide:https://ftsrg-rete.github.io/remo-lecture-notes/parametric-modeling-guide/
+* EA data and interface modeling guide: [https://ftsrg-rete.github.io/remo-lecture-notes/data-and-interface-modeling-guide/](https://ftsrg-rete.github.io/remo-lecture-notes/data-and-interface-modeling-guide/)
+* EA composition modeling guide: [https://ftsrg-rete.github.io/remo-lecture-notes/composition-modeling-guide/](https://ftsrg-rete.github.io/remo-lecture-notes/composition-modeling-guide/)
+* EA structural modeling guide: [https://ftsrg-rete.github.io/remo-lecture-notes/structural-modeling-guide/](https://ftsrg-rete.github.io/remo-lecture-notes/structural-modeling-guide/)
+* EA parametric modeling guide: [https://ftsrg-rete.github.io/remo-lecture-notes/parametric-modeling-guide/](https://ftsrg-rete.github.io/remo-lecture-notes/parametric-modeling-guide/)
 * Official Enterprise Architect documentation:
-    * https://sparxsystems.com/enterprise_architect_user_guide/16.1/model_simulation/sysml_parametric_models_2.html
-    * https://sparxsystems.com/enterprise_architect_user_guide/16.1/model_simulation/sysml_sim_window.html
-    * https://sparxsystems.com/enterprise_architect_user_guide/16.1/model_simulation/sysml_sim_config.html
-* SysPhS Specification: https://www.omg.org/spec/SysPhS/1.0/PDF
+    * [https://sparxsystems.com/enterprise_architect_user_guide/16.1/model_simulation/sysml_parametric_models_2.html] (https://sparxsystems.com/enterprise_architect_user_guide/16.1/model_simulation/sysml_parametric_models_2.html)
+    * [https://sparxsystems.com/enterprise_architect_user_guide/16.1/model_simulation/sysml_sim_window.html](https://sparxsystems.com/enterprise_architect_user_guide/16.1/model_simulation/sysml_sim_window.html)
+    * [https://sparxsystems.com/enterprise_architect_user_guide/16.1/model_simulation/sysml_sim_config.html](https://sparxsystems.com/enterprise_architect_user_guide/16.1/model_simulation/sysml_sim_config.html)
+* SysPhS Specification: [https://www.omg.org/spec/SysPhS/1.0/PDF](https://www.omg.org/spec/SysPhS/1.0/PDF)
 
 **Note: knowledge of the SysPhS specification is not needed to complete this lab.**
 
