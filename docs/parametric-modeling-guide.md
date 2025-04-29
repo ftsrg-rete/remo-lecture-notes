@@ -17,13 +17,13 @@ The following steps will show you how to install OpenModelica and configure it i
  ![alt text](figs/ea-simulation/image-2.png) 
  1. In the SysMLSim Configuration Manager, configure the simulation solver
  ![alt text](figs/ea-simulation/image-3.png)
- 1. Select the location the "*omc.exe*" (on Linux, the omc binary)
+ 1. Select the location of "*omc.exe*" (on Linux, the omc binary)
  ![alt text](figs/ea-simulation/image-4.png)
- 1. Make shure that in the Portal>Window menu you opened the "*Features*" and "*Properties*" windows: https://ftsrg-rete.github.io/remo-lecture-notes/general-modeling-guide/#ablakok-beallitasa 
+ 1. Make sure that in the Portal>Window menu you opened the "*Features*" and "*Properties*" windows: https://ftsrg-rete.github.io/remo-lecture-notes/general-modeling-guide/#ablakok-beallitasa 
 
 
 
- # Try out simulation
+# Try out the simulation
 
 The following steps will show you how you can create an example SysPhS model using an EA model pattern and how you can run simulations in EA.
 
@@ -71,13 +71,13 @@ Sometimes, it is needed to specify complex relations between the parameters in t
 
   1. Right click on a block and select "*New Child Diagram/Parametric Diagram*" :
   ![alt text](figs/ea-simulation/image-112.png)
-  1. Create constraint property by dragging a contraint block to the diagram:
+  1. Create constraint property by dragging a constraint block to the diagram:
   ![alt text](figs/ea-simulation/image-115.png)
-  1. Create value property by dragging a value type into the diagram and selecting in the pop-up window "*Drop as: Property*"
+  1. Create a value property by dragging a value type into the diagram and selecting in the pop-up window "*Drop as: Property*"
   ![alt text](figs/ea-simulation/image-113.png)
   1. Set the initial values in the "*Property*" tab of the properties window:
   ![alt text](figs/ea-simulation/image-114.png)
-  1. If a value property is constant then you chall set the "*Const*" checkbox in the "*Property*" tab of the properties window:
+  1. If a value property is constant, then you should set the "*Const*" checkbox in the "*Property*" tab of the properties window:
   ![alt text](figs/ea-simulation/image-118.png)
   1. Add (or hide) existing value properties and parameters of ports and constraint properties to the parametric diagram by setting the checkbox in the "*Parts/Properties*" tab of the features window:
   ![alt text](figs/ea-simulation/image-116.png)
