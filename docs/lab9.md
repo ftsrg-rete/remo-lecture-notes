@@ -8,33 +8,36 @@ This lab focuses on creating physical models using SysPhS and simulating their b
 
 # Useful links
 
-* SysPhS Specification: https://www.omg.org/spec/SysPhS/1.0/PDF
+
 * EA data and interface modeling guide: https://ftsrg-rete.github.io/remo-lecture-notes/data-and-interface-modeling-guide/
 * EA composition modeling guide: https://ftsrg-rete.github.io/remo-lecture-notes/composition-modeling-guide/
 * EA structural modeling guide: https://ftsrg-rete.github.io/remo-lecture-notes/structural-modeling-guide/
-* EA paramtric modeling guide:https://ftsrg-rete.github.io/remo-lecture-notes/parametric-modeling-guide/
+* EA parametric modeling guide:https://ftsrg-rete.github.io/remo-lecture-notes/parametric-modeling-guide/
 * Official Enterprise Architect documentation:
   * https://sparxsystems.com/enterprise_architect_user_guide/16.1/model_simulation/sysml_parametric_models_2.html
   * https://sparxsystems.com/enterprise_architect_user_guide/16.1/model_simulation/sysml_sim_window.html
   * https://sparxsystems.com/enterprise_architect_user_guide/16.1/model_simulation/sysml_sim_config.html
+* SysPhS Specification: https://www.omg.org/spec/SysPhS/1.0/PDF
+
+**Note: knowledge of the SysPhS specification is not needed to complete this lab.**
 
 # Preliminary steps
 The following steps will show you how to install OpenModelica and configure it in Enterprise Architect.
 
  1. Install OpenModelica
-    * On Windows: https://openmodelica.org/download/download-windows/ 
-    * On Linux: https://openmodelica.org/download/download-linux
+    * Download installer for Windows: https://openmodelica.org/download/download-windows/ 
+    * Download installer for Linux: https://openmodelica.org/download/download-linux
  2. Change perspective to "*Simulation/SysML with Modelica*"
  ![alt text](figs/ea-simulation/image.png)
- 1. In the Simulate tab, open "*Modelica/Simulink / SysMLSim Configuration Manager*"
+ 1. In the Simulate tab, open "*Modelica/Simulink / SysMLSim Configuration Manager*" (Note: a model must be opened in EA to open the Configuration Manager. The solver setup will be global; any model can be opened for this step.)
  ![alt text](figs/ea-simulation/image-2.png) 
  1. In the SysMLSim Configuration Manager, configure the simulation solver
  ![alt text](figs/ea-simulation/image-3.png)
- 1. Select the location the "*omc.exe*" (on Linux, the omc binary)
+ 1. Select the location of "*omc.exe*" (on Linux, the omc binary)
  ![alt text](figs/ea-simulation/image-4.png)
- 1. Make shure that in the Portal>Window menu you opened the "*Features*" and "*Properties*" windows: https://ftsrg-rete.github.io/remo-lecture-notes/general-modeling-guide/#ablakok-beallitasa 
+ 1. Make sure that in the Portal>Window menu you opened the "*Features*" and "*Properties*" windows: https://ftsrg-rete.github.io/remo-lecture-notes/general-modeling-guide/#ablakok-beallitasa 
 
-# Try out simulation
+# Try out the simulation
 
 The following steps will show you how you can create an example SysPhS model using an EA model pattern and how you can run simulations in EA.
 
@@ -51,7 +54,7 @@ This part of this document presents the preliminary structural modeling steps, w
 
  1. Create "*Primitive Value Type Library*" using modeling pattern:
  ![alt text](figs/ea-simulation/image-12.png)
- 1. Create packages for the Value Types, Components, Interfaces and Constraint blocks:
+ 1. Create packages for the Value Types, Components, Interfaces, and Constraint blocks:
  ![alt text](figs/ea-simulation/image-222.png)
  2. Create value types to model the physical quantities in the system:
  ![alt text](figs/ea-simulation/image-8.png)
@@ -59,10 +62,10 @@ This part of this document presents the preliminary structural modeling steps, w
  ![alt text](figs/ea-simulation/image-9.png)
  1. Create the structural composition model of the vehicle with ACC, similarly to laboratory 4:
 ![alt text](figs/ea-simulation/image220.png)
- 2. Create the internal block diagram of the system context:
+ 2. Create the internal block diagram of the system context (which is modeled by the "*Vehicle with ACC*" block):
  ![alt text](figs/ea-simulation/image-11.png)
 
-**Take a screenshot of the IBD, and put it into your documentation.**
+**Check: Take a screenshot of your IBD, and put it into your documentation.**
 
 # Create the physical model
 
@@ -76,7 +79,7 @@ The HMI sends a speed request to the ACC. Within the control loop, the speed req
 
 ## Modeling the Speed Sensor
 
-The Speed Sensor measures the speed of the vehicle and sends it to the ACC. The physical characteristics of the sensor is simple its input equals to output.
+The Speed Sensor measures the speed of the vehicle and sends it to the ACC. The physical characteristics of the sensor are simple: its output equals its input.
 ![alt text](figs/ea-simulation/image-22.png) 
 ![alt text](figs/ea-simulation/image-23.png)
 
@@ -97,8 +100,8 @@ $F_{engine}=\frac{P}{v}$.
 If $v$ is smaller than $5 m/s$ we assume that the vehicle is accelerated by a constant force:
 $F_{engine}=2000 N$.
 
-The decelerating force is speed dependent and can be calculated by the following equation:
-$F_{friction}=v\cdot b$, where $b$ is the damping coeffitient and $b=50 \frac{N\cdot s}{m}$
+The decelerating force is speed-dependent and can be calculated by the following equation:
+$F_{friction}=v\cdot b$, where $b$ is the damping coefficient and $b=50 \frac{N\cdot s}{m}$
 
 To model the engine and the vehicle, we define separate constraint blocks for the engine, the braking force, and the vehicle dynamics. 
 
@@ -112,6 +115,9 @@ We define the overall physical characteristics of the vehicle using a parametric
 
 ![alt text](figs/ea-simulation/image-27.png)
 
+**Check: Take a screenshot of your parametric diagram, and put it into your documentation.**
+
+
 ## Modeling the ACC
 
 Within the ACC, we define a simple P controller. The P controller contains three parts:
@@ -123,19 +129,19 @@ Within the ACC, we define a simple P controller. The P controller contains three
 For better transparency, it is advantageous to model the three steps separately using three constraint blocks:
 ![alt text](figs/ea-simulation/image-28.png)
 
-Within the "*Power Request Calculation*" an operation shall be defined to ensure that ACC does not want to request more power than the maximal engine performance, which is $P_{max}=100\space HP \approx 75 \space 000\space W$.
+**Note: If you use the built-in *Real* type from the drop-down menu instead of the *Real* valuetype defined in the *Primitive Value Types Library*, then the property will appear in the *paramaters* compartment instead of the *values* compartment. The simulation should still work.** 
+
+Within the "*Power Request Calculation*", an operation shall be defined to ensure that ACC does not want to request more power than the maximal engine performance, which is $P_{max}=100\space HP \approx 75 \space 000\space W$.
 ![alt text](figs/ea-simulation/image-29.png)
 ![alt text](figs/ea-simulation/image-30.png)
 
 The overall behavior of the ACC can be defined using a parametric diagram, where binding connectors connect the parameters of the constraint parameters and the flow properties of the ACC:
 ![alt text](figs/ea-simulation/image-31.png)
 
-**Take a screenshot of the parametric diagram, and put it into your documentation.**
+**Check: Take a screenshot of your parametric diagram, and put it into your documentation.**
 
-
-After you created all modeling element, the BDD of the system context will look like similarly this:
+After you have created all model elements, the BDD of the system context will look similar to this:
 ![alt text](figs/ea-simulation/image-221.png)
-
 
 # Simulation of system behavior
 
@@ -154,9 +160,14 @@ After you have created the detailed model of the ACC and the vehicle, you can si
 ![alt text](figs/ea-simulation/image-37.png)
 1. Set how long you want to run the simulation and select which value properties shall appear in the simulation plot:
 ![alt text](figs/ea-simulation/image-38.png)
-1. Validate the model to find possible errors. The errors will appear in the "*System Output*" window. **After correcting any errors, take a screenshot of the simulation configuration and put it into your documentation.**
+1. Validate the model to find possible errors. The errors will appear in the "*System Output*" window.  **Check: After correcting any errors, take a screenshot of your simulation configuration and put it into your documentation. (Note: The summary at the end of the validation result might say that there are more than zero errors even though it lists only warnings. Eliminating explicitly stated errors in the list is enough, but make sure that you get zero errors in the logs of the next step.)**
 2. If there is no validation error, then run the simulator by clicking on the large "Solve" button. After a few seconds, the time-series plot of the selected value properties will appear:
 ![alt text](figs/ea-simulation/image-39.png)
 1. Run the simulation multiple times with different gain values in the control loop, with different reference speed requests in the HMI, and with different initial vehicle speed values. **Take a screenshot of the generated plots with each setup, and put it into your documentation.**
 
-**Overall, your documentation should contain a screenshot of the created IBD and Parametric Diagram, a screenshot of the simulation configuration, and a screenshot of the generated plots for at least two setups (different gain values, reference speeds, initial speed values).**
+**Overall, your documentation should contain a screenshot (or a diagram export) for each of the following:**
+- the IBD
+- the Parametric Diagram of the vehicle dynamics
+- the ACC's Parametric Diagrams
+- the simulation configuration
+- the generated plots for at least two setups (different gain values, reference speeds, initial speed values).
