@@ -12,7 +12,7 @@ This laboratory exercise will illustrate test design techniques. The tasks can b
 
 Our marketing department launched a campaign for our long-time customers in our online liquor store. Customers older than 20 years receive a 2% discount, those older than 30 years receive a 3% discount, while those older than 50 years receive a 5% discount on their purchase. All they have to do is select a liquor on a special form, enter the requested quantity and their birth date, and they will benefit from the special promotional price.
 
-The developers were in a hurry, but finished the implementation. They also tried it with the following test data: selecting two bottles from a €100 whiskey and entering 1950-01-01 as birth date. They received \texteuro 190 as the final price, thus they are confident that the implementation works correctly.
+The developers were in a hurry, but finished the implementation. They also tried it with the following test data: selecting two bottles from a €100 whiskey and entering 1950-01-01 as birth date. They received €190 as the final price, thus they are confident that the implementation works correctly.
 
 1. Point out important parts of the specification that they missed when testing (try to create equivalence partitions or define boundary values for the parameters)!
 2. Design test cases (input values, expected outcome) for the above specification!
@@ -30,6 +30,6 @@ We are testing a cloud controller system that can manage the lifecycle of virtua
 ![VM state machine](figs/VM-state-machine.png)
 
 1. Is the state machine correct with respect to the specification?
-2. Is the state machine complete? (Note: For FSMs completeness means that in every state for every event the behavior is specified.)
+2. Is the state machine complete? (Note: For FSMs, completeness means that in every state for every event, the behavior is specified.)
 3. Select a set of test input sequences that provide 100% state coverage!
 4. Select a set of test input sequences that provide 100% transition coverage!
