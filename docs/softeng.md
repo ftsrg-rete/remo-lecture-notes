@@ -43,7 +43,7 @@ Ez a feladat egyszeri alkalom, az alábbi leírás és pontozás csak a 2025 dec
    - először: README.txt
    - majd: model.qeax
 6. Checkout: master → új feature branch létrehozása.
-7. „Integráljuk” a régi feature branchet a master-be.
+7. Mergeljük a régi feature branchet a master-be ("Finish" gomb).
 8. Checkout: az új feature branchet → ezzel szimuláljuk egy másik ember köztes merge-jét.
 
 ---
