@@ -42,9 +42,9 @@ First, explore the repository and the available views:
 5. Inspect the differences between the two branches:
    - first for `README.txt`
    - then for `model.qeax`
-6. On the `master` branch create a new `feature` branch.
-7. Merge the old feature branch into `master`.
-8. Checkout the new feature branch (simulate that another developer merged changes meanwhile).
+6. On the `master` branch create a new `feature-2` branch.
+7. Merge the old feature branch into `master` (simulate that another developer merged changes meanwhile).
+8. Checkout the new feature branch, resolve the conflicts, and merge to `master`.
 
 ---
 
@@ -60,11 +60,11 @@ You should be able to:
 
 ## 2. Modifying the Model
 
-Create a class diagram based on the provided example.
+Create a class diagram based on the provided example. Use a fresh feature branch (e.g., `class-diagram`).
 
 Requirements:
 
-- Modify the existing model
+- Modify/Extend the existing model
 - The model should contain approximately 15–20 elements
 - Choose any topic (preferably something interesting to you)
 
@@ -74,6 +74,8 @@ Examples:
 - university system
 - transport network
 - smart home
+
+When you finish, merge your feature branch into `master`.
 
 ---
 
@@ -89,10 +91,14 @@ Now integrate your changes into the main development line.
 
 ### Tasks
 
-1. Merge your feature branch into `master`
-2. Conflicts will appear
-3. Resolve all conflicts using LemonTree
-4. Verify the model opens correctly after the merge
+1. Create two new branches, and on each, change the same model element, but to different versions. E.g., rename a class, change a multiplicity, etc. 
+2. Merge one branch into `master`
+3. Try to merge the second branch into `master` -- this should prompt for conflict resolution.
+4. Resolve all conflicts using LemonTree
+5. Verify the model opens correctly after the merge
+
+> 💡 Tip  
+> Save and close the project in Enterprise Architect before committing. 
 
 ---
 
@@ -103,7 +109,7 @@ Now integrate your changes into the main development line.
 
 ---
 
-## 4. Pair Exercise – Collaboration
+## 4. Pair Exercise – Collaboration (optional exercise)
 
 Work in pairs.
 
