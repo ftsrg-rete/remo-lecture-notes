@@ -36,15 +36,12 @@ First, explore the repository and the available views:
 ### Tasks
 
 1. Open the `model.qeax` model, inspect it, then close it.
-2. Create a `README.txt` file on the `master` branch.
-3. Rebase the `feature` branch onto `master`.
-4. Modify the README on the `feature` branch.
-5. Inspect the differences between the two branches:
+2. Inspect the differences between the two branches:
    - first for `README.txt`
    - then for `model.qeax`
-6. On the `master` branch create a new `feature-2` branch.
-7. Merge the old feature branch into `master` (simulate that another developer merged changes meanwhile).
-8. Checkout the new feature branch, resolve the conflicts, and merge to `master`.
+3. On the `master` branch create a new `feature-2` branch ("Start" button), and modify README.txt.
+4. Merge the old feature branch into `master` (simulate that another developer merged changes meanwhile).
+5. Checkout the new feature branch, resolve the conflicts, and merge ("Finish" button) to `master`.
 
 ---
 
