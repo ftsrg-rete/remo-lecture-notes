@@ -1,5 +1,5 @@
 ---
-title: Laboratory Exercise 2: Requirements engineering
+title: Laboratory Exercise 2
 subtitle: System Modeling (VIMIAD03)
 header: System Modeling (VIMIAD03)
 ---
