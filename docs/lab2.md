@@ -1,28 +1,38 @@
 ---
-title: Laboratory Exercise 2
+title: Laboratory Exercise 2: Requirements engineering
 subtitle: System Modeling (VIMIAD03)
 header: System Modeling (VIMIAD03)
 ---
 
-# Tool Usage
+# Eszközhasználati feladatok
 
-To familiarize yourself with modeling packages, requirements, and use cases, complete the following guides:
+A csomagok, követelmények és használati esetek Enterprise Architectben való modellezésének megismeréséhez végezze el az alábbi útmutatókban írtakat:
 
 1. [Projects and Packages](https://ftsrg-rete.github.io/remo-lecture-notes/first-project/)
 2. [Requirements and Use cases](https://ftsrg-rete.github.io/remo-lecture-notes/usecase-and-requirement-guide/)
 
-# Modeling Exercises
+# Modellezési és módszertani feladatok
 
-Perform the requirements analysis for an adaptive cruise control (ACC) subsystem. The goal of the ACC is to maintain the set speed with the help of the engine, the brakes, and potentially the gears whenever it is turned on, but also keep a set minimal distance (small, medium or high) to vehicles in front of the ego vehicle (the vehicle controlled by the ACC) in the same lane. The ACC automatically turns off at manual braking and pauses while the throttle is pressed.
+## 1. Rendszerkontextus meghatározása
 
-1. Collect the set of potential **stakeholders**! Think of the typical categories (customer, operator, suppliers, maintainers, competitors, authorities, etc.) but also try to be specific.
-2. Identify the **system context**! Consider the entities with which the system might interact. Take care to define the system boundary precisely.
-3. Collect the most important **requirements** of the ACC!
-    1. Identify at least one requirement from each stakeholder.
-    2. Extend the list with an example for each FURPS3 category (usability, reliability, performance, safety, security, supportability).
-    3. Elaborate and model 2-3 primary functional requirements on a *Requirement Diagram*. Use *containment* relationships to organize the requirements.
-    4. Model a design decision and a low-level requirement with the *«deriveReqt»* relationship. 
-4. Collect at least 2-3 **use cases** illustrating the chosen primary functionality.
-    1. Identify the actors who participate in the selected use cases.
-    2. Create a *Use Case Diagram* to model the relationships of the actors and use cases. Try to use the *«include»*, *«extend»*, or *generalization* relationships.
-    3. Model the details of one of the use cases (conditions and scenarios).
+Határozza meg magas szinten (az interakciók részletes kifejtése nélkül) a rendszerkontextust az alábbi rendszerekhez:
+
+1. A *Budapest Mobility Engineering Zrt.* egy új, többféle fejlett vezetéstámogató funkcióval (pl. adaptív sebességtartó automatika, sávelhagyás-figyelmeztető rendszer, automatikus parkolás) felszerelt *középkategóriás személygépkocsit* tervez, megcélozva az 5 csillagos Euro NCAP biztonsági minősítés elérését és a vezeték nélküli funkciófrissítések támogatását.
+2. A *MITion Systems* Tier-1-es beszállító *adaptív sebességtartó automatika* (Adaptive Cruise Control, ACC) rendszert fejleszt, amely radarérzékelőkből, elektronikus vezérlőegységből, fék-/gázpedál interfészekből és beágyazott szoftverből áll. Az ACC-t a Budapest Mobility Engineering Zrt. által gyártott járművekbe építik majd be.
+3. A MITion Systems egyik belső szoftverfejlesztő egysége, a *Critical Controls*, beágyazott valós idejű *vezérlőszoftvert* implementál az adaptív sebességtartó automatika ECU-jához, amelynek célja az ISO 26262 ASIL-B szabványnak való megfelelés és a jármű CAN-hálózatával való zökkenőmentes integráció.
+4. A *CampusMotion Technologies* egy nagy ipari campus számára fejleszt igény szerinti *autonóm transzfer szolgáltatást*, amely önvezető elektromos minibuszokból, útmenti infrastruktúrából, felhőalapú flottamenedzsmentből, felhasználói hitelesítésből és mobil foglalási alkalmazásokból áll, azzal a céllal, hogy csökkentse a magánautók használatát és optimalizálja a belső közlekedés hatékonyságát.
+
+## 2. Használati esetek meghatározása
+
+Végezze el a lenti részfeladatokat az 1.3. és 1.4. pontokban említett rendszerekre.
+
+1. Stakeholderek és a rendszerrel közvetlenül interaktáló aktorok meghatározása
+2. Use case-ek felderítése magas szinten (még forgatókönyv nélkül)
+3. Use case forgatókönyvek kidolgozása, közben opcionálisan új use case-ek felvétele, amennyiben speciális esetek (extend, leszármazás) vagy több use case-ben is megjelenő lépéssorozatok (include) indokolják
+4. Use case-ek közötti kapcsolatok ábrázolása use case diagramon
+
+## 3. Követelmények meghatározása
+
+1. Azonosítson a FURPS3 minden kategóriájához legalább egy követelményt a 2. feladatban említett két rendszerhez.  
+   A funkcionális kategóriában törekedjen a rendszer legfelsőbb szintű, elsődleges funkcióját leíró követelmény általános meghatározására.
+2. Bontsa tovább legalább két hierarchiaszinten az 3.1. pontban felvett funkcionális követelményt, és ábrázolja a létrejött követelményhierarchiát SysML követelménydiagramon.
