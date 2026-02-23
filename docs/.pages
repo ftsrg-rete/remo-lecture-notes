@@ -27,3 +27,5 @@ nav:
         - lab9.md
         - lab10.md
         - lab11.md
+    - 'Modeling Tutorials':
+        - ea-tooling-req-uc.md
