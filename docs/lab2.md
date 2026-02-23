@@ -29,7 +29,17 @@ Végezze el a lenti részfeladatokat az 1.3. és 1.4. pontokban említett rendsz
 1. Stakeholderek és a rendszerrel közvetlenül interaktáló aktorok meghatározása
 2. Use case-ek felderítése magas szinten (még forgatókönyv nélkül)
 3. Use case forgatókönyvek kidolgozása, közben opcionálisan új use case-ek felvétele, amennyiben speciális esetek (extend, leszármazás) vagy több use case-ben is megjelenő lépéssorozatok (include) indokolják
-4. Use case-ek közötti kapcsolatok ábrázolása use case diagramon
+   | **Element**      | **Description**                                                    |
+   | ---------------- | ------------------------------------------------------------------ |
+   | ID/Name          | Name or unique identifier of the use case.                         |
+   | Involved Actors  | Involved actors in the use case, primary and secondary actors.     |
+   | Preconditions    | What is needed/expected to start the use case?                     |
+   | Primary Flow     | The most frequent/typical scenario of the use case ("Happy path"). |
+   | Alternate Flow   | Less frequent scenarios.                                           |
+   | Exceptional Flow | Scenarios not in support of the primary flow, e.g.: error handling |
+   | Postconditions   | Whta is promised after successfully executing the use case?        |
+   
+5. Use case-ek közötti kapcsolatok ábrázolása use case diagramon
 
 ## 3. Követelmények meghatározása
 
