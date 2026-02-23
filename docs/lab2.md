@@ -6,10 +6,7 @@ header: System Modeling (VIMIAD03)
 
 # Eszközhasználati feladatok
 
-A csomagok, követelmények és használati esetek Enterprise Architectben való modellezésének megismeréséhez végezze el az alábbi útmutatókban írtakat:
-
-1. [Projects and Packages](https://ftsrg-rete.github.io/remo-lecture-notes/first-project/)
-2. [Requirements and Use cases](https://ftsrg-rete.github.io/remo-lecture-notes/usecase-and-requirement-guide/)
+A csomagok, követelmények és használati esetek Enterprise Architectben való modellezésének megismeréséhez végezze el az alábbi útmutatóban írtakat: [Követelmények és használati esetek modellezése tutorial](https://ftsrg-rete.github.io/remo-lecture-notes/ea-tooling-req-uc/)
 
 # Modellezési és módszertani feladatok
 
