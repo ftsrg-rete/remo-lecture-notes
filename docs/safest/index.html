@@ -1,0 +1,404 @@
+
+<!DOCTYPE html>
+
+<html class="no-js" lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width,initial-scale=1" name="viewport"/>
+<link href="../assets/images/favicon.png" rel="icon"/>
+<meta content="mkdocs-1.3.0, mkdocs-material-8.3.9" name="generator"/>
+<title>SAFEST - Fault Tree Editing tool - ReMo Lecture Notes</title>
+<link href="../assets/stylesheets/main.1d29e8d0.min.css" rel="stylesheet"/>
+<link href="../assets/stylesheets/palette.cbb835fc.min.css" rel="stylesheet"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&amp;display=fallback" rel="stylesheet"/>
+<style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+<link href="../mkdocs.css" rel="stylesheet"/>
+<script>__md_scope=new URL("..",location),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+<link href="../assets/stylesheets/glightbox.min.css" rel="stylesheet"/><style>html.glightbox-open { overflow: initial; height: 100%; }</style><script src="../assets/javascripts/glightbox.min.js"></script></head>
+<body data-md-color-accent="none" data-md-color-primary="none" data-md-color-scheme="" dir="ltr">
+<input autocomplete="off" class="md-toggle" data-md-toggle="drawer" id="__drawer" type="checkbox"/>
+<input autocomplete="off" class="md-toggle" data-md-toggle="search" id="__search" type="checkbox"/>
+<label class="md-overlay" for="__drawer"></label>
+<div data-md-component="skip">
+<a class="md-skip" href="#introduction">
+          Skip to content
+        </a>
+</div>
+<div data-md-component="announce">
+</div>
+<header class="md-header" data-md-component="header">
+<nav aria-label="Header" class="md-header__inner md-grid">
+<a aria-label="ReMo Lecture Notes" class="md-header__button md-logo" data-md-component="logo" href=".." title="ReMo Lecture Notes">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"></path></svg>
+</a>
+<label class="md-header__button md-icon" for="__drawer">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"></path></svg>
+</label>
+<div class="md-header__title" data-md-component="header-title">
+<div class="md-header__ellipsis">
+<div class="md-header__topic">
+<span class="md-ellipsis">
+            ReMo Lecture Notes
+          </span>
+</div>
+<div class="md-header__topic" data-md-component="header-topic">
+<span class="md-ellipsis">
+            
+              SAFEST - Fault Tree Editing tool
+            
+          </span>
+</div>
+</div>
+</div>
+<label class="md-header__button md-icon" for="__search">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"></path></svg>
+</label>
+<div class="md-search" data-md-component="search" role="dialog">
+<label class="md-search__overlay" for="__search"></label>
+<div class="md-search__inner" role="search">
+<form class="md-search__form" name="search">
+<input aria-label="Search" autocapitalize="off" autocomplete="off" autocorrect="off" class="md-search__input" data-md-component="search-query" name="query" placeholder="Search" required="" spellcheck="false" type="text"/>
+<label class="md-search__icon md-icon" for="__search">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"></path></svg>
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"></path></svg>
+</label>
+<nav aria-label="Search" class="md-search__options">
+<button aria-label="Clear" class="md-search__icon md-icon" tabindex="-1" type="reset">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"></path></svg>
+</button>
+</nav>
+</form>
+<div class="md-search__output">
+<div class="md-search__scrollwrap" data-md-scrollfix="">
+<div class="md-search-result" data-md-component="search-result">
+<div class="md-search-result__meta">
+            Initializing search
+          </div>
+<ol class="md-search-result__list"></ol>
+</div>
+</div>
+</div>
+</div>
+</div>
+</nav>
+</header>
+<div class="md-container" data-md-component="container">
+<main class="md-main" data-md-component="main">
+<div class="md-main__inner md-grid">
+<div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation">
+<div class="md-sidebar__scrollwrap">
+<div class="md-sidebar__inner">
+<nav aria-label="Navigation" class="md-nav md-nav--primary" data-md-level="0">
+<label class="md-nav__title" for="__drawer">
+<a aria-label="ReMo Lecture Notes" class="md-nav__button md-logo" data-md-component="logo" href=".." title="ReMo Lecture Notes">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"></path></svg>
+</a>
+    ReMo Lecture Notes
+  </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1" id="__nav_1" type="checkbox"/>
+<label class="md-nav__link" for="__nav_1">
+          Installation &amp; Basics
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="Installation &amp; Basics" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_1">
+<span class="md-nav__icon md-icon"></span>
+          Installation &amp; Basics
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../rete-install-basics-en/">
+        Installation Guidebook
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--active md-nav__item--nested">
+<input checked="" class="md-nav__toggle md-toggle" data-md-toggle="__nav_2" id="__nav_2" type="checkbox"/>
+<label class="md-nav__link" for="__nav_2">
+          Modeling Guides
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="Modeling Guides" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_2">
+<span class="md-nav__icon md-icon"></span>
+          Modeling Guides
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="..">
+        Enterprise Architect Tutorial
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../general-modeling-guide/">
+        General introduction to modeling in Enterprise Architect
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../first-project/">
+        First steps using Enterprise Architect
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../usecase-and-requirement-guide/">
+        Requirement and use case modeling using Enterprise Architect
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../data-and-interface-modeling-guide/">
+        Data and interface modeling using Enterprise Architect
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../composition-modeling-guide/">
+        Composition modeling using Enterprise Architect
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../structural-modeling-guide/">
+        Structural modeling using Enterprise Architect
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../allocation-modeling-guide/">
+        Allocation modeling using Enterprise Architect
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../behavior-modeling-guide/">
+        Behavior modeling using Enterprise Architect
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../parametric-modeling-guide/">
+        Parametric modeling using Enterprise Architect
+      </a>
+</li>
+<li class="md-nav__item md-nav__item--active">
+<input class="md-nav__toggle md-toggle" data-md-toggle="toc" id="__toc" type="checkbox"/>
+<a class="md-nav__link md-nav__link--active" href="./">
+        SAFEST - Fault Tree Editing tool
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../ftedit/">
+        FTEdit - Fault Tree Editing tool
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../SmartGit/">
+        SmartGit FAQ
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3" id="__nav_3" type="checkbox"/>
+<label class="md-nav__link" for="__nav_3">
+          Laboratory Exercises
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="Laboratory Exercises" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_3">
+<span class="md-nav__icon md-icon"></span>
+          Laboratory Exercises
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../lab1/">
+        Laboratory Exercise 1
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../lab2/">
+        Laboratory Exercise 2
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../lab3/">
+        Laboratory Exercise 3
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../lab4/">
+        Laboratory Exercise 4
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../lab5/">
+        Laboratory Exercise 5
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../lab6/">
+        Laboratory Exercise 6
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../lab7/">
+        Laboratory Exercise 7
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../lab8/">
+        Laboratory Exercise 8
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../lab9/">
+        Laboratory Exercise 9
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../lab10/">
+        Laboratory Exercise 10
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../lab11/">
+        Laboratory Exercise 11
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4" id="__nav_4" type="checkbox"/>
+<label class="md-nav__link" for="__nav_4">
+          Modeling Tutorials
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="Modeling Tutorials" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_4">
+<span class="md-nav__icon md-icon"></span>
+          Modeling Tutorials
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../ea-tooling-req-uc/">
+        EA Tooling Requirement Modeling and Use Cases
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</div>
+</div>
+</div>
+<div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc">
+<div class="md-sidebar__scrollwrap">
+<div class="md-sidebar__inner">
+<nav aria-label="Table of contents" class="md-nav md-nav--secondary">
+</nav>
+</div>
+</div>
+</div>
+<div class="md-content" data-md-component="content">
+<article class="md-content__inner md-typeset">
+<h1 id="introduction">Introduction</h1>
+<p>FTEdit is a fault tree editing and analysis tool for static and dynamic fault trees. As the Systems Engineering course covers only static fault tree, only a subset of its features will be needed.</p>
+<h1 id="installation">Installation</h1>
+<p>Installation and execution instruction for SAFEST can be found <strong><a href="https://github.com/DGBTechnologies/SAFEST">here</a></strong>. A license is also needed to run the tool, you can register for a free academic license <strong><a href="https://www.safest.dgbtek.com/src/components/licenses/dft-licenses.html">here</a></strong>.</p>
+<h1 id="modeling-and-evaluating-static-fault-trees">Modeling and evaluating static fault trees</h1>
+<ol>
+<li>
+<p>You can create a new project from <strong>File</strong>-&gt;<strong>New Project</strong>.
+<a class="glightbox" href="../figs/safest/new_project_1.png"><img alt="" src="../figs/safest/new_project_1.png"/></a></p>
+</li>
+<li>
+<p>Enter the name of the project (all the other fields are optional.
+<a class="glightbox" href="../figs/safest/new_project_2.png"><img alt="" src="../figs/safest/new_project_2.png"/></a></p>
+</li>
+<li>
+<p>A project can contain multiple failure models, which you can see under <strong>Failure Models</strong> on the left side. One failure model is automatically created together with the project.
+<a class="glightbox" href="../figs/safest/failure_model_1.png"><img alt="" src="../figs/safest/failure_model_1.png"/></a></p>
+</li>
+<li>
+<p>You can change the properties of the model itself if you select it on the sidebar. Make sure to change the type of the fault tree to <strong>Static</strong>, as not all types of analysis are available for dynamic fault tree (e.g. cut set computation). Another important property is the <strong>Time Bound (life cycle)</strong>: the calculated reliability values will correspont to this time. Don't forget to click the save button after changing the properties.
+<a class="glightbox" href="../figs/safest/failure_model_2.png"><img alt="" src="../figs/safest/failure_model_2.png"/></a></p>
+</li>
+<li>
+<p>The fault tree can be edited after selecting the <strong>Fault Tree</strong> label under the corresponding failure model on the sidebar. The toolbox can be seen at the top of the editor pane. The leftmost element on it is a <strong>Basic Event</strong>, which is followed by the <strong>AND</strong>, <strong>OR</strong>, and <strong>VOT</strong> (voting) gates. The last one is a <strong>BLOCK</strong> gate, which functions like an import: it copies another whole fault tree model into the current fault tree. It can be used to make large models easier to read -- you don't have to use it in this course. If you see other gates in the toolbox, then the fault tree type is likely set to dynamic in the failure model properties.
+<a class="glightbox" href="../figs/safest/fault_tree_1.png"><img alt="" src="../figs/safest/fault_tree_1.png"/></a>
+You can create new elements by clicking on the canvas while an element type is selected in the toolbox. An element type remains selected after clicking it until you click it again. Edges can be created by hovering over an element (making a red dot appear), and dragging the red dot to another element. Only gates can have incoming edges. You can delete an element or an edge by right-clicking it and selecting <strong>remove element/edge</strong> from the context menu.</p>
+</li>
+<li>
+<p>The properties of an element can be edited by left-clicking it. Both gates and basic events can be named from here, and you can make them top-level by clicking the <strong>top level element</strong> check-box at the bottom. You must have exactly one top-level element in the tree before analysing it. 
+<a class="glightbox" href="../figs/safest/fault_tree_2.png"><img alt="" src="../figs/safest/fault_tree_2.png"/></a>
+Basic Events have failure distributions. Choose <strong>Enter Failure Distribution</strong> if you want to specify the distribution in place and <strong>Select Failure Distribution</strong> if you want to select from the distributions specified in a parameter set (we won't discuss parameter sets here, you don't have to use them in your assignment). Use <strong>Exponential Distribution</strong> distribution if a failure rate is given, your  and you want SAFEST to compute the reliability of the component at the end of the life cycle. Neither the failure rates, nor the time parameters use units of measurement, so make sure to use numeric values with consistent units throughout the project. Use <strong>Probability</strong>, if you want to explicitly specify the probability that the event happened (the corresponding component is in a failed state or the component is unavailable, depending on the aim of the analysis), ignoring the life cycle property of the failure model. Other distribution types aren't needed for this assignment.
+<a class="glightbox" href="../figs/safest/fault_tree_3.png"><img alt="" src="../figs/safest/fault_tree_3.png"/></a></p>
+</li>
+<li>
+<p>You can compute the minimal cut sets of the fault tree by selecting <strong>Minimal Cut Sets</strong> under <strong>Computing</strong> on the sidebar. Click the icon above the (currently empty) minimal cut list to perform the computation. Select the failure model you are interested in and click <strong>Start</strong>. The minimal cut set list will be populated by the results. The selected cut set is visualized on the right.
+<a class="glightbox" href="../figs/safest/mcs_1.png"><img alt="" src="../figs/safest/mcs_1.png"/></a></p>
+</li>
+<li>
+<p>You can perform quantitative analysis by selecting <strong>Analysis</strong> under <strong>Computing</strong> on the sidebar. From the available metric, we will be interested in <strong>Unreliability</strong> and <strong>Reliability</strong> in this assignment. Keep in mind that fault trees describe the system from a negative perspective, so the probability of the top event happening during the life cycle will be the Unreliability metric.
+<a class="glightbox" href="../figs/safest/quant_1.png"><img alt="" src="../figs/safest/quant_1.png"/></a></p>
+</li>
+</ol>
+<p>After choosing the metric of interest, a window will appear where you can set parameters of the analysis. You do not have to change anything here (you can override the life cycle duration here by changing the time_bound value if you want to), just click <strong>Run</strong>. The results will appear in the results table.
+<a class="glightbox" href="../figs/safest/quant_2.png"><img alt="" src="../figs/safest/quant_2.png"/></a></p>
+</article>
+</div>
+</div>
+</main>
+<footer class="md-footer">
+<nav aria-label="Footer" class="md-footer__inner md-grid">
+<a aria-label="Previous: Parametric modeling using Enterprise Architect" class="md-footer__link md-footer__link--prev" href="../parametric-modeling-guide/" rel="prev">
+<div class="md-footer__button md-icon">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"></path></svg>
+</div>
+<div class="md-footer__title">
+<div class="md-ellipsis">
+<span class="md-footer__direction">
+                Previous
+              </span>
+              Parametric modeling using Enterprise Architect
+            </div>
+</div>
+</a>
+<a aria-label="Next: FTEdit - Fault Tree Editing tool" class="md-footer__link md-footer__link--next" href="../ftedit/" rel="next">
+<div class="md-footer__title">
+<div class="md-ellipsis">
+<span class="md-footer__direction">
+                Next
+              </span>
+              FTEdit - Fault Tree Editing tool
+            </div>
+</div>
+<div class="md-footer__button md-icon">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4Z"></path></svg>
+</div>
+</a>
+</nav>
+<div class="md-footer-meta md-typeset">
+<div class="md-footer-meta__inner md-grid">
+<div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" rel="noopener" target="_blank">
+      Material for MkDocs
+    </a>
+</div>
+</div>
+</div>
+</footer>
+</div>
+<div class="md-dialog" data-md-component="dialog">
+<div class="md-dialog__inner md-typeset"></div>
+</div>
+<script id="__config" type="application/json">{"base": "..", "features": [], "search": "../assets/javascripts/workers/search.b97dbffb.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version.title": "Select version"}}</script>
+<script src="../assets/javascripts/bundle.6c7ad80a.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script>document$.subscribe(() => {const lightbox = GLightbox({"touchNavigation": true, "loop": false, "width": "10vw", "height": "10vw", "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom"});})</script></body>
+</html>

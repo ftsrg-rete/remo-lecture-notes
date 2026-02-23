@@ -1,0 +1,268 @@
+
+<!DOCTYPE html>
+
+<html class="no-js" lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width,initial-scale=1" name="viewport"/>
+<link href="../assets/images/favicon.png" rel="icon"/>
+<meta content="mkdocs-1.3.0, mkdocs-material-8.3.9" name="generator"/>
+<title>State Machine Diagrams Papyrus guidebook - ReTe Papyrus Tutorial</title>
+<link href="../assets/stylesheets/main.1d29e8d0.min.css" rel="stylesheet"/>
+<link href="../assets/stylesheets/palette.cbb835fc.min.css" rel="stylesheet"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&amp;display=fallback" rel="stylesheet"/>
+<style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+<link href="../mkdocs.css" rel="stylesheet"/>
+<script>__md_scope=new URL("..",location),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+<link href="../assets/stylesheets/glightbox.min.css" rel="stylesheet"/><style>html.glightbox-open { overflow: initial; height: 100%; }</style><script src="../assets/javascripts/glightbox.min.js"></script></head>
+<body data-md-color-accent="none" data-md-color-primary="none" data-md-color-scheme="" dir="ltr">
+<input autocomplete="off" class="md-toggle" data-md-toggle="drawer" id="__drawer" type="checkbox"/>
+<input autocomplete="off" class="md-toggle" data-md-toggle="search" id="__search" type="checkbox"/>
+<label class="md-overlay" for="__drawer"></label>
+<div data-md-component="skip">
+<a class="md-skip" href="#diagram-creation">
+          Skip to content
+        </a>
+</div>
+<div data-md-component="announce">
+</div>
+<header class="md-header" data-md-component="header">
+<nav aria-label="Header" class="md-header__inner md-grid">
+<a aria-label="ReTe Papyrus Tutorial" class="md-header__button md-logo" data-md-component="logo" href=".." title="ReTe Papyrus Tutorial">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"></path></svg>
+</a>
+<label class="md-header__button md-icon" for="__drawer">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"></path></svg>
+</label>
+<div class="md-header__title" data-md-component="header-title">
+<div class="md-header__ellipsis">
+<div class="md-header__topic">
+<span class="md-ellipsis">
+            ReTe Papyrus Tutorial
+          </span>
+</div>
+<div class="md-header__topic" data-md-component="header-topic">
+<span class="md-ellipsis">
+            
+              State Machine Diagrams Papyrus guidebook
+            
+          </span>
+</div>
+</div>
+</div>
+<label class="md-header__button md-icon" for="__search">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"></path></svg>
+</label>
+<div class="md-search" data-md-component="search" role="dialog">
+<label class="md-search__overlay" for="__search"></label>
+<div class="md-search__inner" role="search">
+<form class="md-search__form" name="search">
+<input aria-label="Search" autocapitalize="off" autocomplete="off" autocorrect="off" class="md-search__input" data-md-component="search-query" name="query" placeholder="Search" required="" spellcheck="false" type="text"/>
+<label class="md-search__icon md-icon" for="__search">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"></path></svg>
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"></path></svg>
+</label>
+<nav aria-label="Search" class="md-search__options">
+<button aria-label="Clear" class="md-search__icon md-icon" tabindex="-1" type="reset">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"></path></svg>
+</button>
+</nav>
+</form>
+<div class="md-search__output">
+<div class="md-search__scrollwrap" data-md-scrollfix="">
+<div class="md-search-result" data-md-component="search-result">
+<div class="md-search-result__meta">
+            Initializing search
+          </div>
+<ol class="md-search-result__list"></ol>
+</div>
+</div>
+</div>
+</div>
+</div>
+</nav>
+</header>
+<div class="md-container" data-md-component="container">
+<main class="md-main" data-md-component="main">
+<div class="md-main__inner md-grid">
+<div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation">
+<div class="md-sidebar__scrollwrap">
+<div class="md-sidebar__inner">
+<nav aria-label="Navigation" class="md-nav md-nav--primary" data-md-level="0">
+<label class="md-nav__title" for="__drawer">
+<a aria-label="ReTe Papyrus Tutorial" class="md-nav__button md-logo" data-md-component="logo" href=".." title="ReTe Papyrus Tutorial">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"></path></svg>
+</a>
+    ReTe Papyrus Tutorial
+  </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="..">
+        Papyrus Tutorial
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../rete-install-basics-en/">
+        Installing and Papyrus basics guidebook
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../rete-req-and-uc-modeling-guidebook-en/">
+        Requirement and Use case modeling Papyrus guidebook
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../rete-bdd-ibd-modeling-guidebook-en/">
+        BDD and IBD modeling Papyrus guidebook
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../rete-ftedit/">
+        FTEdit - Fault Tree Editing tool
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../rete-activity/">
+        Activity Diagrams Papyrus guidebook
+      </a>
+</li>
+<li class="md-nav__item md-nav__item--active">
+<input class="md-nav__toggle md-toggle" data-md-toggle="toc" id="__toc" type="checkbox"/>
+<a class="md-nav__link md-nav__link--active" href="./">
+        State Machine Diagrams Papyrus guidebook
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../rete-seq/">
+        Sequence Diagrams Papyrus guidebook
+      </a>
+</li>
+</ul>
+</nav>
+</div>
+</div>
+</div>
+<div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc">
+<div class="md-sidebar__scrollwrap">
+<div class="md-sidebar__inner">
+<nav aria-label="Table of contents" class="md-nav md-nav--secondary">
+</nav>
+</div>
+</div>
+</div>
+<div class="md-content" data-md-component="content">
+<article class="md-content__inner md-typeset">
+<h1 id="diagram-creation">Diagram creation</h1>
+<p>Inside the Model Explorer windows of Papyrus, right-click the destination package, and choose <em>new diagram</em>/<em>SysML 1.6 State Machine Diagram</em>.</p>
+<p><a class="glightbox" href="../figs/stm-001-new-diagram.png"><img alt="" src="../figs/stm-001-new-diagram.png"/></a></p>
+<p>This should create the following structure in the model explorer window. Note the state machine has a single region (inside statemachine, regions and states alternate in the containment hierarchy).</p>
+<p><a class="glightbox" href="../figs/stm-002-model-explorer.png"><img alt="" src="../figs/stm-002-model-explorer.png"/></a></p>
+<p>Visually, the state machine editor should look like this.</p>
+<p><a class="glightbox" href="../figs/stm-003-main-window.png"><img alt="" src="../figs/stm-003-main-window.png"/></a></p>
+<h1 id="basic-structure">Basic Structure</h1>
+<p>From the palette window to the right, drag and drop an initial state, a final state and a transition connecting the two onto the diagram area.</p>
+<p><a class="glightbox" href="../figs/stm-004-basic-model.png"><img alt="" src="../figs/stm-004-basic-model.png"/></a></p>
+<p>Now drop a state from the palette onto the diagram, and connect the initial and final states in the following way:</p>
+<p><a class="glightbox" href="../figs/stm-005-one-state.png"><img alt="" src="../figs/stm-005-one-state.png"/></a></p>
+<p>This should create the following structure in the model explorer. Note that the <em>Working</em> state has no children.</p>
+<p><a class="glightbox" href="../figs/stm-006-model-explorer.png"><img alt="" src="../figs/stm-006-model-explorer.png"/></a></p>
+<p>Now drop a state <em>inside</em> the <em>Working</em> state. This will automatically create a region inside the state (to preserve the alternating regions and states), and place the new states inside. </p>
+<p><a class="glightbox" href="../figs/stm-007-added-inner-states.png"><img alt="" src="../figs/stm-007-added-inner-states.png"/></a></p>
+<p>Visually, nested states look like as follows (with added triggers between the On and Off states):</p>
+<p><a class="glightbox" href="../figs/stm-008-visual-diagram.png"><img alt="" src="../figs/stm-008-visual-diagram.png"/></a></p>
+<p>To add behavior to the state machine, we can define <em>triggers</em>, <em>guards</em> and <em>actions</em>/<em>effects</em> on transitions. First, let's create a <em>trigger</em> on the transitions between the On and Off states. To do so, choose the <em>trigger</em> box in the transition's properties window, and create a trigger just like in activity diagrams.</p>
+<p><a class="glightbox" href="../figs/stm-009-add-trigger.png"><img alt="" src="../figs/stm-009-add-trigger.png"/></a></p>
+<p>To specify which port the trigger signal might arrive, use the properties window:</p>
+<p><a class="glightbox" href="../figs/stm-009-trigger-port.png"><img alt="" src="../figs/stm-009-trigger-port.png"/></a></p>
+<p>Visually, a trigger will appear as a label on the diagram.</p>
+<p><a class="glightbox" href="../figs/stm-010-trigger-visalized.png"><img alt="" src="../figs/stm-010-trigger-visalized.png"/></a></p>
+<p>So far, nested states created an <em>OR</em>-refinement of the container states. To create <em>AND</em>-refinement (a.k.a. orthogonal regions), drag and drop a region inside the On state. Firstly, this is done without any problems, but when dropping the second one, the editor expects the user to decide how they want to divide the state (horizontally or vertically). Here, we chose a vertical division.</p>
+<p><a class="glightbox" href="../figs/stm-011-add-nested-regions.png"><img alt="" src="../figs/stm-011-add-nested-regions.png"/></a></p>
+<p>Next, add a state and an initial state inside one of the regions, with a self-loop transition containing a trigger for the signal <em>Ping</em>.</p>
+<p><a class="glightbox" href="../figs/stm-012-add-pingpong.png"><img alt="" src="../figs/stm-012-add-pingpong.png"/></a></p>
+<p>The <em>Ponger</em> state should reply with a <em>Pong</em> every time it receives a <em>Ping</em>. This is achieved by using an <em>effect</em> on the transition. Locate the <em>effect</em> box inside the transition's properties window, and add an opaque behavior. </p>
+<p><a class="glightbox" href="../figs/stm-013-add-opaque-effect.png"><img alt="" src="../figs/stm-013-add-opaque-effect.png"/></a></p>
+<p>Choose a language for the opaque behavior. Here we chose to use "Natural Language" so we can use english words on the transition.</p>
+<p><a class="glightbox" href="../figs/stm-014-set-language-opaque.png"><img alt="" src="../figs/stm-014-set-language-opaque.png"/></a></p>
+<p>Add the text describing the behavior to the text box on the right. </p>
+<p><a class="glightbox" href="../figs/stm-015-add-text-opaque.png"><img alt="" src="../figs/stm-015-add-text-opaque.png"/></a></p>
+<p>An alternative to the opaque behavior (which uses informal descriptions) is to use an activity behavior.</p>
+<p><a class="glightbox" href="../figs/stm-016-activity-behavior.png"><img alt="" src="../figs/stm-016-activity-behavior.png"/></a></p>
+<p>This will prompt the user to provide a name for the activity.</p>
+<p><a class="glightbox" href="../figs/stm-017-activity-creation.png"><img alt="" src="../figs/stm-017-activity-creation.png"/></a></p>
+<p>In the model explorer, the activity is shows as the child of the transition - to edit the contents of the effect, create a separate activity diagram and drop the activity onto its diagram area.</p>
+<p><a class="glightbox" href="../figs/stm-019-activity-model-explorer.png"><img alt="" src="../figs/stm-019-activity-model-explorer.png"/></a></p>
+<p>Visually, an effect is shows as text after the divisor "/" in the label of the transition.</p>
+<p><a class="glightbox" href="../figs/stm-018-visual-effect.png"><img alt="" src="../figs/stm-018-visual-effect.png"/></a></p>
+<p>To create a history state (instead of an initial state), drop the corresponding element onto the diagram area.  </p>
+<p><a class="glightbox" href="../figs/stm-020-history.png"><img alt="" src="../figs/stm-020-history.png"/></a></p>
+<p>As the transition towards the final state has been triggered by the completition event so far (thus rendering the inside of the Working state inoperable), we need to add a trigger to it. If we choose to create a timing event, we can do so using the same technique as for <em>accept event actions</em> in activity diagrams. The summary can be seen below:</p>
+<p><a class="glightbox" href="../figs/stm-021-timing-settings.png"><img alt="" src="../figs/stm-021-timing-settings.png"/></a></p>
+<p>Visually, time-based triggers are shown with either an <em>after</em> or an <em>at</em> label, depending on the relative-ness of the event.</p>
+<p><a class="glightbox" href="../figs/stm-022-timing-visalized.png"><img alt="" src="../figs/stm-022-timing-visalized.png"/></a></p>
+<p>If we want to invoke specific behaviors every time a state is entered/exited, we can use <em>entry</em> and <em>exit</em> actions on the state.</p>
+<p><a class="glightbox" href="../figs/stm-023-entry-action-empty.png"><img alt="" src="../figs/stm-023-entry-action-empty.png"/></a></p>
+<p>Here, the same rules apply as to effects of transitions - we can simply create opaque behaviors, or model them using for example activity diagrams.</p>
+<p><a class="glightbox" href="../figs/stm-024-entry-action-filled-out.png"><img alt="" src="../figs/stm-024-entry-action-filled-out.png"/></a></p>
+<p>Visually, these labels are shown inside the state.</p>
+<p><a class="glightbox" href="../figs/stm-025-entry-action-visualized.png"><img alt="" src="../figs/stm-025-entry-action-visualized.png"/></a></p>
+<p>To accept a trigger <em>and then</em> decide what to do, we can use the <em>decision</em> pseudostate. To create the guards, we can use the properties window of the transitions.</p>
+<p><a class="glightbox" href="../figs/stm-026-guard-expression.png"><img alt="" src="../figs/stm-026-guard-expression.png"/></a></p>
+<p>Visually, guards are represented using brackets, as seen below.</p>
+<p><a class="glightbox" href="../figs/stm-027-guard-visualized.png"><img alt="" src="../figs/stm-027-guard-visualized.png"/></a></p>
+</article>
+</div>
+</div>
+</main>
+<footer class="md-footer">
+<nav aria-label="Footer" class="md-footer__inner md-grid">
+<a aria-label="Previous: Activity Diagrams Papyrus guidebook" class="md-footer__link md-footer__link--prev" href="../rete-activity/" rel="prev">
+<div class="md-footer__button md-icon">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"></path></svg>
+</div>
+<div class="md-footer__title">
+<div class="md-ellipsis">
+<span class="md-footer__direction">
+                Previous
+              </span>
+              Activity Diagrams Papyrus guidebook
+            </div>
+</div>
+</a>
+<a aria-label="Next: Sequence Diagrams Papyrus guidebook" class="md-footer__link md-footer__link--next" href="../rete-seq/" rel="next">
+<div class="md-footer__title">
+<div class="md-ellipsis">
+<span class="md-footer__direction">
+                Next
+              </span>
+              Sequence Diagrams Papyrus guidebook
+            </div>
+</div>
+<div class="md-footer__button md-icon">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4Z"></path></svg>
+</div>
+</a>
+</nav>
+<div class="md-footer-meta md-typeset">
+<div class="md-footer-meta__inner md-grid">
+<div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" rel="noopener" target="_blank">
+      Material for MkDocs
+    </a>
+</div>
+</div>
+</div>
+</footer>
+</div>
+<div class="md-dialog" data-md-component="dialog">
+<div class="md-dialog__inner md-typeset"></div>
+</div>
+<script id="__config" type="application/json">{"base": "..", "features": [], "search": "../assets/javascripts/workers/search.b97dbffb.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version.title": "Select version"}}</script>
+<script src="../assets/javascripts/bundle.6c7ad80a.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script>document$.subscribe(() => {const lightbox = GLightbox({"touchNavigation": true, "loop": false, "width": "10vw", "height": "10vw", "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom"});})</script></body>
+</html>

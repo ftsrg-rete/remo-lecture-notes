@@ -1,0 +1,452 @@
+
+<!DOCTYPE html>
+
+<html class="no-js" lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width,initial-scale=1" name="viewport"/>
+<link href="../assets/images/favicon.png" rel="icon"/>
+<meta content="mkdocs-1.3.0, mkdocs-material-8.3.9" name="generator"/>
+<title>Data and interface modeling using Enterprise Architect - ReMo Lecture Notes</title>
+<link href="../assets/stylesheets/main.1d29e8d0.min.css" rel="stylesheet"/>
+<link href="../assets/stylesheets/palette.cbb835fc.min.css" rel="stylesheet"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&amp;display=fallback" rel="stylesheet"/>
+<style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+<link href="../mkdocs.css" rel="stylesheet"/>
+<script>__md_scope=new URL("..",location),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+<link href="../assets/stylesheets/glightbox.min.css" rel="stylesheet"/><style>html.glightbox-open { overflow: initial; height: 100%; }</style><script src="../assets/javascripts/glightbox.min.js"></script></head>
+<body data-md-color-accent="none" data-md-color-primary="none" data-md-color-scheme="" dir="ltr">
+<input autocomplete="off" class="md-toggle" data-md-toggle="drawer" id="__drawer" type="checkbox"/>
+<input autocomplete="off" class="md-toggle" data-md-toggle="search" id="__search" type="checkbox"/>
+<label class="md-overlay" for="__drawer"></label>
+<div data-md-component="skip">
+<a class="md-skip" href="#data-and-information-modeling">
+          Skip to content
+        </a>
+</div>
+<div data-md-component="announce">
+</div>
+<header class="md-header" data-md-component="header">
+<nav aria-label="Header" class="md-header__inner md-grid">
+<a aria-label="ReMo Lecture Notes" class="md-header__button md-logo" data-md-component="logo" href=".." title="ReMo Lecture Notes">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"></path></svg>
+</a>
+<label class="md-header__button md-icon" for="__drawer">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"></path></svg>
+</label>
+<div class="md-header__title" data-md-component="header-title">
+<div class="md-header__ellipsis">
+<div class="md-header__topic">
+<span class="md-ellipsis">
+            ReMo Lecture Notes
+          </span>
+</div>
+<div class="md-header__topic" data-md-component="header-topic">
+<span class="md-ellipsis">
+            
+              Data and interface modeling using Enterprise Architect
+            
+          </span>
+</div>
+</div>
+</div>
+<label class="md-header__button md-icon" for="__search">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"></path></svg>
+</label>
+<div class="md-search" data-md-component="search" role="dialog">
+<label class="md-search__overlay" for="__search"></label>
+<div class="md-search__inner" role="search">
+<form class="md-search__form" name="search">
+<input aria-label="Search" autocapitalize="off" autocomplete="off" autocorrect="off" class="md-search__input" data-md-component="search-query" name="query" placeholder="Search" required="" spellcheck="false" type="text"/>
+<label class="md-search__icon md-icon" for="__search">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"></path></svg>
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"></path></svg>
+</label>
+<nav aria-label="Search" class="md-search__options">
+<button aria-label="Clear" class="md-search__icon md-icon" tabindex="-1" type="reset">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"></path></svg>
+</button>
+</nav>
+</form>
+<div class="md-search__output">
+<div class="md-search__scrollwrap" data-md-scrollfix="">
+<div class="md-search-result" data-md-component="search-result">
+<div class="md-search-result__meta">
+            Initializing search
+          </div>
+<ol class="md-search-result__list"></ol>
+</div>
+</div>
+</div>
+</div>
+</div>
+</nav>
+</header>
+<div class="md-container" data-md-component="container">
+<main class="md-main" data-md-component="main">
+<div class="md-main__inner md-grid">
+<div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation">
+<div class="md-sidebar__scrollwrap">
+<div class="md-sidebar__inner">
+<nav aria-label="Navigation" class="md-nav md-nav--primary" data-md-level="0">
+<label class="md-nav__title" for="__drawer">
+<a aria-label="ReMo Lecture Notes" class="md-nav__button md-logo" data-md-component="logo" href=".." title="ReMo Lecture Notes">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"></path></svg>
+</a>
+    ReMo Lecture Notes
+  </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1" id="__nav_1" type="checkbox"/>
+<label class="md-nav__link" for="__nav_1">
+          Installation &amp; Basics
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="Installation &amp; Basics" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_1">
+<span class="md-nav__icon md-icon"></span>
+          Installation &amp; Basics
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../rete-install-basics-en/">
+        Installation Guidebook
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--active md-nav__item--nested">
+<input checked="" class="md-nav__toggle md-toggle" data-md-toggle="__nav_2" id="__nav_2" type="checkbox"/>
+<label class="md-nav__link" for="__nav_2">
+          Modeling Guides
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="Modeling Guides" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_2">
+<span class="md-nav__icon md-icon"></span>
+          Modeling Guides
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="..">
+        Enterprise Architect Tutorial
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../general-modeling-guide/">
+        General introduction to modeling in Enterprise Architect
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../first-project/">
+        First steps using Enterprise Architect
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../usecase-and-requirement-guide/">
+        Requirement and use case modeling using Enterprise Architect
+      </a>
+</li>
+<li class="md-nav__item md-nav__item--active">
+<input class="md-nav__toggle md-toggle" data-md-toggle="toc" id="__toc" type="checkbox"/>
+<label class="md-nav__link md-nav__link--active" for="__toc">
+          Data and interface modeling using Enterprise Architect
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<a class="md-nav__link md-nav__link--active" href="./">
+        Data and interface modeling using Enterprise Architect
+      </a>
+<nav aria-label="Table of contents" class="md-nav md-nav--secondary">
+<label class="md-nav__title" for="__toc">
+<span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+<ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#download-iso-80000-library">
+    Download ISO 80000 library
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#create-units-and-quantity-kinds">
+    Create units and quantity kinds
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#value-types-enums-and-signals">
+    Value types, enums and signals
+  </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../composition-modeling-guide/">
+        Composition modeling using Enterprise Architect
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../structural-modeling-guide/">
+        Structural modeling using Enterprise Architect
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../allocation-modeling-guide/">
+        Allocation modeling using Enterprise Architect
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../behavior-modeling-guide/">
+        Behavior modeling using Enterprise Architect
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../parametric-modeling-guide/">
+        Parametric modeling using Enterprise Architect
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../safest/">
+        SAFEST - Fault Tree Editing tool
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../ftedit/">
+        FTEdit - Fault Tree Editing tool
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../SmartGit/">
+        SmartGit FAQ
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3" id="__nav_3" type="checkbox"/>
+<label class="md-nav__link" for="__nav_3">
+          Laboratory Exercises
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="Laboratory Exercises" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_3">
+<span class="md-nav__icon md-icon"></span>
+          Laboratory Exercises
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../lab1/">
+        Laboratory Exercise 1
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../lab2/">
+        Laboratory Exercise 2
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../lab3/">
+        Laboratory Exercise 3
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../lab4/">
+        Laboratory Exercise 4
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../lab5/">
+        Laboratory Exercise 5
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../lab6/">
+        Laboratory Exercise 6
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../lab7/">
+        Laboratory Exercise 7
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../lab8/">
+        Laboratory Exercise 8
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../lab9/">
+        Laboratory Exercise 9
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../lab10/">
+        Laboratory Exercise 10
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../lab11/">
+        Laboratory Exercise 11
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4" id="__nav_4" type="checkbox"/>
+<label class="md-nav__link" for="__nav_4">
+          Modeling Tutorials
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="Modeling Tutorials" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_4">
+<span class="md-nav__icon md-icon"></span>
+          Modeling Tutorials
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../ea-tooling-req-uc/">
+        EA Tooling Requirement Modeling and Use Cases
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</div>
+</div>
+</div>
+<div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc">
+<div class="md-sidebar__scrollwrap">
+<div class="md-sidebar__inner">
+<nav aria-label="Table of contents" class="md-nav md-nav--secondary">
+<label class="md-nav__title" for="__toc">
+<span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+<ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#download-iso-80000-library">
+    Download ISO 80000 library
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#create-units-and-quantity-kinds">
+    Create units and quantity kinds
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#value-types-enums-and-signals">
+    Value types, enums and signals
+  </a>
+</li>
+</ul>
+</nav>
+</div>
+</div>
+</div>
+<div class="md-content" data-md-component="content">
+<article class="md-content__inner md-typeset">
+<h1 id="data-and-information-modeling">Data and information modeling</h1>
+<h2 id="download-iso-80000-library">Download ISO 80000 library</h2>
+<p>The <em>ISO 80000</em> is an international standard, which defines numeous physicalquantities and units such as, force, distance, time, temperatures. The physical quantities and units are organized into 10 chapters. The OMG published in XML format the SysML model of the units and quantities of the <em>ISO 80000</em> standard. </p>
+<ol>
+<li>Create a package and right click on the package and select "<em>Add a Model using Wizard...</em>".
+<a class="glightbox" href="../figs/ea-data-and-information/image.png"><img alt="Alt text" src="../figs/ea-data-and-information/image.png"/></a></li>
+<li>In the SysML1.5 Libraries category select "<em>ISO 80000 Library (Downloaded)</em>" and press "<em>Create Model(s)</em>". 
+<a class="glightbox" href="../figs/ea-data-and-information/image-1.png"><img alt="Alt text" src="../figs/ea-data-and-information/image-1.png"/></a></li>
+</ol>
+<p><strong>Sometimes the library cannot be downloaded due to server issues of the OMG. If the server issue persists, then download the .xml from our Teams and import it similarly to the import of the template package (see the generic EA guide).</strong></p>
+<h2 id="create-units-and-quantity-kinds">Create units and quantity kinds</h2>
+<ol>
+<li>Create a BDD and define some units and quantity kinds using the Toolbox.
+<a class="glightbox" href="../figs/ea-data-and-information/image-2.png"><img alt="Alt text" src="../figs/ea-data-and-information/image-2.png"/></a></li>
+<li>Set the attribute values of the quantity kinds and units in the Run States tab of the Preferences window.
+<a class="glightbox" href="../figs/ea-data-and-information/image-3.png"><img alt="Alt text" src="../figs/ea-data-and-information/image-3.png"/></a></li>
+</ol>
+<h2 id="value-types-enums-and-signals">Value types, enums and signals</h2>
+<ol>
+<li>Create a BDD and add some value types, enums and signals using the Toolbox.
+<a class="glightbox" href="../figs/ea-data-and-information/image-5.png"><img alt="Alt text" src="../figs/ea-data-and-information/image-5.png"/></a></li>
+<li>Select the quantity kind and unit of the value types in the Preferences window by clicking on the three dot icon near the attributes.
+<a class="glightbox" href="../figs/ea-data-and-information/image-6.png"><img alt="Alt text" src="../figs/ea-data-and-information/image-6.png"/></a></li>
+<li>Define the literals of the enums in the Attributes tab of the Features window, by writing the name of the literal in the <em>New Attribute</em> field.
+<a class="glightbox" href="../figs/ea-data-and-information/image-8.png"><img alt="Alt text" src="../figs/ea-data-and-information/image-8.png"/></a></li>
+<li>Define the attributes of the signals in the Attributes tab of the Features window, by writing the name of the attribute in the <em>New Attribute</em> field. Set the type and the visibility of the attribute near the name of the attribute.
+<a class="glightbox" href="../figs/ea-data-and-information/image-10.png"><img alt="Alt text" src="../figs/ea-data-and-information/image-10.png"/></a></li>
+</ol>
+<h1 id="interface-modeling">Interface modeling</h1>
+<ol>
+<li>Create a BDD and add some interfaces and interface blocks using the Toolbox.
+<a class="glightbox" href="../figs/ea-data-and-information/image-11.png"><img alt="Alt text" src="../figs/ea-data-and-information/image-11.png"/></a></li>
+<li>Add signal receptions to the interfaces in the Receptions tab of the Features window by clicking on the three dot icon near the <em>New Reception</em> label.
+<a class="glightbox" href="../figs/ea-data-and-information/image-12.png"><img alt="Alt text" src="../figs/ea-data-and-information/image-12.png"/></a></li>
+<li>You can add flow properties to the interface blocks three ways:<ul>
+<li>drag a value type from the Browser and drop it over the interface block and select the <em>SysML1.4::FlowProperty</em> in the "<em>Drop as</em>" field, and click "<em>OK</em>", then rename the property;
+  <a class="glightbox" href="../figs/ea-data-and-information/image-13.png"><img alt="Alt text" src="../figs/ea-data-and-information/image-13.png"/></a></li>
+<li>select the interface block and in the "<em>Parts/Properties</em>" field right click and select "<em>Add New</em>", then fill the form in the pop-up window and press "<em>OK</em>";
+  <a class="glightbox" href="../figs/ea-data-and-information/image-14.png"><img alt="Alt text" src="../figs/ea-data-and-information/image-14.png"/></a></li>
+<li>use the Toolbar to create a flow property, and set the name, the type and the direction of the flow property in the Preferences window.
+  <a class="glightbox" href="../figs/ea-data-and-information/image-15.png"><img alt="Alt text" src="../figs/ea-data-and-information/image-15.png"/></a></li>
+</ul>
+</li>
+</ol>
+</article>
+</div>
+</div>
+</main>
+<footer class="md-footer">
+<nav aria-label="Footer" class="md-footer__inner md-grid">
+<a aria-label="Previous: Requirement and use case modeling using Enterprise Architect" class="md-footer__link md-footer__link--prev" href="../usecase-and-requirement-guide/" rel="prev">
+<div class="md-footer__button md-icon">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"></path></svg>
+</div>
+<div class="md-footer__title">
+<div class="md-ellipsis">
+<span class="md-footer__direction">
+                Previous
+              </span>
+              Requirement and use case modeling using Enterprise Architect
+            </div>
+</div>
+</a>
+<a aria-label="Next: Composition modeling using Enterprise Architect" class="md-footer__link md-footer__link--next" href="../composition-modeling-guide/" rel="next">
+<div class="md-footer__title">
+<div class="md-ellipsis">
+<span class="md-footer__direction">
+                Next
+              </span>
+              Composition modeling using Enterprise Architect
+            </div>
+</div>
+<div class="md-footer__button md-icon">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4Z"></path></svg>
+</div>
+</a>
+</nav>
+<div class="md-footer-meta md-typeset">
+<div class="md-footer-meta__inner md-grid">
+<div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" rel="noopener" target="_blank">
+      Material for MkDocs
+    </a>
+</div>
+</div>
+</div>
+</footer>
+</div>
+<div class="md-dialog" data-md-component="dialog">
+<div class="md-dialog__inner md-typeset"></div>
+</div>
+<script id="__config" type="application/json">{"base": "..", "features": [], "search": "../assets/javascripts/workers/search.b97dbffb.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version.title": "Select version"}}</script>
+<script src="../assets/javascripts/bundle.6c7ad80a.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script>document$.subscribe(() => {const lightbox = GLightbox({"touchNavigation": true, "loop": false, "width": "10vw", "height": "10vw", "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom"});})</script></body>
+</html>

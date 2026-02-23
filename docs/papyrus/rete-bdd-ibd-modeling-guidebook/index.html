@@ -1,0 +1,276 @@
+
+<!DOCTYPE html>
+
+<html class="no-js" lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width,initial-scale=1" name="viewport"/>
+<link href="../assets/images/favicon.png" rel="icon"/>
+<meta content="mkdocs-1.3.0, mkdocs-material-8.3.9" name="generator"/>
+<title>BDD és IBD modellezés Papyrus segédlet - ReTe Papyrus Tutorial</title>
+<link href="../assets/stylesheets/main.1d29e8d0.min.css" rel="stylesheet"/>
+<link href="../assets/stylesheets/palette.cbb835fc.min.css" rel="stylesheet"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&amp;display=fallback" rel="stylesheet"/>
+<style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+<link href="../mkdocs.css" rel="stylesheet"/>
+<script>__md_scope=new URL("..",location),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+<link href="../assets/stylesheets/glightbox.min.css" rel="stylesheet"/><style>html.glightbox-open { overflow: initial; height: 100%; }</style><script src="../assets/javascripts/glightbox.min.js"></script></head>
+<body data-md-color-accent="none" data-md-color-primary="none" data-md-color-scheme="" dir="ltr">
+<input autocomplete="off" class="md-toggle" data-md-toggle="drawer" id="__drawer" type="checkbox"/>
+<input autocomplete="off" class="md-toggle" data-md-toggle="search" id="__search" type="checkbox"/>
+<label class="md-overlay" for="__drawer"></label>
+<div data-md-component="skip">
+<a class="md-skip" href="#bdd">
+          Skip to content
+        </a>
+</div>
+<div data-md-component="announce">
+</div>
+<header class="md-header" data-md-component="header">
+<nav aria-label="Header" class="md-header__inner md-grid">
+<a aria-label="ReTe Papyrus Tutorial" class="md-header__button md-logo" data-md-component="logo" href=".." title="ReTe Papyrus Tutorial">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"></path></svg>
+</a>
+<label class="md-header__button md-icon" for="__drawer">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"></path></svg>
+</label>
+<div class="md-header__title" data-md-component="header-title">
+<div class="md-header__ellipsis">
+<div class="md-header__topic">
+<span class="md-ellipsis">
+            ReTe Papyrus Tutorial
+          </span>
+</div>
+<div class="md-header__topic" data-md-component="header-topic">
+<span class="md-ellipsis">
+            
+              BDD és IBD modellezés Papyrus segédlet
+            
+          </span>
+</div>
+</div>
+</div>
+<label class="md-header__button md-icon" for="__search">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"></path></svg>
+</label>
+<div class="md-search" data-md-component="search" role="dialog">
+<label class="md-search__overlay" for="__search"></label>
+<div class="md-search__inner" role="search">
+<form class="md-search__form" name="search">
+<input aria-label="Search" autocapitalize="off" autocomplete="off" autocorrect="off" class="md-search__input" data-md-component="search-query" name="query" placeholder="Search" required="" spellcheck="false" type="text"/>
+<label class="md-search__icon md-icon" for="__search">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"></path></svg>
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"></path></svg>
+</label>
+<nav aria-label="Search" class="md-search__options">
+<button aria-label="Clear" class="md-search__icon md-icon" tabindex="-1" type="reset">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"></path></svg>
+</button>
+</nav>
+</form>
+<div class="md-search__output">
+<div class="md-search__scrollwrap" data-md-scrollfix="">
+<div class="md-search-result" data-md-component="search-result">
+<div class="md-search-result__meta">
+            Initializing search
+          </div>
+<ol class="md-search-result__list"></ol>
+</div>
+</div>
+</div>
+</div>
+</div>
+</nav>
+</header>
+<div class="md-container" data-md-component="container">
+<main class="md-main" data-md-component="main">
+<div class="md-main__inner md-grid">
+<div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation">
+<div class="md-sidebar__scrollwrap">
+<div class="md-sidebar__inner">
+<nav aria-label="Navigation" class="md-nav md-nav--primary" data-md-level="0">
+<label class="md-nav__title" for="__drawer">
+<a aria-label="ReTe Papyrus Tutorial" class="md-nav__button md-logo" data-md-component="logo" href=".." title="ReTe Papyrus Tutorial">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"></path></svg>
+</a>
+    ReTe Papyrus Tutorial
+  </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="..">
+        Papyrus Tutorial
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../rete-install-basics-en/">
+        Installing and Papyrus basics guidebook
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../rete-req-and-uc-modeling-guidebook-en/">
+        Requirement and Use case modeling Papyrus guidebook
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../rete-bdd-ibd-modeling-guidebook-en/">
+        BDD and IBD modeling Papyrus guidebook
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../rete-ftedit/">
+        FTEdit - Fault Tree Editing tool
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../rete-activity/">
+        Activity Diagrams Papyrus guidebook
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../rete-stm/">
+        State Machine Diagrams Papyrus guidebook
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../rete-seq/">
+        Sequence Diagrams Papyrus guidebook
+      </a>
+</li>
+</ul>
+</nav>
+</div>
+</div>
+</div>
+<div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc">
+<div class="md-sidebar__scrollwrap">
+<div class="md-sidebar__inner">
+<nav aria-label="Table of contents" class="md-nav md-nav--secondary">
+</nav>
+</div>
+</div>
+</div>
+<div class="md-content" data-md-component="content">
+<article class="md-content__inner md-typeset">
+<h1 id="bdd">BDD</h1>
+<p>Új BDD létrehozása:</p>
+<p><a class="glightbox" href="../figs/new_bdd_1.png"><img alt="" src="../figs/new_bdd_1.png"/></a></p>
+<ol>
+<li>jobb katt a célpackage-en</li>
+<li>New Diagram</li>
+<li>SysML 1.6 Block Definition Diagram</li>
+<li>A felugró ablakban megadható a diagram neve</li>
+<li><em>Tipp</em>: A BDD editor toolbox két leginkább használt csoportja a Blocks és a Ports and Flows, ezeket érdemes kinyitni és pinelni</li>
+</ol>
+<p>Actor létrehozása (System Contexthez):
+1. Toolbox -&gt; Blocks csoport -&gt; Actor
+1. A diagramterületen kattintva létrejön
+1. A neve a Properties ablakban állítható</p>
+<p>Blokk Létrehozása és beállításai:
+1. Toolbox -&gt; Blocks csoport -&gt; Block
+1. Kattintással default méretű, az egérgombot lenyomva tartva téglalap rajzolásával tetszőleges méretű blokk hozható létre
+1. Ez után megadható a blokk neve; módosítani később a nevet csak a properties panelen lehet
+1. A blokk compartmentjei közül automatikusan megjelenik az Attributes, az Operations és a constraints; ezek gyakran feleslegesek, megjelenítésük állítható: 
+    - Ctrl-F5 vagy
+    - blokkon jobb katt -&gt; Filters -&gt; Show/Hide Compartments 
+    - több blokkot egyszerre kijelölve egyszerre is állíthatóak, nem kell egyesével
+1. A blokkhoz új (SysML értelmű, az az part/reference/etc.) property a Properties ablak UML fülén az Owned Attributes részen adható hozzá a jobb oldali + jelre kattintva, és a - jellel távolítható el
+    - ennek leginkább a primitív típusú property-knél van haszna, mivel mind port, mind blokkal típusozott property könnyebben adható hozzá a toolbox és kapcsolatok segítségével</p>
+<p>Blokkok közötti kapcsolatok felvétele:</p>
+<p><a class="glightbox" href="../figs/bdd_toolbox_relationships.png"><img alt="" src="../figs/bdd_toolbox_relationships.png"/></a></p>
+<ol>
+<li>Toolbox -&gt; Blocks csoport -&gt; Association lenyitható, egybe vannak csoportosítva a különböző lehetséges asszociációk (mindig a legutóbb használt kerül a kiemelt helyre)<ul>
+<li>Csak az Association (Directed)-et és a Composite Association (Directed)-et használjuk ezek közül</li>
+<li>A sima Associationnel vigyázva kell bánni: nagyon ritkán akarjuk meghatározni a pontos típusát egy hivatkozott (nem tartalmazott) másik elemnek ahelyett, hogy porton keresztül kommunikálnánk, csak az interfészt specifikálva</li>
+<li>A PartAssociation megtévesztő, part property-t Composite Associationnel érdemes felvenni, mert a Part Associationnel nem jön létre az alap beállításokkal a megfelelő property a blokkban</li>
+</ul>
+</li>
+<li>A diagramon a kapcsolatot kijelölve a Properties ablakban állíthatóak annak tulajdonságai, amiből legfontosabbak az egyes oldalak neve és multiplicitása. Vigyázni kell, hogy megfelelő oldal tulajdonságait állítsuk! A kapcsolat kiinduló oldalát rendszertervezésben általában nem hasznos elnevezni, a papyrus mégis (UML-ből örökölve) ezt megteszi - a név törölhető, hogy ne zavarjon a diagramon.<ul>
+<li>a blokkba kerülő Property neve és multiplicitása automatikusan állítódik a kapcsolatvég tulajdonságainak állításával, ez ellenőrizhető a kiindulási oldal blokkjának Owned attributes listájában</li>
+</ul>
+</li>
+<li>A Generalization kapcsolat külön található meg a Blocks csoportban</li>
+</ol>
+<p>A tartalmazást Composite Association írja le, nem keverendő össze a Containment Linkkel, ami szintén megtalálható a toolboxban!</p>
+<p>Portok létrehozása és tulajdonságai:
+1. Toolbox -&gt; Ports and Flows csoport -&gt; Port/Full Port/Proxy Port kiválasztása
+1. Egy meglévő blokkra kattintva a kiválasztott fajtájú port létrejön a blokkon (owned attributes listához automatikusan hozzáadva)
+1. A portot kiválasztva annak minden tulajdonsága a Properties ablak UML fülén állítható.
+    - A Type melletti + jelnél sajnos a SysML portok típusozására használható Block és Interface Block nincsenek a lehetőségek listáján, így a típust adó Blockot vagy Interface Blockot külön létre kell hozni, és a Type melleti ...-al kikeresni
+    - A Provided és Required (interface) listákhoz csak a Type megadása után adható hozzá új elem
+    - Ezeken kívül az Is Conjugated kapcsoló fontos beállítás még: egy konjugált port típusa "megfordul", azaz minden eredetileg Provided interface-ből Required lesz és fordítva, és a befelé irányú Flow property-kből kifelé irányú lesz, és fordítva</p>
+<p>IBD létrehozása és tartalmazott blokkok megjelenítése:</p>
+<ol>
+<li>Model explorer -&gt; Jobb katt azon a blokkon, aminek a belsejét le fogja írni az IBD -&gt; New Diagram -&gt; SysML 1.6 Internal Block Diagram; a felugró ablakban megadható a diagram neve</li>
+<li>A blokk által tartalmazott elemek a diagramra húzhatók a model explorerből</li>
+<li>Többszintű struktúra ábrázolásához az IBD-n lévő blokkokban az Internal Structure compartment megjelenítése szükséges<ul>
+<li>Kijelölve a blokkot az IBD-n Ctrl-F5 vagy</li>
+<li>Jobb katt -&gt; Filters -&gt; Show/Hide Compartments</li>
+</ul>
+</li>
+</ol>
+<p>Ha egy Composite Associationön keresztül (azaz Part Propertyként) tartalmazott modellelem kerül fel a diagramra, annak kerete folytonos vonal. Ha sima vagy shared associationön keresztül (azaz Reference Propertyként) hivatkozott elem kerül fel, annak kerete szaggatott vonal. Ha tehát egy elem kerete szaggatott, vigyázni kell, hogy valóban csak hivatkozást akarunk-e, vagy lemaradt a tartalmazás / rossz helyről húztuk be az elemet a model explorerből.</p>
+<p><em>Tipp</em>: A papyrus az IBD egyes blokkjait csúszkával jeleníti meg, ha túl nagy a belső struktúra leírása. Ezeket <em>nem</em> érdemes mozgatni, mert a több egymásba ágyazott csúszka mozgatása elég furcsán tud bánni a több szinten átnyúló connectorokkal, inkább a blokkok méretének növelése, és csak az IBD legkülső csúszkájának a használata javasolt.</p>
+<p>Information flow létrehozása (System contexthez):
+1. Toolbox -&gt; Ports and Flows csoport -&gt; Item flow
+1. Az átadott információ a Properties ablak UML fülén a Conveyed listában adható meg, azonban a házi feladatban egyszerűen a névben is elég megadni az információt </p>
+<p>Connectorok létrehozása:
+1. Toolbox -&gt; Blocks csoport -&gt; Connector
+1. SysML-ben egy connector típusa a BDD-n megadott asszociáció lehet, ezt a Properties ablakban az UML fülön a Type beállításával lehet kiválasztani. A + jellel új asszociáció adható hozzá, a ...-al pedig a meglévőkből lehet választani.</p>
+<p>A Connector és a Binding Connector nem összekeverendő! Binding Connector két elem azonosságát jelenti, nem köztük lévő kapcsolatot - az használható például annak megadására, hogy egy Reference Property az IBD által leírt elrendezésben milyen konkrét block use-ra hivatkozik.</p>
+<p>Új tartalmazott blokk vagy referencia hozzáadható a toolbox Block csoportjából. A felugró ablakban ekkor ki kell választani, hogy az új part/reference property típusa is új lesz-e (ekkor meg kell adnunk a nevét), vagy pedig egy meglévő modellelem (ekkor ki kell választani azt). Fontos, hogy ez új part/reference property-t ad hozzá az IBD kontextusául szolgáló blokkhoz, amit korábban nem vettünk fel a BDD-n. A tárgyban bemutatott modellezési megközelítésben előszöt a BDD készül el egészében, így ennek a lehetőségnek a használatára nincs szükség a házi feladatban. </p>
+</article>
+</div>
+</div>
+</main>
+<footer class="md-footer">
+<nav aria-label="Footer" class="md-footer__inner md-grid">
+<a aria-label="Previous: BDD and IBD modeling Papyrus guidebook" class="md-footer__link md-footer__link--prev" href="../rete-bdd-ibd-modeling-guidebook-en/" rel="prev">
+<div class="md-footer__button md-icon">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"></path></svg>
+</div>
+<div class="md-footer__title">
+<div class="md-ellipsis">
+<span class="md-footer__direction">
+                Previous
+              </span>
+              BDD and IBD modeling Papyrus guidebook
+            </div>
+</div>
+</a>
+<a aria-label="Next: FTEdit - Fault Tree Editing tool" class="md-footer__link md-footer__link--next" href="../rete-ftedit/" rel="next">
+<div class="md-footer__title">
+<div class="md-ellipsis">
+<span class="md-footer__direction">
+                Next
+              </span>
+              FTEdit - Fault Tree Editing tool
+            </div>
+</div>
+<div class="md-footer__button md-icon">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4Z"></path></svg>
+</div>
+</a>
+</nav>
+<div class="md-footer-meta md-typeset">
+<div class="md-footer-meta__inner md-grid">
+<div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" rel="noopener" target="_blank">
+      Material for MkDocs
+    </a>
+</div>
+</div>
+</div>
+</footer>
+</div>
+<div class="md-dialog" data-md-component="dialog">
+<div class="md-dialog__inner md-typeset"></div>
+</div>
+<script id="__config" type="application/json">{"base": "..", "features": [], "search": "../assets/javascripts/workers/search.b97dbffb.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version.title": "Select version"}}</script>
+<script src="../assets/javascripts/bundle.6c7ad80a.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script>document$.subscribe(() => {const lightbox = GLightbox({"touchNavigation": true, "loop": false, "width": "10vw", "height": "10vw", "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom"});})</script></body>
+</html>

@@ -1,0 +1,450 @@
+
+<!DOCTYPE html>
+
+<html class="no-js" lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width,initial-scale=1" name="viewport"/>
+<link href="../assets/images/favicon.png" rel="icon"/>
+<meta content="mkdocs-1.3.0, mkdocs-material-8.3.9" name="generator"/>
+<title>Laboratory Exercise 1 - ReMo Lecture Notes</title>
+<link href="../assets/stylesheets/main.1d29e8d0.min.css" rel="stylesheet"/>
+<link href="../assets/stylesheets/palette.cbb835fc.min.css" rel="stylesheet"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&amp;display=fallback" rel="stylesheet"/>
+<style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+<link href="../mkdocs.css" rel="stylesheet"/>
+<script>__md_scope=new URL("..",location),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+<link href="../assets/stylesheets/glightbox.min.css" rel="stylesheet"/><style>html.glightbox-open { overflow: initial; height: 100%; }</style><script src="../assets/javascripts/glightbox.min.js"></script></head>
+<body data-md-color-accent="none" data-md-color-primary="none" data-md-color-scheme="" dir="ltr">
+<input autocomplete="off" class="md-toggle" data-md-toggle="drawer" id="__drawer" type="checkbox"/>
+<input autocomplete="off" class="md-toggle" data-md-toggle="search" id="__search" type="checkbox"/>
+<label class="md-overlay" for="__drawer"></label>
+<div data-md-component="skip">
+<a class="md-skip" href="#models-in-version-control">
+          Skip to content
+        </a>
+</div>
+<div data-md-component="announce">
+</div>
+<header class="md-header" data-md-component="header">
+<nav aria-label="Header" class="md-header__inner md-grid">
+<a aria-label="ReMo Lecture Notes" class="md-header__button md-logo" data-md-component="logo" href=".." title="ReMo Lecture Notes">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"></path></svg>
+</a>
+<label class="md-header__button md-icon" for="__drawer">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"></path></svg>
+</label>
+<div class="md-header__title" data-md-component="header-title">
+<div class="md-header__ellipsis">
+<div class="md-header__topic">
+<span class="md-ellipsis">
+            ReMo Lecture Notes
+          </span>
+</div>
+<div class="md-header__topic" data-md-component="header-topic">
+<span class="md-ellipsis">
+            
+              Laboratory Exercise 1
+            
+          </span>
+</div>
+</div>
+</div>
+<label class="md-header__button md-icon" for="__search">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"></path></svg>
+</label>
+<div class="md-search" data-md-component="search" role="dialog">
+<label class="md-search__overlay" for="__search"></label>
+<div class="md-search__inner" role="search">
+<form class="md-search__form" name="search">
+<input aria-label="Search" autocapitalize="off" autocomplete="off" autocorrect="off" class="md-search__input" data-md-component="search-query" name="query" placeholder="Search" required="" spellcheck="false" type="text"/>
+<label class="md-search__icon md-icon" for="__search">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"></path></svg>
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"></path></svg>
+</label>
+<nav aria-label="Search" class="md-search__options">
+<button aria-label="Clear" class="md-search__icon md-icon" tabindex="-1" type="reset">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"></path></svg>
+</button>
+</nav>
+</form>
+<div class="md-search__output">
+<div class="md-search__scrollwrap" data-md-scrollfix="">
+<div class="md-search-result" data-md-component="search-result">
+<div class="md-search-result__meta">
+            Initializing search
+          </div>
+<ol class="md-search-result__list"></ol>
+</div>
+</div>
+</div>
+</div>
+</div>
+</nav>
+</header>
+<div class="md-container" data-md-component="container">
+<main class="md-main" data-md-component="main">
+<div class="md-main__inner md-grid">
+<div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation">
+<div class="md-sidebar__scrollwrap">
+<div class="md-sidebar__inner">
+<nav aria-label="Navigation" class="md-nav md-nav--primary" data-md-level="0">
+<label class="md-nav__title" for="__drawer">
+<a aria-label="ReMo Lecture Notes" class="md-nav__button md-logo" data-md-component="logo" href=".." title="ReMo Lecture Notes">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"></path></svg>
+</a>
+    ReMo Lecture Notes
+  </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1" id="__nav_1" type="checkbox"/>
+<label class="md-nav__link" for="__nav_1">
+          Installation &amp; Basics
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="Installation &amp; Basics" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_1">
+<span class="md-nav__icon md-icon"></span>
+          Installation &amp; Basics
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../rete-install-basics-en/">
+        Installation Guidebook
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2" id="__nav_2" type="checkbox"/>
+<label class="md-nav__link" for="__nav_2">
+          Modeling Guides
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="Modeling Guides" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_2">
+<span class="md-nav__icon md-icon"></span>
+          Modeling Guides
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="..">
+        Enterprise Architect Tutorial
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../general-modeling-guide/">
+        General introduction to modeling in Enterprise Architect
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../first-project/">
+        First steps using Enterprise Architect
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../usecase-and-requirement-guide/">
+        Requirement and use case modeling using Enterprise Architect
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../data-and-interface-modeling-guide/">
+        Data and interface modeling using Enterprise Architect
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../composition-modeling-guide/">
+        Composition modeling using Enterprise Architect
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../structural-modeling-guide/">
+        Structural modeling using Enterprise Architect
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../allocation-modeling-guide/">
+        Allocation modeling using Enterprise Architect
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../behavior-modeling-guide/">
+        Behavior modeling using Enterprise Architect
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../parametric-modeling-guide/">
+        Parametric modeling using Enterprise Architect
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../safest/">
+        SAFEST - Fault Tree Editing tool
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../ftedit/">
+        FTEdit - Fault Tree Editing tool
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../SmartGit/">
+        SmartGit FAQ
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3" id="__nav_3" type="checkbox"/>
+<label class="md-nav__link" for="__nav_3">
+          Laboratory Exercises
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="Laboratory Exercises" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_3">
+<span class="md-nav__icon md-icon"></span>
+          Laboratory Exercises
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../lab1/">
+        Laboratory Exercise 1
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../lab2/">
+        Laboratory Exercise 2
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../lab3/">
+        Laboratory Exercise 3
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../lab4/">
+        Laboratory Exercise 4
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../lab5/">
+        Laboratory Exercise 5
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../lab6/">
+        Laboratory Exercise 6
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../lab7/">
+        Laboratory Exercise 7
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../lab8/">
+        Laboratory Exercise 8
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../lab9/">
+        Laboratory Exercise 9
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../lab10/">
+        Laboratory Exercise 10
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../lab11/">
+        Laboratory Exercise 11
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4" id="__nav_4" type="checkbox"/>
+<label class="md-nav__link" for="__nav_4">
+          Modeling Tutorials
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="Modeling Tutorials" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_4">
+<span class="md-nav__icon md-icon"></span>
+          Modeling Tutorials
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../ea-tooling-req-uc/">
+        EA Tooling Requirement Modeling and Use Cases
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</div>
+</div>
+</div>
+<div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc">
+<div class="md-sidebar__scrollwrap">
+<div class="md-sidebar__inner">
+<nav aria-label="Table of contents" class="md-nav md-nav--secondary">
+<label class="md-nav__title" for="__toc">
+<span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+<ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#setup">
+    Setup
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#introduction">
+    Introduction
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#creating-documentation">
+    Creating Documentation
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#model-change-and-2-way-merge">
+    Model Change and 2-Way Merge
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#causing-a-conflict-and-3-way-merge">
+    Causing a Conflict and 3-Way Merge
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#optional-creating-an-activity-diagram">
+    (Optional) Creating an Activity Diagram
+  </a>
+</li>
+</ul>
+</nav>
+</div>
+</div>
+</div>
+<div class="md-content" data-md-component="content">
+<article class="md-content__inner md-typeset">
+<h1 id="models-in-version-control">Models in Version Control</h1>
+<p><em>The initial model in this repository comes from the <a href="https://github.com/OP-TED/ESPD-EDM">ESPD-EDM</a> repository, licensed under the <a href="https://github.com/OP-TED/ESPD-EDM?tab=EUPL-1.2-1-ov-file#readme">EUPL-1.2 license</a>. For more information, see the <a href="https://docs.ted.europa.eu/ESPD-EDM/latest/technical/index.html">Technical Documentation</a>. Part of this file has been adapted from the <a href="https://docs.ted.europa.eu/ESPD-EDM/latest/index.html">EU TED Portal</a>.</em></p>
+<p>To download the initial model, click <a href="../assets/espd.qeax">here</a>.</p>
+<p>This laboratory exercise assumes pairs of people working together. Some steps refer to <strong>Person A</strong> or <strong>Person B</strong>. Ensure you agree on which one <em>you</em> are!</p>
+<h2 id="setup">Setup</h2>
+<p><strong>Both people</strong>: Set up GitHub authentication in SmartGit. You can find information on how to do this <a href="https://ftsrg-rete.github.io/remo-lecture-notes/rete-install-basics-en/">here</a>.</p>
+<p><strong>Person A</strong>: Create a private repository on GitHub. Tick <strong>Add a README file</strong> so that the repository is initialized properly. Invite <strong>Person B</strong> as a collaborator. Add the linked model file (<code>espd.qeax</code>) to the repository, either via the web interface, or SmartGit.</p>
+<p><strong>Both people</strong>: clone the repository in SmartGit. Ensure you both can open the model file using Enterprise Architect.</p>
+<h2 id="introduction">Introduction</h2>
+<p>The <em>European Single Procurement Document</em> (ESPD) is a mandatory electronic form, in two parts, used by buyers to assess the suitability of suppliers tendering in a public procurement procedure. The <a href="espd.qeax">model</a> provided here showcases the ESPD Exchange Data Model (ESPD-EDM) to help member states and commercial entities create an ESPD service. </p>
+<p>Your tasks during this exercise will cover the following:</p>
+<ol>
+<li>Create some (mock) documentation about the data model</li>
+<li>Modify part of the data model and merge the modifications via the <a href="https://docs.github.com/en/get-started/using-github/github-flow">GitHub Flow</a> </li>
+<li>Accept an incoming pull request and solve merge conflicts within the model file</li>
+<li>(<em>Optional</em>) Create an activity diagram that showcases a possible flow of information using the ESPD data model.</li>
+</ol>
+<h2 id="creating-documentation">Creating Documentation</h2>
+<p>Throughout this subject, we will primarily grade <strong>documentation</strong>, never the model file itself. Good documentation is self-contained, includes good quality pictures of relevant parts of the model, alongside engineering decisions and explanations of the solution. </p>
+<p><strong>DO:</strong> Create a new file in the repository, called <code>Documentation.md</code>. Using <a href="https://docs.github.com/en/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax">GitHub Markdown</a>, include diagram renders in the document using the <a href="https://docs.github.com/en/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax#images">image</a> syntax. You may exclude diagrams that have no meaning (such as the LostAndFound diagram).</p>
+<p>Also try and include some descriptions on what each diagram represents. The resources linked at the top of this file can help you determine their purpose. Do not overdo this step, a few sentences are more than enough.</p>
+<h2 id="model-change-and-2-way-merge">Model Change and 2-Way Merge</h2>
+<p>Open <code>espd.qeax</code> in Enterprise Architect if you haven't done so already.</p>
+<p>Next, locate <code>cac::QualificationApplicationRequest</code> either in the model hierarchy or on one of the diagrams. We want to change this element so that <code>issuetime</code> is not optional, and <code>previousversionid</code> may contain any number of entries. We also want to add a child class,<code>cac::SpecialQualificationApplicationRequest</code>, inheriting from this base, to allow specialization later on.</p>
+<p><strong>DO</strong>: </p>
+<ol>
+<li><strong>Person A only</strong>: Change the multiplicities of these attributes to the desired values outlined above, create the child class on the diagram where <code>QualificationApplicationRequest</code> was found, and open a PR from a feature branch towards <code>main</code>. Do not yet merge. </li>
+<li><strong>Person B only</strong>: Change the multiplicity of <code>issuetime</code> to <code>2..2</code>, and open a PR from a feature branch towards <code>main</code>. Do not yet merge.</li>
+<li><strong>Both people</strong>: Inspect each other's pull requests, both on GitHub and in LemonTree (double click the file in SmartGit!)</li>
+<li><strong>Person A only</strong>: Merge <strong>your partner's</strong> pull request. Do not update your own.</li>
+</ol>
+<blockquote>
+<p>This type of merge is called a <em>2-way merge</em>, because we merge two branches that have not diverged. Therefore, there cannot be any merge conflicts, every change is present on the same (feature branch). This means the model file (which is not a text file) is just overwritten by the version from the feature branch. Had the two branches diverged, this would be a <em>3-way merge</em>, and <code>git</code> alone could not solve the merge conflicts within this non-text file.</p>
+</blockquote>
+<h2 id="causing-a-conflict-and-3-way-merge">Causing a Conflict and 3-Way Merge</h2>
+<p>In this step, we will resolve the merge conflict in the other pull request, using SmartGit/LemonTree. When ready, we will merge the PR.  </p>
+<p><strong>DO</strong>: </p>
+<ol>
+<li>Open SmartGit, checkout <code>main</code> (double-click) then click <code>Pull</code> to pull the changes.</li>
+<li>Checkout the source branch of the PR, then select <code>main</code> and click merge in the right-click (context) menu. A prompt should appear asking how the merge should be performed. Choose <code>Create Merge-Commit</code>. This will open the merge window, where conflicts have to be dealt with.</li>
+<li>Double-click the conflicting <code>espd.qeax</code> to open in LemonTree.</li>
+<li>After LemonTree opens, there are 3 columns in the right partition: "ours", "theirs", and "target". We can see the current feature branch's modifications in the "ours" column, the second feature branch's modifications in the "theirs" column, and the desired outcome in the "target" column. Pick the model elements to keep -- remember the goal of the previous step.</li>
+<li>Push your local changes to GitHub, and merge the PR.</li>
+</ol>
+<h2 id="optional-creating-an-activity-diagram">(<em>Optional</em>) Creating an Activity Diagram</h2>
+<p>Next, you'll create an activity diagram showcasing how information may flow using the ESPD data model. You can find information in the resources linked above, but you may also assume a simple workflow. The realized process itself will not be graded.</p>
+<p><strong>DO</strong>:</p>
+<ol>
+<li>Open an issue in the repository, stating the expected behavior (textually). Assign yourself to the issue.</li>
+<li><a href="https://docs.github.com/en/issues/tracking-your-work-with-issues/using-issues/linking-a-pull-request-to-an-issue">Link</a> the pull request to the issue so that when the PR is merged, the issue is automatically closed.</li>
+<li>Merge the PR.</li>
+</ol>
+<blockquote>
+<p>In Enterprise Architect, creating an Activity Diagram can be a bit complicated. Feel free to search online for guides and documentation, such as <a href="https://sparxsystems.com/resources/tutorials/uml2/activity-diagram.html">this</a> one, or our own modeling guide <a href="../behavior-modeling-guide">here</a>.</p>
+</blockquote>
+</article>
+</div>
+</div>
+</main>
+<footer class="md-footer">
+<nav aria-label="Footer" class="md-footer__inner md-grid">
+<a aria-label="Previous: General introduction to modeling in Enterprise Architect" class="md-footer__link md-footer__link--prev" href="../general-modeling-guide/" rel="prev">
+<div class="md-footer__button md-icon">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"></path></svg>
+</div>
+<div class="md-footer__title">
+<div class="md-ellipsis">
+<span class="md-footer__direction">
+                Previous
+              </span>
+              General introduction to modeling in Enterprise Architect
+            </div>
+</div>
+</a>
+<a aria-label="Next: Laboratory Exercise 1" class="md-footer__link md-footer__link--next" href="../lab1/" rel="next">
+<div class="md-footer__title">
+<div class="md-ellipsis">
+<span class="md-footer__direction">
+                Next
+              </span>
+              Laboratory Exercise 1
+            </div>
+</div>
+<div class="md-footer__button md-icon">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4Z"></path></svg>
+</div>
+</a>
+</nav>
+<div class="md-footer-meta md-typeset">
+<div class="md-footer-meta__inner md-grid">
+<div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" rel="noopener" target="_blank">
+      Material for MkDocs
+    </a>
+</div>
+</div>
+</div>
+</footer>
+</div>
+<div class="md-dialog" data-md-component="dialog">
+<div class="md-dialog__inner md-typeset"></div>
+</div>
+<script id="__config" type="application/json">{"base": "..", "features": [], "search": "../assets/javascripts/workers/search.b97dbffb.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version.title": "Select version"}}</script>
+<script src="../assets/javascripts/bundle.6c7ad80a.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script>document$.subscribe(() => {const lightbox = GLightbox({"touchNavigation": true, "loop": false, "width": "10vw", "height": "10vw", "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom"});})</script></body>
+</html>

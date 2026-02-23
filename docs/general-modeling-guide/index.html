@@ -1,0 +1,490 @@
+
+<!DOCTYPE html>
+
+<html class="no-js" lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width,initial-scale=1" name="viewport"/>
+<link href="../assets/images/favicon.png" rel="icon"/>
+<meta content="mkdocs-1.3.0, mkdocs-material-8.3.9" name="generator"/>
+<title>General introduction to modeling in Enterprise Architect - ReMo Lecture Notes</title>
+<link href="../assets/stylesheets/main.1d29e8d0.min.css" rel="stylesheet"/>
+<link href="../assets/stylesheets/palette.cbb835fc.min.css" rel="stylesheet"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&amp;display=fallback" rel="stylesheet"/>
+<style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+<link href="../mkdocs.css" rel="stylesheet"/>
+<script>__md_scope=new URL("..",location),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+<link href="../assets/stylesheets/glightbox.min.css" rel="stylesheet"/><style>html.glightbox-open { overflow: initial; height: 100%; }</style><script src="../assets/javascripts/glightbox.min.js"></script></head>
+<body data-md-color-accent="none" data-md-color-primary="none" data-md-color-scheme="" dir="ltr">
+<input autocomplete="off" class="md-toggle" data-md-toggle="drawer" id="__drawer" type="checkbox"/>
+<input autocomplete="off" class="md-toggle" data-md-toggle="search" id="__search" type="checkbox"/>
+<label class="md-overlay" for="__drawer"></label>
+<div data-md-component="skip">
+<a class="md-skip" href="#elozetes-lepesek">
+          Skip to content
+        </a>
+</div>
+<div data-md-component="announce">
+</div>
+<header class="md-header" data-md-component="header">
+<nav aria-label="Header" class="md-header__inner md-grid">
+<a aria-label="ReMo Lecture Notes" class="md-header__button md-logo" data-md-component="logo" href=".." title="ReMo Lecture Notes">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"></path></svg>
+</a>
+<label class="md-header__button md-icon" for="__drawer">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"></path></svg>
+</label>
+<div class="md-header__title" data-md-component="header-title">
+<div class="md-header__ellipsis">
+<div class="md-header__topic">
+<span class="md-ellipsis">
+            ReMo Lecture Notes
+          </span>
+</div>
+<div class="md-header__topic" data-md-component="header-topic">
+<span class="md-ellipsis">
+            
+              General introduction to modeling in Enterprise Architect
+            
+          </span>
+</div>
+</div>
+</div>
+<label class="md-header__button md-icon" for="__search">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"></path></svg>
+</label>
+<div class="md-search" data-md-component="search" role="dialog">
+<label class="md-search__overlay" for="__search"></label>
+<div class="md-search__inner" role="search">
+<form class="md-search__form" name="search">
+<input aria-label="Search" autocapitalize="off" autocomplete="off" autocorrect="off" class="md-search__input" data-md-component="search-query" name="query" placeholder="Search" required="" spellcheck="false" type="text"/>
+<label class="md-search__icon md-icon" for="__search">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"></path></svg>
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"></path></svg>
+</label>
+<nav aria-label="Search" class="md-search__options">
+<button aria-label="Clear" class="md-search__icon md-icon" tabindex="-1" type="reset">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"></path></svg>
+</button>
+</nav>
+</form>
+<div class="md-search__output">
+<div class="md-search__scrollwrap" data-md-scrollfix="">
+<div class="md-search-result" data-md-component="search-result">
+<div class="md-search-result__meta">
+            Initializing search
+          </div>
+<ol class="md-search-result__list"></ol>
+</div>
+</div>
+</div>
+</div>
+</div>
+</nav>
+</header>
+<div class="md-container" data-md-component="container">
+<main class="md-main" data-md-component="main">
+<div class="md-main__inner md-grid">
+<div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation">
+<div class="md-sidebar__scrollwrap">
+<div class="md-sidebar__inner">
+<nav aria-label="Navigation" class="md-nav md-nav--primary" data-md-level="0">
+<label class="md-nav__title" for="__drawer">
+<a aria-label="ReMo Lecture Notes" class="md-nav__button md-logo" data-md-component="logo" href=".." title="ReMo Lecture Notes">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"></path></svg>
+</a>
+    ReMo Lecture Notes
+  </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1" id="__nav_1" type="checkbox"/>
+<label class="md-nav__link" for="__nav_1">
+          Installation &amp; Basics
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="Installation &amp; Basics" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_1">
+<span class="md-nav__icon md-icon"></span>
+          Installation &amp; Basics
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../rete-install-basics-en/">
+        Installation Guidebook
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--active md-nav__item--nested">
+<input checked="" class="md-nav__toggle md-toggle" data-md-toggle="__nav_2" id="__nav_2" type="checkbox"/>
+<label class="md-nav__link" for="__nav_2">
+          Modeling Guides
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="Modeling Guides" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_2">
+<span class="md-nav__icon md-icon"></span>
+          Modeling Guides
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="..">
+        Enterprise Architect Tutorial
+      </a>
+</li>
+<li class="md-nav__item md-nav__item--active">
+<input class="md-nav__toggle md-toggle" data-md-toggle="toc" id="__toc" type="checkbox"/>
+<label class="md-nav__link md-nav__link--active" for="__toc">
+          General introduction to modeling in Enterprise Architect
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<a class="md-nav__link md-nav__link--active" href="./">
+        General introduction to modeling in Enterprise Architect
+      </a>
+<nav aria-label="Table of contents" class="md-nav md-nav--secondary">
+<label class="md-nav__title" for="__toc">
+<span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+<ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#template-package-beallitasa">
+    Template package beállítása
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#ablakok-beallitasa">
+    Ablakok beállítása
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#nezet-beallitasa">
+    Nézet beállítása
+  </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../first-project/">
+        First steps using Enterprise Architect
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../usecase-and-requirement-guide/">
+        Requirement and use case modeling using Enterprise Architect
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../data-and-interface-modeling-guide/">
+        Data and interface modeling using Enterprise Architect
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../composition-modeling-guide/">
+        Composition modeling using Enterprise Architect
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../structural-modeling-guide/">
+        Structural modeling using Enterprise Architect
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../allocation-modeling-guide/">
+        Allocation modeling using Enterprise Architect
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../behavior-modeling-guide/">
+        Behavior modeling using Enterprise Architect
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../parametric-modeling-guide/">
+        Parametric modeling using Enterprise Architect
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../safest/">
+        SAFEST - Fault Tree Editing tool
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../ftedit/">
+        FTEdit - Fault Tree Editing tool
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../SmartGit/">
+        SmartGit FAQ
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3" id="__nav_3" type="checkbox"/>
+<label class="md-nav__link" for="__nav_3">
+          Laboratory Exercises
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="Laboratory Exercises" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_3">
+<span class="md-nav__icon md-icon"></span>
+          Laboratory Exercises
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../lab1/">
+        Laboratory Exercise 1
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../lab2/">
+        Laboratory Exercise 2
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../lab3/">
+        Laboratory Exercise 3
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../lab4/">
+        Laboratory Exercise 4
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../lab5/">
+        Laboratory Exercise 5
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../lab6/">
+        Laboratory Exercise 6
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../lab7/">
+        Laboratory Exercise 7
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../lab8/">
+        Laboratory Exercise 8
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../lab9/">
+        Laboratory Exercise 9
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../lab10/">
+        Laboratory Exercise 10
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../lab11/">
+        Laboratory Exercise 11
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4" id="__nav_4" type="checkbox"/>
+<label class="md-nav__link" for="__nav_4">
+          Modeling Tutorials
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="Modeling Tutorials" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_4">
+<span class="md-nav__icon md-icon"></span>
+          Modeling Tutorials
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../ea-tooling-req-uc/">
+        EA Tooling Requirement Modeling and Use Cases
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</div>
+</div>
+</div>
+<div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc">
+<div class="md-sidebar__scrollwrap">
+<div class="md-sidebar__inner">
+<nav aria-label="Table of contents" class="md-nav md-nav--secondary">
+<label class="md-nav__title" for="__toc">
+<span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+<ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#template-package-beallitasa">
+    Template package beállítása
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#ablakok-beallitasa">
+    Ablakok beállítása
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#nezet-beallitasa">
+    Nézet beállítása
+  </a>
+</li>
+</ul>
+</nav>
+</div>
+</div>
+</div>
+<div class="md-content" data-md-component="content">
+<article class="md-content__inner md-typeset">
+<h1 id="elozetes-lepesek">Előzetes lépések</h1>
+<h2 id="template-package-beallitasa">Template package beállítása</h2>
+<p>OK: A SysML diagrammokon alapértelmezetten minden compartment engedélyezve van. Ez azért egy hatalmas probléma mert ha készítesz egy tökéletes diagrammot és később a diagrammokon lévő elemeknek új property-jei lesznek akkor azok alapértelmezetten megjelennek a compartment-ben és az összes elem átméreteződik. A compartment-eket csak egy speciálisan elkészített tamplate package-dzsel lehet megakadályozni, amit előre kidolgoztam.</p>
+<ol>
+<li>A Publish fülön válaszd ki az Import-nél az alábbi linkről letőltött XMI File…-t (<a href="https://bmeedu.sharepoint.com/:u:/s/Section_VIMIAD03-HU-2023-24-1/ESqUBbjDuFxAt-oLA89inj4B4mVZaSnQ7qFGvhhHyuIF2Q?e=K4sEj7">link</a>).
+<a class="glightbox" href="../figs/ea-guide-tmp-pkg-crt-1.png"><img alt="Alt text" src="../figs/ea-guide-tmp-pkg-crt-1.png"/></a></li>
+<li>A felugró ablakban válaszd ki a kiexportált template package-ta Filename mezőben és nyomd meg az import-ot. Az import során felugrik egy ablak ahol Yes-t kell választani.
+ <a class="glightbox" href="../figs/ea-guide-tmp-pkg-crt-2.png"><img alt="Alt text" src="../figs/ea-guide-tmp-pkg-crt-2.png"/></a></li>
+<li>A Settings fülön, válaszd ki a Project Template Package menüpontot.
+ <a class="glightbox" href="../figs/ea-guide-tmp-pkg-crt-3.png"><img alt="Alt text" src="../figs/ea-guide-tmp-pkg-crt-3.png"/></a></li>
+<li>Válaszd ki a beimportált template package-t és nyomd meg az OK-t.
+ <a class="glightbox" href="../figs/ea-guide-tmp-pkg-crt-4.png"><img alt="Alt text" src="../figs/ea-guide-tmp-pkg-crt-4.png"/></a></li>
+<li>Start fülön a Preferences menüpontban az Other preferences-nél a felugró ablakban állítsd be a Auto-resize marks diagram ’dirty’-t ugyanis ezzel a lépéssel az autoresize CTRL-Z-vel (nem minden esetben, de) visszaállítható
+<a class="glightbox" href="../figs/ea-guide-tmp-pkg-crt-5.png"><img alt="Alt text" src="../figs/ea-guide-tmp-pkg-crt-5.png"/></a></li>
+</ol>
+<h2 id="ablakok-beallitasa">Ablakok beállítása</h2>
+<p>A programozói környezetekhez hasonlóan itt is sok féle ablak van, ahol mindenféle beállítást találtokaz alábbi öt ablak a legfontosabb:
+ * <strong>Browser</strong>: itt lehet a modell struktúrájában navigálni
+ * <strong>Toolbox</strong>: az éppen szerkesztett diagrammhoz való paletta
+ * <strong>Features</strong>: az éppen kiválasztott modell elem által tartalmazott más modell elemek összefoglaló ablakja
+ * <strong>Notes</strong>: az éppen kiválasztott modell elemhez note-ot lehet vele tenni
+ * <strong>Properties</strong>: az éppen kiválasztott modell elem alapvető tulajdonságait tudjuk beállítani, itt sokszor az elem típusától függően több tab is van, a tab-ok között sokszor véletlenszerűen vannak szétszórva a beállítások ezért érdemes mindegyiket megnézni</p>
+<p><a class="glightbox" href="../figs/ea-window-setup/image.png"><img alt="Alt text" src="../figs/ea-window-setup/image.png"/></a></p>
+<p>Ablakok beállításának lépései:
+1.  A Start fülön a Portals menüpontban ki kell választani a Windows-t 
+<a class="glightbox" href="../figs/ea-window-setup/image-1.png"><img alt="Alt text" src="../figs/ea-window-setup/image-1.png"/></a>
+2.  A felugró ablakban ki kell választani a azokat az ablakokat amiket szeretnénk használni (érdemes kísérletezni).
+<a class="glightbox" href="../figs/ea-window-setup/image-2.png"><img alt="Alt text" src="../figs/ea-window-setup/image-2.png"/></a>
+3.  Az ablakokat a tetejüknél fogva mozgassuk a nekünk tetsző helyre.
+<a class="glightbox" href="../figs/ea-window-setup/image-3.png"><img alt="Alt text" src="../figs/ea-window-setup/image-3.png"/></a>
+4.  A Portals ablakot tüntessük el úgy, hogy a tetején jobb klikkelünk és a hide-t választjuk.
+<a class="glightbox" href="../figs/ea-window-setup/image-4.png"><img alt="Alt text" src="../figs/ea-window-setup/image-4.png"/></a></p>
+<h2 id="nezet-beallitasa">Nézet beállítása</h2>
+<p>A különböző nézetek segítségével a létrehozandó elemek és diagrammok típusainak körét le tudjuk szűkíteni attól függően, hogy milyen modellezési feladatot kell elvégeznünk. Ennek motivációja, hogy az EA-ban nagyon sok féle UML alapú modellezési nyelv érhető el és ha például rendszer modellezést akarunk csinálni akkor tipikusan SysML-t akarunk használni nem pedig BPML-t vagy UML-t.</p>
+<ol>
+<li>Kattints a menü ikonra a toolbox jobb felső sarkában és válaszd ki a Change Perspective-t.
+<a class="glightbox" href="../figs/ea-change-perspective/image.png"><img alt="Alt text" src="../figs/ea-change-perspective/image.png"/></a></li>
+<li>Ezután válaszd ki a Systems Engineering menüpontban a SysML-t.
+<a class="glightbox" href="../figs/ea-change-perspective/image-1.png"><img alt="Alt text" src="../figs/ea-change-perspective/image-1.png"/></a></li>
+</ol>
+<h1 id="hasznalati-tippek">Használati tippek</h1>
+<h2 id="hasznos-shortcut-ok">Hasznos shortcut-ok</h2>
+<p>Az EA hatékony használatához elengedhetetlen a legfontosabb gyorsbillentyűk ismerete. A legfontosabb gyorsbillentyűk használatával jelentősen gyorsíthatjuk a modellezés folyamatát. A legfontosabb gyorsbillentyűk az alábbiak:</p>
+<ul>
+<li><em>Del</em>: törlés és választás vizuális és valódi törlés között, ha vizuális a törlés, csak a diagrammon lesz változás, a mögöttes modellelem megmarad</li>
+<li><em>CTRL+Del</em>: valódi törlés, nem csak a diagrammon lesz változás, a mögöttes modellelem is törlődik</li>
+<li><em>CTRL+C</em> és <em>SHIFT+Insert</em>: vizuális copy-paste, csak a diagrammon lesz változás, a mögöttes modellelem változatlan</li>
+<li><em>CTRL+C</em> és <em>CTRL+SHIFT+V</em>: valódi copy-paste, nem csak a diagrammon lesz változás, a mögöttes modellelem is megváltozik</li>
+<li><em>CTRL+N</em>: új elem/diagram létrehozása</li>
+<li><em>CTRL+M</em>: új model elem hozzáadása a kiválasztott package-hez</li>
+<li><em>CTRL+SHIFT+Y</em>: kiválasztott modell elemen a compartment-ek megjelenésének engedélyeztetése</li>
+<li><em>CTRL+Z</em>: Vizuális undo (sajnos valódi undo nincs EA-ban) </li>
+<li><em>AltGr</em>: A kiválasztott elemhez ugrik a Browser-ben </li>
+<li><em>AltGr+G</em>: A kiválasztott porty/port/attributy típusához ugrik a model explorer-ben </li>
+<li><em>F2</em>: kiválasztott modell elem átnevezése</li>
+<li><em>F3</em>: a legutoljára létrehozott kapcsolat típusából lerakni még egyet (például ha utoljára generalization kapcsolatot tettél egy BDD-ra akkor ezzel a paranccsal mé egy generalization-t tudsz bekötni)</li>
+<li><em>SHIFT+F3</em>: a legutoljára létrehozott elem típusából lerakni még egyet (például ha utoljára block-ot tettél egy BDD-ra akkor ezzel a paranccsal mé egy block-ot tudsz lerakni)</li>
+</ul>
+<h2 id="shortcut-ok-beallitasa">Shortcut-ok beállítása</h2>
+<ol>
+<li>A Start fülön a Preferences menüpontban kattints az Other Options-ra 
+<a class="glightbox" href="../figs/ea-guide-shortcuts/image.png"><img alt="Alt text" src="../figs/ea-guide-shortcuts/image.png"/></a></li>
+<li>A felugró ablakban menj rá a Keyboard menüpontra és kategóriánként megnézheted, hogy milyen parancsokat lehet gyorsbillentyűvel elérni.
+<a class="glightbox" href="../figs/ea-guide-shortcuts/image-1.png"><img alt="Alt text" src="../figs/ea-guide-shortcuts/image-1.png"/></a></li>
+<li>A Press New Shortcut Key mezőbekattintva a kívánt kombinációt lenyomva, majd az Assign gombra rákattintva lehet új billentyű kombinációra átteni a parancsot.
+<a class="glightbox" href="../figs/ea-guide-shortcuts/image-2.png"><img alt="Alt text" src="../figs/ea-guide-shortcuts/image-2.png"/></a></li>
+</ol>
+<h2 id="tippek-a-diagram-rajzolasahoz">Tippek a diagram rajzolásához</h2>
+<ul>
+<li>Minden elem a diagrammon jelen nagyjából kétszer akkora, mint minimálisan szükséges. A túl kicsi modell elemeket az EA automatikusan átméretezi. Főleg a kicsi magasság a kritikus.</li>
+<li>Érdemes először BDD diagrammot készíteni és azokon előre mindent specifikálni amire később szükség lehet. </li>
+<li>A diagrammokat MINDIG úgy kell létre hozni, hogy a Browser-ben a tartalmazó modell elem fölé húzod az egeret és vagy<ul>
+<li>jobb klikk és a „New diagram” kiválasztása</li>
+<li>CTRL+N és a „New diagram” kiválasztása</li>
+</ul>
+</li>
+<li>NE helyezz BDD-re osztályt mert a diagram layout teljesen felborul</li>
+<li>Ha egy elemet behúzol a Browser-ből a diagrammra akkor felugrik egy ablak, hogy Link/Property/Instance/Port/stb… formájában szeretnéd-e betenni a diagrammra. Ez nagyon kényelmes és gyors módja a property-k, port-ok,… létrehozásának.</li>
+<li>Ha valamilyen modell elemet mozgatsz és lenyomod a CTRL-t akkor azt a modell elemet modell szerint lemásolja</li>
+<li>A Layout fülön a "Diagram Layout/Auto Route" parancs elég jól beállítja a relációk <em>vonalvezetését ésrouting-ját</em> adiagrammokon.</li>
+<li>Ha kijelölsz egy relációt akkor jobb klikk "Line Style" menüpontban tudod beállítani, hogy egyenes, szögletes vagy cikk-cakkos vonalvezetési stílust szeretnél. Ha jobb klikk után az "Apply Line Style on Diagram"-t választod akkor a diarammon az összes azonos típusú reláció stílusát be tudod állítaniegyszerre.</li>
+</ul>
+</article>
+</div>
+</div>
+</main>
+<footer class="md-footer">
+<nav aria-label="Footer" class="md-footer__inner md-grid">
+<a aria-label="Previous: Enterprise Architect Tutorial" class="md-footer__link md-footer__link--prev" href=".." rel="prev">
+<div class="md-footer__button md-icon">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"></path></svg>
+</div>
+<div class="md-footer__title">
+<div class="md-ellipsis">
+<span class="md-footer__direction">
+                Previous
+              </span>
+              Enterprise Architect Tutorial
+            </div>
+</div>
+</a>
+<a aria-label="Next: First steps using Enterprise Architect" class="md-footer__link md-footer__link--next" href="../first-project/" rel="next">
+<div class="md-footer__title">
+<div class="md-ellipsis">
+<span class="md-footer__direction">
+                Next
+              </span>
+              First steps using Enterprise Architect
+            </div>
+</div>
+<div class="md-footer__button md-icon">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4Z"></path></svg>
+</div>
+</a>
+</nav>
+<div class="md-footer-meta md-typeset">
+<div class="md-footer-meta__inner md-grid">
+<div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" rel="noopener" target="_blank">
+      Material for MkDocs
+    </a>
+</div>
+</div>
+</div>
+</footer>
+</div>
+<div class="md-dialog" data-md-component="dialog">
+<div class="md-dialog__inner md-typeset"></div>
+</div>
+<script id="__config" type="application/json">{"base": "..", "features": [], "search": "../assets/javascripts/workers/search.b97dbffb.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version.title": "Select version"}}</script>
+<script src="../assets/javascripts/bundle.6c7ad80a.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script>document$.subscribe(() => {const lightbox = GLightbox({"touchNavigation": true, "loop": false, "width": "10vw", "height": "10vw", "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom"});})</script></body>
+</html>

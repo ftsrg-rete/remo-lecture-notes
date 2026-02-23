@@ -1,0 +1,494 @@
+
+<!DOCTYPE html>
+
+<html class="no-js" lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width,initial-scale=1" name="viewport"/>
+<link href="../assets/images/favicon.png" rel="icon"/>
+<meta content="mkdocs-1.3.0, mkdocs-material-8.3.9" name="generator"/>
+<title>BDD and IBD modeling Papyrus guidebook - ReMo Lecture Notes</title>
+<link href="../assets/stylesheets/main.1d29e8d0.min.css" rel="stylesheet"/>
+<link href="../assets/stylesheets/palette.cbb835fc.min.css" rel="stylesheet"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&amp;display=fallback" rel="stylesheet"/>
+<style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+<link href="../mkdocs.css" rel="stylesheet"/>
+<script>__md_scope=new URL("..",location),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+<link href="../assets/stylesheets/glightbox.min.css" rel="stylesheet"/><style>html.glightbox-open { overflow: initial; height: 100%; }</style><script src="../assets/javascripts/glightbox.min.js"></script></head>
+<body data-md-color-accent="none" data-md-color-primary="none" data-md-color-scheme="" dir="ltr">
+<input autocomplete="off" class="md-toggle" data-md-toggle="drawer" id="__drawer" type="checkbox"/>
+<input autocomplete="off" class="md-toggle" data-md-toggle="search" id="__search" type="checkbox"/>
+<label class="md-overlay" for="__drawer"></label>
+<div data-md-component="skip">
+<a class="md-skip" href="#block-definition-diagram">
+          Skip to content
+        </a>
+</div>
+<div data-md-component="announce">
+</div>
+<header class="md-header" data-md-component="header">
+<nav aria-label="Header" class="md-header__inner md-grid">
+<a aria-label="ReMo Lecture Notes" class="md-header__button md-logo" data-md-component="logo" href=".." title="ReMo Lecture Notes">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"></path></svg>
+</a>
+<label class="md-header__button md-icon" for="__drawer">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"></path></svg>
+</label>
+<div class="md-header__title" data-md-component="header-title">
+<div class="md-header__ellipsis">
+<div class="md-header__topic">
+<span class="md-ellipsis">
+            ReMo Lecture Notes
+          </span>
+</div>
+<div class="md-header__topic" data-md-component="header-topic">
+<span class="md-ellipsis">
+            
+              BDD and IBD modeling Papyrus guidebook
+            
+          </span>
+</div>
+</div>
+</div>
+<label class="md-header__button md-icon" for="__search">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"></path></svg>
+</label>
+<div class="md-search" data-md-component="search" role="dialog">
+<label class="md-search__overlay" for="__search"></label>
+<div class="md-search__inner" role="search">
+<form class="md-search__form" name="search">
+<input aria-label="Search" autocapitalize="off" autocomplete="off" autocorrect="off" class="md-search__input" data-md-component="search-query" name="query" placeholder="Search" required="" spellcheck="false" type="text"/>
+<label class="md-search__icon md-icon" for="__search">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"></path></svg>
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"></path></svg>
+</label>
+<nav aria-label="Search" class="md-search__options">
+<button aria-label="Clear" class="md-search__icon md-icon" tabindex="-1" type="reset">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"></path></svg>
+</button>
+</nav>
+</form>
+<div class="md-search__output">
+<div class="md-search__scrollwrap" data-md-scrollfix="">
+<div class="md-search-result" data-md-component="search-result">
+<div class="md-search-result__meta">
+            Initializing search
+          </div>
+<ol class="md-search-result__list"></ol>
+</div>
+</div>
+</div>
+</div>
+</div>
+</nav>
+</header>
+<div class="md-container" data-md-component="container">
+<main class="md-main" data-md-component="main">
+<div class="md-main__inner md-grid">
+<div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation">
+<div class="md-sidebar__scrollwrap">
+<div class="md-sidebar__inner">
+<nav aria-label="Navigation" class="md-nav md-nav--primary" data-md-level="0">
+<label class="md-nav__title" for="__drawer">
+<a aria-label="ReMo Lecture Notes" class="md-nav__button md-logo" data-md-component="logo" href=".." title="ReMo Lecture Notes">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"></path></svg>
+</a>
+    ReMo Lecture Notes
+  </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1" id="__nav_1" type="checkbox"/>
+<label class="md-nav__link" for="__nav_1">
+          Installation &amp; Basics
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="Installation &amp; Basics" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_1">
+<span class="md-nav__icon md-icon"></span>
+          Installation &amp; Basics
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../rete-install-basics-en/">
+        Installation Guidebook
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2" id="__nav_2" type="checkbox"/>
+<label class="md-nav__link" for="__nav_2">
+          Modeling Guides
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="Modeling Guides" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_2">
+<span class="md-nav__icon md-icon"></span>
+          Modeling Guides
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="..">
+        Enterprise Architect Tutorial
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../general-modeling-guide/">
+        General introduction to modeling in Enterprise Architect
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../first-project/">
+        First steps using Enterprise Architect
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../usecase-and-requirement-guide/">
+        Requirement and use case modeling using Enterprise Architect
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../data-and-interface-modeling-guide/">
+        Data and interface modeling using Enterprise Architect
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../composition-modeling-guide/">
+        Composition modeling using Enterprise Architect
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../structural-modeling-guide/">
+        Structural modeling using Enterprise Architect
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../allocation-modeling-guide/">
+        Allocation modeling using Enterprise Architect
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../behavior-modeling-guide/">
+        Behavior modeling using Enterprise Architect
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../parametric-modeling-guide/">
+        Parametric modeling using Enterprise Architect
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../safest/">
+        SAFEST - Fault Tree Editing tool
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../ftedit/">
+        FTEdit - Fault Tree Editing tool
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../SmartGit/">
+        SmartGit FAQ
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3" id="__nav_3" type="checkbox"/>
+<label class="md-nav__link" for="__nav_3">
+          Laboratory Exercises
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="Laboratory Exercises" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_3">
+<span class="md-nav__icon md-icon"></span>
+          Laboratory Exercises
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../lab1/">
+        Laboratory Exercise 1
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../lab2/">
+        Laboratory Exercise 2
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../lab3/">
+        Laboratory Exercise 3
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../lab4/">
+        Laboratory Exercise 4
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../lab5/">
+        Laboratory Exercise 5
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../lab6/">
+        Laboratory Exercise 6
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../lab7/">
+        Laboratory Exercise 7
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../lab8/">
+        Laboratory Exercise 8
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../lab9/">
+        Laboratory Exercise 9
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../lab10/">
+        Laboratory Exercise 10
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../lab11/">
+        Laboratory Exercise 11
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4" id="__nav_4" type="checkbox"/>
+<label class="md-nav__link" for="__nav_4">
+          Modeling Tutorials
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="Modeling Tutorials" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_4">
+<span class="md-nav__icon md-icon"></span>
+          Modeling Tutorials
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../ea-tooling-req-uc/">
+        EA Tooling Requirement Modeling and Use Cases
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</div>
+</div>
+</div>
+<div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc">
+<div class="md-sidebar__scrollwrap">
+<div class="md-sidebar__inner">
+<nav aria-label="Table of contents" class="md-nav md-nav--secondary">
+<label class="md-nav__title" for="__toc">
+<span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+<ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#diagram-creation">
+    Diagram Creation
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#system-context">
+    System Context
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#block-creation-and-settings">
+    Block Creation and Settings:
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#relations-between-blocks">
+    Relations between Blocks
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#port-creation-and-properties">
+    Port Creation and Properties
+  </a>
+</li>
+</ul>
+</nav>
+</div>
+</div>
+</div>
+<div class="md-content" data-md-component="content">
+<article class="md-content__inner md-typeset">
+<h1 id="block-definition-diagram">Block Definition Diagram</h1>
+<h2 id="diagram-creation">Diagram Creation</h2>
+<p><a class="glightbox" href="figs/new_bdd_1.png"><img alt="" src="figs/new_bdd_1.png"/></a></p>
+<ol>
+<li><strong>Right click</strong> on the selected <em>Package</em> (<em>Requirements</em> in this example) -&gt; <strong>New Diagram</strong> -&gt; <strong>SysML 1.6 Block Definition Diagram</strong>.</li>
+<li>In the pop-up window give a name to the diagram.</li>
+<li><em>Hint</em>: During BDD modeling the most used groups from the <strong>Palette</strong> are the <strong>Blocks</strong> and the <strong>Ports and Flows</strong>, so pin these.</li>
+</ol>
+<h2 id="system-context">System Context</h2>
+<p>To add an <em>Actor</em> during <em>System Context</em> modeling:
+1. Select <em>Actor</em> from the toolbox: <strong>Palette</strong> -&gt; <strong>Blocks</strong> -&gt; <strong>Actor</strong>.
+1. Place it on the diagram.
+1. Edit the name in the <strong>Properties</strong> window.</p>
+<h2 id="block-creation-and-settings">Block Creation and Settings:</h2>
+<ol>
+<li>Select <em>Block</em> from the toolbox: <strong>Palette</strong> -&gt; <strong>Blocks</strong> -&gt; <strong>Block</strong>.</li>
+<li>Place it in the diagram, <em>Hint</em>: by holding the mousebutton and drawing a square the size of the block can be altered.</li>
+<li>Add a name to the <em>Block</em>. (You can always change it in the <strong>Properties</strong> window.)</li>
+<li>The <strong>Attributes</strong>,<strong>Operations</strong>,<strong>Constraints</strong> compartpents are displayed by default, these can be unnecessary, you can access the menu to hide them:<ul>
+<li><strong>Ctrl+F5</strong></li>
+<li><strong>Right click</strong> on the block -&gt; <strong>Filters</strong> -&gt; <strong>Show/Hide Compartments</strong></li>
+<li>You can edit these properties on multiple block simultaneously by selecting multiple blocks. </li>
+</ul>
+</li>
+<li>You can add <em>Part/Reference/etc. properties</em> to a <em>Block</em> on the <strong>UML</strong> tab of the <strong>Properties</strong> window, in the <strong>Owned Attributes</strong> field.<ul>
+<li>This is most useful for properties with primitive types, as you can add <em>Ports</em> or <em>Properties typed by Blocks</em> more easily from the <strong>Palette</strong> with connections.</li>
+</ul>
+</li>
+</ol>
+<h2 id="relations-between-blocks">Relations between Blocks</h2>
+<p><a class="glightbox" href="figs/bdd_toolbox_relationships.png"><img alt="" src="figs/bdd_toolbox_relationships.png"/></a></p>
+<ol>
+<li>You can select from the possible <em>Associations</em> by unfolding the <strong>Palette</strong> -&gt; <strong>Blocks</strong> -&gt; <strong>Association</strong><ul>
+<li>We mostly use <strong>Association (Directed)</strong> and <strong>Composite Association</strong> from these.</li>
+<li>The <strong>Association</strong> should be handled with care, define <em>Ports</em> instead of referencing another <em>Block</em> with specific type.</li>
+<li>The <strong>PartAssociation</strong> can be misleading, it does not create the proper <em>Part Property</em> in the block, use the <strong>Composite Association</strong> instead.</li>
+<li>The <strong>SharedAssociation</strong> does not have proper semantics in SysML, avoid using it.</li>
+</ul>
+</li>
+<li>The properties of the <em>Association</em> can be edited in the <strong>Properties</strong> window, like the names of the ends of the association or the multiplicities. Be mindful which end of the association you're editing!<ul>
+<li>In systems engineering the source end of the association usually does not have a name, however in Papyrus a default name is assigned to this end (inherited from UML), you can delete this to make your diagram more transparent.</li>
+</ul>
+</li>
+<li>The <strong>Generalization</strong> can be found outside of the <strong>Association</strong>: <strong>Palette</strong> -&gt; <strong>Blocks</strong> -&gt; <strong>Generalization</strong></li>
+<li><em>Containment</em> can be defined with <strong>Composite Association</strong>, do not mix it up with <strong>Containment Link</strong>!</li>
+</ol>
+<h2 id="port-creation-and-properties">Port Creation and Properties</h2>
+<ol>
+<li>Select the appropriate <em>Port</em> from <strong>Palette</strong> -&gt; <strong>Ports and Flows</strong> -&gt; <strong>Port</strong>/<strong>Full Port</strong>/<strong>Proxy Port</strong>.</li>
+<li>Clicking on a <em>Block</em> add the <em>Port</em> to it (adds it as <strong>Owned Property</strong> automatically).</li>
+<li>Properties of the <em>Port</em> can be edited in the <strong>UML</strong> tab of the <strong>Properties</strong> window.<ul>
+<li>The <strong>Type</strong> of the <em>Port</em> (<strong>Block</strong> or <strong>Interface Block</strong>) must be created separatelly and added to the <em>Port</em> in the <strong>...</strong> menu.<ul>
+<li>In order to make BDDs less cluttered, the typing (interface)blocks can be omitted from the diagrams, it is enough if they exist in the model. We advise you to put them in a separate "ports" package (either one package for the whole model, or if there would be too many of them, one ports package for each subsystem package).</li>
+</ul>
+</li>
+<li>The <strong>Provided</strong> and <strong>Required</strong> interfaces field can only be edited after selecting the <strong>Type</strong> of the <em>Port</em><ul>
+<li>This might be the easiest way to add provided/required interfaces to the typing (interface)block of the port, as an <em>interface realization</em> (for provided) or a <em>usage</em> relationship has to be created for the typing block. There is no list for doing this in the typing block itself, but adding the interfaces to the port's lists automatically creates the necessary relationships in the model.</li>
+</ul>
+</li>
+<li><strong>Flow properties</strong> cannot be created directly in the diagram editor (it exists in the toolbox, but we could not drop it on any model elements from there). However, they can be added to the port's typing (interface)block in the model explorer: <strong>right click</strong> on the typing block -&gt; <strong>SysML 1.6 Child</strong> -&gt; <strong>FlowProperty</strong>. The type of the flow property (the thing that flows) can be specified in the UML tab of the properties window. It is mostly either a signal, a value type, or a block. The direction can be set in the SysML 1.6 tab. The type has to be created beforehand.</li>
+<li>The <strong>Is Conjugated</strong> switch reverses the <strong>Provided</strong> and <strong>Required</strong> interfaces and the directions of the <strong>Flow Properties</strong>.</li>
+<li>On BDDs, port labels do not show anything but the name of the port even when other properties should also be shown according to the appearance settings. This is a known bug (or rather lack of feature) of Papyrus. The properties are correctly shown on IBDs though. In the homework, you do not have to worry about this, it is enough if the port name is shown and all properties are correctly set in the properties window. </li>
+</ul>
+</li>
+</ol>
+<h1 id="internal-block-diagram">Internal Block Diagram</h1>
+<h2 id="ibd-creation">IBD Creation</h2>
+<ol>
+<li>From the <strong>Model Explorer</strong> select the <em>Block</em> you want to define its connections: <strong>Right click</strong> -&gt; <strong>New Diagram</strong> -&gt; <strong>SysML 1.6 Internal Block Diagram</strong></li>
+<li><strong>Drag-and-drop</strong> the model elements contained by the <em>Block</em> to the diagram.</li>
+<li>
+<p>To represent the hierarchy of the structure switch on the <strong>Internal Structure</strong>:</p>
+<ul>
+<li><strong>Ctrl+F5</strong></li>
+<li><strong>Right click</strong> on the block -&gt; <strong>Filters</strong> -&gt; <strong>Show/Hide Compartments</strong></li>
+</ul>
+</li>
+<li>
+<p><em>Hint</em>: a model element referenced by <strong>Composite Association</strong> has solid border, a model element referenced by <strong>Association</strong> or <strong>Shared Association</strong> has dashed border</p>
+</li>
+</ol>
+<h2 id="system-context_1">System Context</h2>
+<ol>
+<li>Adding <em>Information Flow</em> <strong>Palette</strong> -&gt; <strong>Ports and Flows</strong> -&gt; <strong>Item flow</strong></li>
+<li>The information can be set on the <strong>UML</strong> tab of the <strong>Properties</strong> window, however during this homework seting the name properly is sufficient.</li>
+</ol>
+<h2 id="connector-creation">Connector Creation</h2>
+<ol>
+<li><strong>Palette</strong> -&gt; <strong>Blocks</strong> -&gt; <strong>Connector</strong></li>
+<li>
+<p>A <em>Connector</em> can be typed by an <em>Association</em> defined on the BDD, which can be set on the <strong>UML</strong> tab of the <strong>Properties</strong> window</p>
+<ul>
+<li>New <em>Association</em> can be added using the <strong>+</strong> menu.</li>
+<li>Existing <em>Association</em> can be selected in the <strong>...</strong> menu.</li>
+</ul>
+</li>
+<li>
+<p><strong>Binding Connector</strong> used to express the equality of the model elements, do not mix these up!</p>
+</li>
+</ol>
+<h2 id="remarks">Remarks</h2>
+<ol>
+<li>New contained of referenced <em>Blocks</em> can be added from the <strong>Palette</strong> during the <em>IBD</em> modeling, which adds new <em>Part/Reference Property</em> to the <em>BDD</em> of the <em>IBD</em>. In the modeling approach presented in this course the BDD should be modeled first, so this option should not be used.</li>
+</ol>
+</article>
+</div>
+</div>
+</main>
+<footer class="md-footer">
+<nav aria-label="Footer" class="md-footer__inner md-grid">
+<a aria-label="Previous: Activity Diagrams Papyrus guidebook" class="md-footer__link md-footer__link--prev" href="../rete-activity/" rel="prev">
+<div class="md-footer__button md-icon">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"></path></svg>
+</div>
+<div class="md-footer__title">
+<div class="md-ellipsis">
+<span class="md-footer__direction">
+                Previous
+              </span>
+              Activity Diagrams Papyrus guidebook
+            </div>
+</div>
+</a>
+<a aria-label="Next: BDD és IBD modellezés Papyrus segédlet" class="md-footer__link md-footer__link--next" href="../rete-bdd-ibd-modeling-guidebook/" rel="next">
+<div class="md-footer__title">
+<div class="md-ellipsis">
+<span class="md-footer__direction">
+                Next
+              </span>
+              BDD és IBD modellezés Papyrus segédlet
+            </div>
+</div>
+<div class="md-footer__button md-icon">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4Z"></path></svg>
+</div>
+</a>
+</nav>
+<div class="md-footer-meta md-typeset">
+<div class="md-footer-meta__inner md-grid">
+<div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" rel="noopener" target="_blank">
+      Material for MkDocs
+    </a>
+</div>
+</div>
+</div>
+</footer>
+</div>
+<div class="md-dialog" data-md-component="dialog">
+<div class="md-dialog__inner md-typeset"></div>
+</div>
+<script id="__config" type="application/json">{"base": "..", "features": [], "search": "../assets/javascripts/workers/search.b97dbffb.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version.title": "Select version"}}</script>
+<script src="../assets/javascripts/bundle.6c7ad80a.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script>document$.subscribe(() => {const lightbox = GLightbox({"touchNavigation": true, "loop": false, "width": "10vw", "height": "10vw", "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom"});})</script></body>
+</html>

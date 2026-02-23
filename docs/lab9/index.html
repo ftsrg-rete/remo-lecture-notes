@@ -1,0 +1,496 @@
+
+<!DOCTYPE html>
+
+<html class="no-js" lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width,initial-scale=1" name="viewport"/>
+<link href="../assets/images/favicon.png" rel="icon"/>
+<meta content="mkdocs-1.3.0, mkdocs-material-8.3.9" name="generator"/>
+<title>Laboratory Exercise 9 - ReMo Lecture Notes</title>
+<link href="../assets/stylesheets/main.1d29e8d0.min.css" rel="stylesheet"/>
+<link href="../assets/stylesheets/palette.cbb835fc.min.css" rel="stylesheet"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&amp;display=fallback" rel="stylesheet"/>
+<style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+<link href="../mkdocs.css" rel="stylesheet"/>
+<script>__md_scope=new URL("..",location),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+<link href="../assets/stylesheets/glightbox.min.css" rel="stylesheet"/><style>html.glightbox-open { overflow: initial; height: 100%; }</style><script src="../assets/javascripts/glightbox.min.js"></script></head>
+<body data-md-color-accent="none" data-md-color-primary="none" data-md-color-scheme="" dir="ltr">
+<input autocomplete="off" class="md-toggle" data-md-toggle="drawer" id="__drawer" type="checkbox"/>
+<input autocomplete="off" class="md-toggle" data-md-toggle="search" id="__search" type="checkbox"/>
+<label class="md-overlay" for="__drawer"></label>
+<div data-md-component="skip">
+<a class="md-skip" href="#useful-links">
+          Skip to content
+        </a>
+</div>
+<div data-md-component="announce">
+</div>
+<header class="md-header" data-md-component="header">
+<nav aria-label="Header" class="md-header__inner md-grid">
+<a aria-label="ReMo Lecture Notes" class="md-header__button md-logo" data-md-component="logo" href=".." title="ReMo Lecture Notes">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"></path></svg>
+</a>
+<label class="md-header__button md-icon" for="__drawer">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"></path></svg>
+</label>
+<div class="md-header__title" data-md-component="header-title">
+<div class="md-header__ellipsis">
+<div class="md-header__topic">
+<span class="md-ellipsis">
+            ReMo Lecture Notes
+          </span>
+</div>
+<div class="md-header__topic" data-md-component="header-topic">
+<span class="md-ellipsis">
+            
+              Laboratory Exercise 9
+            
+          </span>
+</div>
+</div>
+</div>
+<label class="md-header__button md-icon" for="__search">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"></path></svg>
+</label>
+<div class="md-search" data-md-component="search" role="dialog">
+<label class="md-search__overlay" for="__search"></label>
+<div class="md-search__inner" role="search">
+<form class="md-search__form" name="search">
+<input aria-label="Search" autocapitalize="off" autocomplete="off" autocorrect="off" class="md-search__input" data-md-component="search-query" name="query" placeholder="Search" required="" spellcheck="false" type="text"/>
+<label class="md-search__icon md-icon" for="__search">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"></path></svg>
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"></path></svg>
+</label>
+<nav aria-label="Search" class="md-search__options">
+<button aria-label="Clear" class="md-search__icon md-icon" tabindex="-1" type="reset">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"></path></svg>
+</button>
+</nav>
+</form>
+<div class="md-search__output">
+<div class="md-search__scrollwrap" data-md-scrollfix="">
+<div class="md-search-result" data-md-component="search-result">
+<div class="md-search-result__meta">
+            Initializing search
+          </div>
+<ol class="md-search-result__list"></ol>
+</div>
+</div>
+</div>
+</div>
+</div>
+</nav>
+</header>
+<div class="md-container" data-md-component="container">
+<main class="md-main" data-md-component="main">
+<div class="md-main__inner md-grid">
+<div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation">
+<div class="md-sidebar__scrollwrap">
+<div class="md-sidebar__inner">
+<nav aria-label="Navigation" class="md-nav md-nav--primary" data-md-level="0">
+<label class="md-nav__title" for="__drawer">
+<a aria-label="ReMo Lecture Notes" class="md-nav__button md-logo" data-md-component="logo" href=".." title="ReMo Lecture Notes">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"></path></svg>
+</a>
+    ReMo Lecture Notes
+  </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1" id="__nav_1" type="checkbox"/>
+<label class="md-nav__link" for="__nav_1">
+          Installation &amp; Basics
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="Installation &amp; Basics" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_1">
+<span class="md-nav__icon md-icon"></span>
+          Installation &amp; Basics
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../rete-install-basics-en/">
+        Installation Guidebook
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2" id="__nav_2" type="checkbox"/>
+<label class="md-nav__link" for="__nav_2">
+          Modeling Guides
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="Modeling Guides" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_2">
+<span class="md-nav__icon md-icon"></span>
+          Modeling Guides
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="..">
+        Enterprise Architect Tutorial
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../general-modeling-guide/">
+        General introduction to modeling in Enterprise Architect
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../first-project/">
+        First steps using Enterprise Architect
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../usecase-and-requirement-guide/">
+        Requirement and use case modeling using Enterprise Architect
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../data-and-interface-modeling-guide/">
+        Data and interface modeling using Enterprise Architect
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../composition-modeling-guide/">
+        Composition modeling using Enterprise Architect
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../structural-modeling-guide/">
+        Structural modeling using Enterprise Architect
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../allocation-modeling-guide/">
+        Allocation modeling using Enterprise Architect
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../behavior-modeling-guide/">
+        Behavior modeling using Enterprise Architect
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../parametric-modeling-guide/">
+        Parametric modeling using Enterprise Architect
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../safest/">
+        SAFEST - Fault Tree Editing tool
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../ftedit/">
+        FTEdit - Fault Tree Editing tool
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../SmartGit/">
+        SmartGit FAQ
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--active md-nav__item--nested">
+<input checked="" class="md-nav__toggle md-toggle" data-md-toggle="__nav_3" id="__nav_3" type="checkbox"/>
+<label class="md-nav__link" for="__nav_3">
+          Laboratory Exercises
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="Laboratory Exercises" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_3">
+<span class="md-nav__icon md-icon"></span>
+          Laboratory Exercises
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../lab1/">
+        Laboratory Exercise 1
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../lab2/">
+        Laboratory Exercise 2
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../lab3/">
+        Laboratory Exercise 3
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../lab4/">
+        Laboratory Exercise 4
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../lab5/">
+        Laboratory Exercise 5
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../lab6/">
+        Laboratory Exercise 6
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../lab7/">
+        Laboratory Exercise 7
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../lab8/">
+        Laboratory Exercise 8
+      </a>
+</li>
+<li class="md-nav__item md-nav__item--active">
+<input class="md-nav__toggle md-toggle" data-md-toggle="toc" id="__toc" type="checkbox"/>
+<a class="md-nav__link md-nav__link--active" href="./">
+        Laboratory Exercise 9
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../lab10/">
+        Laboratory Exercise 10
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../lab11/">
+        Laboratory Exercise 11
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4" id="__nav_4" type="checkbox"/>
+<label class="md-nav__link" for="__nav_4">
+          Modeling Tutorials
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="Modeling Tutorials" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_4">
+<span class="md-nav__icon md-icon"></span>
+          Modeling Tutorials
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../ea-tooling-req-uc/">
+        EA Tooling Requirement Modeling and Use Cases
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</div>
+</div>
+</div>
+<div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc">
+<div class="md-sidebar__scrollwrap">
+<div class="md-sidebar__inner">
+<nav aria-label="Table of contents" class="md-nav md-nav--secondary">
+</nav>
+</div>
+</div>
+</div>
+<div class="md-content" data-md-component="content">
+<article class="md-content__inner md-typeset">
+<p>This lab focuses on creating physical models using SysPhS and simulating their behavior using OpenModelica. In this laboratory, the vehicle speed control loop of the ACC is modeled. The control and vehicle models are simplified for better understanding.</p>
+<h1 id="useful-links">Useful links</h1>
+<ul>
+<li>EA data and interface modeling guide: <a href="https://ftsrg-rete.github.io/remo-lecture-notes/data-and-interface-modeling-guide/">https://ftsrg-rete.github.io/remo-lecture-notes/data-and-interface-modeling-guide/</a></li>
+<li>EA composition modeling guide: <a href="https://ftsrg-rete.github.io/remo-lecture-notes/composition-modeling-guide/">https://ftsrg-rete.github.io/remo-lecture-notes/composition-modeling-guide/</a></li>
+<li>EA structural modeling guide: <a href="https://ftsrg-rete.github.io/remo-lecture-notes/structural-modeling-guide/">https://ftsrg-rete.github.io/remo-lecture-notes/structural-modeling-guide/</a></li>
+<li>EA parametric modeling guide: <a href="https://ftsrg-rete.github.io/remo-lecture-notes/parametric-modeling-guide/">https://ftsrg-rete.github.io/remo-lecture-notes/parametric-modeling-guide/</a></li>
+<li>Official Enterprise Architect documentation:<ul>
+<li><a href="https://sparxsystems.com/enterprise_architect_user_guide/16.1/model_simulation/sysml_parametric_models_2.html">https://sparxsystems.com/enterprise_architect_user_guide/16.1/model_simulation/sysml_parametric_models_2.html</a></li>
+<li><a href="https://sparxsystems.com/enterprise_architect_user_guide/16.1/model_simulation/sysml_sim_window.html">https://sparxsystems.com/enterprise_architect_user_guide/16.1/model_simulation/sysml_sim_window.html</a></li>
+<li><a href="https://sparxsystems.com/enterprise_architect_user_guide/16.1/model_simulation/sysml_sim_config.html">https://sparxsystems.com/enterprise_architect_user_guide/16.1/model_simulation/sysml_sim_config.html</a></li>
+</ul>
+</li>
+<li>SysPhS Specification: <a href="https://www.omg.org/spec/SysPhS/1.0/PDF">https://www.omg.org/spec/SysPhS/1.0/PDF</a></li>
+</ul>
+<p><strong>Note: knowledge of the SysPhS specification is not needed to complete this lab.</strong></p>
+<h1 id="preliminary-steps">Preliminary steps</h1>
+<p>The following steps will show you how to install OpenModelica and configure it in Enterprise Architect.</p>
+<ol>
+<li>Install OpenModelica<ul>
+<li>Download installer for Windows: https://openmodelica.org/download/download-windows/ </li>
+<li>Download installer for Linux: https://openmodelica.org/download/download-linux</li>
+</ul>
+</li>
+<li>Change perspective to "<em>Simulation/SysML with Modelica</em>"
+ <a class="glightbox" href="../figs/ea-simulation/image.png"><img alt="alt text" src="../figs/ea-simulation/image.png"/></a></li>
+<li>In the Simulate tab, open "<em>Modelica/Simulink / SysMLSim Configuration Manager</em>" (Note: a model must be opened in EA to open the Configuration Manager. The solver setup will be global; any model can be opened for this step.)
+ <a class="glightbox" href="../figs/ea-simulation/image-2.png"><img alt="alt text" src="../figs/ea-simulation/image-2.png"/></a> </li>
+<li>In the SysMLSim Configuration Manager, configure the simulation solver
+ <a class="glightbox" href="../figs/ea-simulation/image-3.png"><img alt="alt text" src="../figs/ea-simulation/image-3.png"/></a></li>
+<li>Select the location of "<em>omc.exe</em>" (on Linux, the omc binary)
+ <a class="glightbox" href="../figs/ea-simulation/image-4.png"><img alt="alt text" src="../figs/ea-simulation/image-4.png"/></a></li>
+<li>Make sure that in the Portal&gt;Window menu you opened the "<em>Features</em>" and "<em>Properties</em>" windows: https://ftsrg-rete.github.io/remo-lecture-notes/general-modeling-guide/#ablakok-beallitasa </li>
+</ol>
+<h1 id="try-out-the-simulation">Try out the simulation</h1>
+<p>The following steps will show you how you can create an example SysPhS model using an EA model pattern and how you can run simulations in EA.</p>
+<ol>
+<li>On the "<em>Start Page</em>" Create the "<em>Two tanks</em>" test models from pattern and explore the models
+ <a class="glightbox" href="../figs/ea-simulation/image-1.png"><img alt="alt text" src="../figs/ea-simulation/image-1.png"/></a></li>
+<li>Click on the "<em>TankPI</em>" SysMLSimulationConfiguration and run the simulation to check if the OpenModelica is installed and configured properly
+ <a class="glightbox" href="../figs/ea-simulation/image-5.png"><img alt="alt text" src="../figs/ea-simulation/image-5.png"/></a></li>
+<li>After the simulation finished, you should see the time plot of the water levels in the tanks and the water flow
+ <a class="glightbox" href="../figs/ea-simulation/image-6.png"><img alt="alt text" src="../figs/ea-simulation/image-6.png"/></a> </li>
+</ol>
+<h1 id="create-a-structural-model">Create a structural model</h1>
+<p>This part of this document presents the preliminary structural modeling steps, which are required for the simulation. </p>
+<ol>
+<li>Create "<em>Primitive Value Type Library</em>" using modeling pattern:
+ <a class="glightbox" href="../figs/ea-simulation/image-12.png"><img alt="alt text" src="../figs/ea-simulation/image-12.png"/></a></li>
+<li>Create packages for the Value Types, Components, Interfaces, and Constraint blocks:
+ <a class="glightbox" href="../figs/ea-simulation/image-222.png"><img alt="alt text" src="../figs/ea-simulation/image-222.png"/></a></li>
+<li>Create value types to model the physical quantities in the system:
+ <a class="glightbox" href="../figs/ea-simulation/image-8.png"><img alt="alt text" src="../figs/ea-simulation/image-8.png"/></a></li>
+<li>Create interface blocks to model the interactions between the components, because of the simulation, the direction of the flow properties shall be set to "<em>none</em>":
+ <a class="glightbox" href="../figs/ea-simulation/image-9.png"><img alt="alt text" src="../figs/ea-simulation/image-9.png"/></a></li>
+<li>Create the structural composition model of the vehicle with ACC, similarly to laboratory 4:
+<a class="glightbox" href="../figs/ea-simulation/image220.png"><img alt="alt text" src="../figs/ea-simulation/image220.png"/></a></li>
+<li>Create the internal block diagram of the system context (which is modeled by the "<em>Vehicle with ACC</em>" block):
+ <a class="glightbox" href="../figs/ea-simulation/image-11.png"><img alt="alt text" src="../figs/ea-simulation/image-11.png"/></a></li>
+</ol>
+<p><strong>Check: Take a screenshot of your IBD, and put it into your documentation.</strong></p>
+<h1 id="create-the-physical-model">Create the physical model</h1>
+<p>This section presents the physical modeling of the ACC and its environment using parametric diagrams and constraint blocks.</p>
+<h2 id="modeling-the-human-machine-interface">Modeling the Human-Machine Interface</h2>
+<p>The HMI sends a speed request to the ACC. Within the control loop, the speed request behaves as a reference signal. During the simulation, we assume that the reference signal does not change. Thus, we define a constant value property called "reference speed" and set its initial value to "30.0".
+<a class="glightbox" href="../figs/ea-simulation/image-21.png"><img alt="alt text" src="../figs/ea-simulation/image-21.png"/></a></p>
+<h2 id="modeling-the-speed-sensor">Modeling the Speed Sensor</h2>
+<p>The Speed Sensor measures the speed of the vehicle and sends it to the ACC. The physical characteristics of the sensor are simple: its output equals its input.
+<a class="glightbox" href="../figs/ea-simulation/image-22.png"><img alt="alt text" src="../figs/ea-simulation/image-22.png"/></a>
+<a class="glightbox" href="../figs/ea-simulation/image-23.png"><img alt="alt text" src="../figs/ea-simulation/image-23.png"/></a></p>
+<h2 id="modeling-the-vehicle-propulsion-and-dynamics">Modeling the Vehicle Propulsion and Dynamics</h2>
+<p>The speed of the vehicle is dependent on two forces:
+ * <script type="math/tex">F_{engine}</script>: the accelerating force created by the engine, and
+ * <script type="math/tex">F_{friction}</script>: the decelerating force created by the friction of the wheels and the mechanical components.</p>
+<p>Thus, the acceleration of the vehicle can be defined by the following equation:</p>
+<p>
+<script type="math/tex">a=\frac{\delta v}{\delta t}=\frac{F_{engine}-F_{friction}}{m_{vehicle}}</script>
+</p>
+<p>The accelerating force of the engine is defined by the following equation if the speed of vehicle is not zero:
+<script type="math/tex">F_{engine}=\frac{P}{v}</script>.</p>
+<p>If <script type="math/tex">v</script> is smaller than <script type="math/tex">5 m/s</script> we assume that the vehicle is accelerated by a constant force:
+<script type="math/tex">F_{engine}=2000 N</script>.</p>
+<p>The decelerating force is speed-dependent and can be calculated by the following equation:
+<script type="math/tex">F_{friction}=v\cdot b</script>, where <script type="math/tex">b</script> is the damping coefficient and <script type="math/tex">b=50 \frac{N\cdot s}{m}</script>
+</p>
+<p>To model the engine and the vehicle, we define separate constraint blocks for the engine, the braking force, and the vehicle dynamics. </p>
+<p><a class="glightbox" href="../figs/ea-simulation/image-24.png"><img alt="alt text" src="../figs/ea-simulation/image-24.png"/></a></p>
+<p>Within the engine characteristics, we define an operation to model the nonlinearity of engine acceleration near small speeds:
+<a class="glightbox" href="../figs/ea-simulation/image-25.png"><img alt="alt text" src="../figs/ea-simulation/image-25.png"/></a>
+<a class="glightbox" href="../figs/ea-simulation/image-26.png"><img alt="alt text" src="../figs/ea-simulation/image-26.png"/></a></p>
+<p>We define the overall physical characteristics of the vehicle using a parametric diagram:</p>
+<p><a class="glightbox" href="../figs/ea-simulation/image-27.png"><img alt="alt text" src="../figs/ea-simulation/image-27.png"/></a></p>
+<p><strong>Check: Take a screenshot of your parametric diagram, and put it into your documentation.</strong></p>
+<h2 id="modeling-the-acc">Modeling the ACC</h2>
+<p>Within the ACC, we define a simple P controller. The P controller contains three parts:
+ 1. <strong>Error calculation</strong>: First, the controller calculates the difference between the reference speed and the speed measurement.
+ 2. <strong>Control calculation</strong>: Thereafter, the P controller multiplies the error with a predefined gain, which is in this case <script type="math/tex">0.5</script>. The result of the multiplication will show what fraction of the maximal motor performance is required.
+ 3. <strong>Power actuation request calculation</strong>: Finally, the ACC ensures that the control value cannot be greater than <script type="math/tex">1.0</script> and multiples the control value with the maximal power to calculate the engine performance request.</p>
+<p>For better transparency, it is advantageous to model the three steps separately using three constraint blocks:
+<a class="glightbox" href="../figs/ea-simulation/image-28.png"><img alt="alt text" src="../figs/ea-simulation/image-28.png"/></a></p>
+<p><strong>Note: If you use the built-in <em>Real</em> type from the drop-down menu instead of the <em>Real</em> valuetype defined in the <em>Primitive Value Types Library</em>, then the property will appear in the <em>paramaters</em> compartment instead of the <em>values</em> compartment. The simulation should still work.</strong> </p>
+<p>Within the "<em>Power Request Calculation</em>", an operation shall be defined to ensure that ACC does not want to request more power than the maximal engine performance, which is <script type="math/tex">P_{max}=100\space HP \approx 75 \space 000\space W</script>.
+<a class="glightbox" href="../figs/ea-simulation/image-29.png"><img alt="alt text" src="../figs/ea-simulation/image-29.png"/></a>
+<a class="glightbox" href="../figs/ea-simulation/image-30.png"><img alt="alt text" src="../figs/ea-simulation/image-30.png"/></a></p>
+<p>The overall behavior of the ACC can be defined using a parametric diagram, where binding connectors connect the parameters of the constraint parameters and the flow properties of the ACC:
+<a class="glightbox" href="../figs/ea-simulation/image-31.png"><img alt="alt text" src="../figs/ea-simulation/image-31.png"/></a></p>
+<p><strong>Check: Take a screenshot of your parametric diagram, and put it into your documentation.</strong></p>
+<p>After you have created all model elements, the BDD of the system context will look similar to this:
+<a class="glightbox" href="../figs/ea-simulation/image-221.png"><img alt="alt text" src="../figs/ea-simulation/image-221.png"/></a></p>
+<h1 id="simulation-of-system-behavior">Simulation of system behavior</h1>
+<p>After you have created the detailed model of the ACC and the vehicle, you can simulate the differential equations using OpenModelica.</p>
+<ol>
+<li>Ensure that you have defined the initial value for every value property, where it is important. Defining the initial value is especially important for constant value properties. If you do not specify an initial value, then zero will be the default initial value.
+ <a class="glightbox" href="../figs/ea-simulation/image-32.png"><img alt="alt text" src="../figs/ea-simulation/image-32.png"/></a></li>
+<li>Using the "<em>Simulation</em>" toolbox, create a SysMLSimConfiguration artifact:
+ <a class="glightbox" href="../figs/ea-simulation/image-33.png"><img alt="alt text" src="../figs/ea-simulation/image-33.png"/></a></li>
+<li>Double click on the simulation artifact, and the SysML Configuration Manager will automatically appear. In the configuration manager, select the package where the models are stored:
+ <a class="glightbox" href="../figs/ea-simulation/image-34.png"><img alt="alt text" src="../figs/ea-simulation/image-34.png"/></a></li>
+<li>Set the block of the system context ("<em>Vehicle with ACC</em>") as "<em>SysMLSimModel</em>":
+ <a class="glightbox" href="../figs/ea-simulation/image-35.png"><img alt="alt text" src="../figs/ea-simulation/image-35.png"/></a></li>
+<li>Set all constant value properties of the blocks as "<em>SimConstant</em>", to denote for the simulator that their value cannot change:
+ <a class="glightbox" href="../figs/ea-simulation/image-36.png"><img alt="alt text" src="../figs/ea-simulation/image-36.png"/></a>
+<a class="glightbox" href="../figs/ea-simulation/image-37.png"><img alt="alt text" src="../figs/ea-simulation/image-37.png"/></a></li>
+<li>Set how long you want to run the simulation and select which value properties shall appear in the simulation plot:
+<a class="glightbox" href="../figs/ea-simulation/image-38.png"><img alt="alt text" src="../figs/ea-simulation/image-38.png"/></a></li>
+<li>Validate the model to find possible errors. The errors will appear in the "<em>System Output</em>" window.  <strong>Check: After correcting any errors, take a screenshot of your simulation configuration and put it into your documentation. (Note: The summary at the end of the validation result might say that there are more than zero errors even though it lists only warnings. Eliminating explicitly stated errors in the list is enough, but make sure that you get zero errors in the logs of the next step.)</strong></li>
+<li>If there is no validation error, then run the simulator by clicking on the large "Solve" button. After a few seconds, the time-series plot of the selected value properties will appear:
+<a class="glightbox" href="../figs/ea-simulation/image-39.png"><img alt="alt text" src="../figs/ea-simulation/image-39.png"/></a></li>
+<li>Run the simulation multiple times with different gain values in the control loop, with different reference speed requests in the HMI, and with different initial vehicle speed values. <strong>Take a screenshot of the generated plots with each setup, and put it into your documentation.</strong></li>
+</ol>
+<p><strong>Overall, your documentation should contain a screenshot (or a diagram export) for each of the following:</strong>
+- the IBD
+- the Parametric Diagram of the vehicle dynamics
+- the ACC's Parametric Diagram
+- the simulation configuration
+- the generated plots for at least two setups (different gain values, reference speeds, initial speed values).</p>
+</article>
+</div>
+</div>
+</main>
+<footer class="md-footer">
+<nav aria-label="Footer" class="md-footer__inner md-grid">
+<a aria-label="Previous: Laboratory Exercise 8" class="md-footer__link md-footer__link--prev" href="../lab8/" rel="prev">
+<div class="md-footer__button md-icon">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"></path></svg>
+</div>
+<div class="md-footer__title">
+<div class="md-ellipsis">
+<span class="md-footer__direction">
+                Previous
+              </span>
+              Laboratory Exercise 8
+            </div>
+</div>
+</a>
+<a aria-label="Next: Laboratory Exercise 10" class="md-footer__link md-footer__link--next" href="../lab10/" rel="next">
+<div class="md-footer__title">
+<div class="md-ellipsis">
+<span class="md-footer__direction">
+                Next
+              </span>
+              Laboratory Exercise 10
+            </div>
+</div>
+<div class="md-footer__button md-icon">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4Z"></path></svg>
+</div>
+</a>
+</nav>
+<div class="md-footer-meta md-typeset">
+<div class="md-footer-meta__inner md-grid">
+<div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" rel="noopener" target="_blank">
+      Material for MkDocs
+    </a>
+</div>
+</div>
+</div>
+</footer>
+</div>
+<div class="md-dialog" data-md-component="dialog">
+<div class="md-dialog__inner md-typeset"></div>
+</div>
+<script id="__config" type="application/json">{"base": "..", "features": [], "search": "../assets/javascripts/workers/search.b97dbffb.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version.title": "Select version"}}</script>
+<script src="../assets/javascripts/bundle.6c7ad80a.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script>document$.subscribe(() => {const lightbox = GLightbox({"touchNavigation": true, "loop": false, "width": "10vw", "height": "10vw", "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom"});})</script></body>
+</html>
