@@ -1,0 +1,441 @@
+
+<!DOCTYPE html>
+
+<html class="no-js" lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width,initial-scale=1" name="viewport"/>
+<link href="../assets/images/favicon.png" rel="icon"/>
+<meta content="mkdocs-1.3.0, mkdocs-material-8.3.9" name="generator"/>
+<title>Laboratory Exercise 3 - ReMo Lecture Notes</title>
+<link href="../assets/stylesheets/main.1d29e8d0.min.css" rel="stylesheet"/>
+<link href="../assets/stylesheets/palette.cbb835fc.min.css" rel="stylesheet"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&amp;display=fallback" rel="stylesheet"/>
+<style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+<link href="../mkdocs.css" rel="stylesheet"/>
+<script>__md_scope=new URL("..",location),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+<link href="../assets/stylesheets/glightbox.min.css" rel="stylesheet"/><style>html.glightbox-open { overflow: initial; height: 100%; }</style><script src="../assets/javascripts/glightbox.min.js"></script></head>
+<body data-md-color-accent="none" data-md-color-primary="none" data-md-color-scheme="" dir="ltr">
+<input autocomplete="off" class="md-toggle" data-md-toggle="drawer" id="__drawer" type="checkbox"/>
+<input autocomplete="off" class="md-toggle" data-md-toggle="search" id="__search" type="checkbox"/>
+<label class="md-overlay" for="__drawer"></label>
+<div data-md-component="skip">
+<a class="md-skip" href="#varhato-ido-metrikak">
+          Skip to content
+        </a>
+</div>
+<div data-md-component="announce">
+</div>
+<header class="md-header" data-md-component="header">
+<nav aria-label="Header" class="md-header__inner md-grid">
+<a aria-label="ReMo Lecture Notes" class="md-header__button md-logo" data-md-component="logo" href=".." title="ReMo Lecture Notes">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"></path></svg>
+</a>
+<label class="md-header__button md-icon" for="__drawer">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"></path></svg>
+</label>
+<div class="md-header__title" data-md-component="header-title">
+<div class="md-header__ellipsis">
+<div class="md-header__topic">
+<span class="md-ellipsis">
+            ReMo Lecture Notes
+          </span>
+</div>
+<div class="md-header__topic" data-md-component="header-topic">
+<span class="md-ellipsis">
+            
+              Laboratory Exercise 3
+            
+          </span>
+</div>
+</div>
+</div>
+<label class="md-header__button md-icon" for="__search">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"></path></svg>
+</label>
+<div class="md-search" data-md-component="search" role="dialog">
+<label class="md-search__overlay" for="__search"></label>
+<div class="md-search__inner" role="search">
+<form class="md-search__form" name="search">
+<input aria-label="Search" autocapitalize="off" autocomplete="off" autocorrect="off" class="md-search__input" data-md-component="search-query" name="query" placeholder="Search" required="" spellcheck="false" type="text"/>
+<label class="md-search__icon md-icon" for="__search">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"></path></svg>
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"></path></svg>
+</label>
+<nav aria-label="Search" class="md-search__options">
+<button aria-label="Clear" class="md-search__icon md-icon" tabindex="-1" type="reset">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"></path></svg>
+</button>
+</nav>
+</form>
+<div class="md-search__output">
+<div class="md-search__scrollwrap" data-md-scrollfix="">
+<div class="md-search-result" data-md-component="search-result">
+<div class="md-search-result__meta">
+            Initializing search
+          </div>
+<ol class="md-search-result__list"></ol>
+</div>
+</div>
+</div>
+</div>
+</div>
+</nav>
+</header>
+<div class="md-container" data-md-component="container">
+<main class="md-main" data-md-component="main">
+<div class="md-main__inner md-grid">
+<div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation">
+<div class="md-sidebar__scrollwrap">
+<div class="md-sidebar__inner">
+<nav aria-label="Navigation" class="md-nav md-nav--primary" data-md-level="0">
+<label class="md-nav__title" for="__drawer">
+<a aria-label="ReMo Lecture Notes" class="md-nav__button md-logo" data-md-component="logo" href=".." title="ReMo Lecture Notes">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"></path></svg>
+</a>
+    ReMo Lecture Notes
+  </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1" id="__nav_1" type="checkbox"/>
+<label class="md-nav__link" for="__nav_1">
+          Installation &amp; Basics
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="Installation &amp; Basics" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_1">
+<span class="md-nav__icon md-icon"></span>
+          Installation &amp; Basics
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../rete-install-basics-en/">
+        Installation Guidebook
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2" id="__nav_2" type="checkbox"/>
+<label class="md-nav__link" for="__nav_2">
+          Modeling Guides
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="Modeling Guides" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_2">
+<span class="md-nav__icon md-icon"></span>
+          Modeling Guides
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="..">
+        Enterprise Architect Tutorial
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../general-modeling-guide/">
+        General introduction to modeling in Enterprise Architect
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../first-project/">
+        First steps using Enterprise Architect
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../usecase-and-requirement-guide/">
+        Requirement and use case modeling using Enterprise Architect
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../data-and-interface-modeling-guide/">
+        Data and interface modeling using Enterprise Architect
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../composition-modeling-guide/">
+        Composition modeling using Enterprise Architect
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../structural-modeling-guide/">
+        Structural modeling using Enterprise Architect
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../allocation-modeling-guide/">
+        Allocation modeling using Enterprise Architect
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../behavior-modeling-guide/">
+        Behavior modeling using Enterprise Architect
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../parametric-modeling-guide/">
+        Parametric modeling using Enterprise Architect
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../safest/">
+        SAFEST - Fault Tree Editing tool
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../ftedit/">
+        FTEdit - Fault Tree Editing tool
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../SmartGit/">
+        SmartGit FAQ
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--active md-nav__item--nested">
+<input checked="" class="md-nav__toggle md-toggle" data-md-toggle="__nav_3" id="__nav_3" type="checkbox"/>
+<label class="md-nav__link" for="__nav_3">
+          Laboratory Exercises
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="Laboratory Exercises" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_3">
+<span class="md-nav__icon md-icon"></span>
+          Laboratory Exercises
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../lab1/">
+        Laboratory Exercise 1
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../lab2/">
+        Laboratory Exercise 2
+      </a>
+</li>
+<li class="md-nav__item md-nav__item--active">
+<input class="md-nav__toggle md-toggle" data-md-toggle="toc" id="__toc" type="checkbox"/>
+<label class="md-nav__link md-nav__link--active" for="__toc">
+          Laboratory Exercise 3
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<a class="md-nav__link md-nav__link--active" href="./">
+        Laboratory Exercise 3
+      </a>
+<nav aria-label="Table of contents" class="md-nav md-nav--secondary">
+<label class="md-nav__title" for="__toc">
+<span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+<ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#varhato-ido-metrikak">
+    Várható idő metrikák
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#hibatures-architekturalis-mintainak-vizsgalata">
+    Hibatűrés architekturális mintáinak vizsgálata
+  </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../lab4/">
+        Laboratory Exercise 4
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../lab5/">
+        Laboratory Exercise 5
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../lab6/">
+        Laboratory Exercise 6
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../lab7/">
+        Laboratory Exercise 7
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../lab8/">
+        Laboratory Exercise 8
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../lab9/">
+        Laboratory Exercise 9
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../lab10/">
+        Laboratory Exercise 10
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../lab11/">
+        Laboratory Exercise 11
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4" id="__nav_4" type="checkbox"/>
+<label class="md-nav__link" for="__nav_4">
+          Modeling Tutorials
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="Modeling Tutorials" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_4">
+<span class="md-nav__icon md-icon"></span>
+          Modeling Tutorials
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../ea-tooling-req-uc/">
+        EA Tooling Requirement Modeling and Use Cases
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</div>
+</div>
+</div>
+<div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc">
+<div class="md-sidebar__scrollwrap">
+<div class="md-sidebar__inner">
+<nav aria-label="Table of contents" class="md-nav md-nav--secondary">
+<label class="md-nav__title" for="__toc">
+<span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+<ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#varhato-ido-metrikak">
+    Várható idő metrikák
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#hibatures-architekturalis-mintainak-vizsgalata">
+    Hibatűrés architekturális mintáinak vizsgálata
+  </a>
+</li>
+</ul>
+</nav>
+</div>
+</div>
+</div>
+<div class="md-content" data-md-component="content">
+<article class="md-content__inner md-typeset">
+<h1>Laboratory Exercise 3</h1>
+<h2 id="varhato-ido-metrikak">Várható idő metrikák</h2>
+<p>Adott egy komponens λ=0.0001 1/h hibarátával és μ=1/48 1/h javítási rátával. Számolja a ki a komponens MTTF, MTTR, MTBF metrikáit és aszimptotikus rendelkezésre állását! </p>
+<h2 id="hibatures-architekturalis-mintainak-vizsgalata">Hibatűrés architekturális mintáinak vizsgálata</h2>
+<p>Cégünk autonóm drónokat tervez városi csomagszállítási céllal. Minden drónnak képesnek kell lennie a követekezőkre:
+- A fedélzeti érzékelők és tervezőprogram segítségével el kell jutnia a szállítási célállomásokra.
+- A drónokat koordináló központi rendszertől kell tudnia küldetéseket fogadni, és az útvonaltervet egyeztetni.
+- A küldetés előrehaladtát rendszeresen jelentenie kell a központi rendszer felé.</p>
+<p>Korábban már elkészült a drón mozgás funkciójáért felelős részrendszer architektúrája. A funkcionális architektúrát hibadetektálási és hibatűrési mechanizmusok nélkül az alábbi sematikus ábra mutatja:
+<a class="glightbox" href="../figs/safety-archs-lab/base-architecture-hu.png"><img alt="Alap architektúr" src="../figs/safety-archs-lab/base-architecture-hu.png"/></a></p>
+<p>A drón a helyzetének meghatározásához egy IMU-t, egy barométert és egy GPS-t használ. Mindegyik szenzor kimenete átesik egy előfeldolgozási lépésen, amelynek célja zajszűrés, a kalibráció figyelembevétele, és megfelelő mértékegységre konvertálás. Ezek mellett működik egy állapotelőrejelző komponens, amely a legutóbbi becsült állapot és az aktuátoroknak adott vezérlőjelek alapján előrejelzi a következő állapotot a drón mechanikájának matematikai modelljét felhasználva. A legutóbbi ciklusban előrejelzett állapot és az előfeldolgozott mérési adatok egy Kalman-szűrőn alapuló állapotbecslő komponensbe jutnak, amelynek eredményét – azaz a becsült jelenlegi állapotot (fizikai pozíció) – több komponens felé is továbbítjuk. Megkapja a már említett állapotelőrejelző komponens, az aktuátorok vezérléséért felelős komponens, és a tervezésért felelős komponensek. A drón által bejárandó trajektóriát három szinten tervezzük: 
+- Egy hosszútávú tervező komponens az új küldetés megkapásakor meghatároz egy útvonalat a célig, amelyet egyeztet a központi rendszerrel (ahol megtörténik az útvonal légi biztonsági validációja is). Ezen komponens követi az útvonaltervvel való haladást, és adott időnként jelzi azt a küldetéskövetésért felelő komponensnek, amely kommunikál a központi rendszerrel.
+- Egy középtávú tervező komponens a lokális trajektória megtervezéséért felelős, amely az előre felismert akadályok körüli manővereket tervezi meg, és finomítja a magasszintű útvonal jelenleg releváns szakaszát egy megvalósítható trajektóriára.
+- Egy rövidtávú tervező komponens felelős a hirtelen elénk kerülő akadályok elkerüléséért, a megtervezett középtávú trajektóriát felülírva vészhelyzeti manőverekkel.</p>
+<p>A közép- és rövidtávú tervező komponensek egy navigáció koordinátor komponensnek küldik a jelenleg szerintük elérendő pozíciót. A navigáció koordinátor elsődlegesen egy arbitrátor feladatot lát el: amennyiben a rövidtávú tervező szerint szükség van hirtelen elkerülő manőverre, akkor azt a jelet küldi tovább, amennyiben nincs, akkor a középtávú tervezőét. Az aktuátoroknak küldendő vezérlőjel számításáért felelős komponens a koordinátor kimenetét kapja meg, így annak egyetlen jelet kell csak kezelnie ahelyett, hogy mindkét tervezővel való kommunikációért is felelős lenne. Annak érdekében, hogy a vészhelyzeti manővereket a szabályzó algoritmus más módon kezelhesse (pl. kevésbé stabil vagy hosszú távon nem fenntartható aktuálást igénylő, de a hirtelen manővereket időben elvégezni képes szabályzásra váltás), a koordinátor a referenciajel mellé egy flag-et is csatol, mely mutatja, hogy nominális vagy vészhelyzeti mód szükséges. Mind a rövid, mind a középtávú tervezőnek szüksége van információra a közelben található akadályokról. Ezeket egy LiDAR és egy kamera segítségével detektáljuk, melyek jelei szintén átmennek egy előfeldolgozáson. Mivel a rövidtávú tervezésnek rövid idő alatt értesülnie kell a hirtelen előkerülő akadályokról, ezen funkció időkritikus.</p>
+<p>Cégünk rendszertervező csapatának hibatűrésért felelős tagjai elkészítettek egy előzetes tervet a hibadetekciós és hibatűrési mechanizmusokról – alább látható az architektúra ezekkel bővített sematikus ábrája.</p>
+<p><a class="glightbox" href="../figs/safety-archs-lab/ft-architecture-hu.png"><img alt="Hibatűrő architektúr" src="../figs/safety-archs-lab/ft-architecture-hu.png"/></a></p>
+<p>A terv szerint az IMU és a Barométer előfeldolgozásához különböző numerikus ellenőrzéseket csatolunk a mért értékekről, GPS vevőből pedig kettő szerelünk be a drónba, és az értéküket összehasonlítva értesülhetünk róla, ha valamelyik elromlott. Bár nem ideális, de egy ideig (pl. biztonságos hely megtalálásáig) az egyik mozgásszenzor kiesése mellett is tud a drón navigálni. Ehhez hasonlóan az akadályokat detektáló szenzorokhoz is csatolunk ellenőrzést, de itt a jelek bonyolultsága (kép és pontfelhő) miatt csak alapvető rendelkezésre állási ellenőrzést végzünk, pl. nem teljesen fekete-e a kép. Ez alapján az akadály detektor komponens ideiglenesen „limping” módba tud kapcsolni, ahol csak az egyik szenzorra támaszkodik, amíg a drón talál egy biztonságos helyet a leszálláshoz.</p>
+<p>Az állapotbecslő komponens az állapotbecslés elvégzését követően ellenőrzi az állapot fizikai hihetőségét (figyelembe véve a korábbi állapotot), emellett akkor is hibát jelez, ha egy előre meghatározott értéknél nagyobb az eltérés az előrejelzett és a mért állapot között.</p>
+<p>Az aktuátoroknak küldött vezérlőjelet egy különálló komponens monitorozza, és azokon ellenőrzést végez, például nominális módban elvárjuk, hogy ne kezdjen instabil, hirtelen mozgásokba a drón, vagy ellenőrizzük, hogy ne terheljük túl a motorokat hosszú távon. A vezérlőjelet számító szabályzó algoritmust egy dedikált ECU-ban 3 független CPU számolja párhuzamosan, és az általuk számított jeleket egy „szavazó” komponens hasonlítja össze. Mivel a futtatott algoritmus azonos, és azonos bemeneteket használnak, ezért helyes működés esetén mindegyik ugyanazt a numerikus eredményt adja, így a szavazásnál nem számolunk tolerálható eltéréssel.</p>
+<p>A rövidtávú tervezésnél 3 különböző algoritmikus alapelven működő implementációt készítünk, és az eredményükön szavazást végzünk a kitérő manőver szükségességéről és irányáról.</p>
+<p>A középtávú tervezéshez bevezetünk explicit ellenőrzéseket a megtervezett trajektória megvalósíthatóságáról és az ütközésmentességről. Több implementációt is készítünk a középtávú manőverek megtervezéséhez: gyors heurisztikus módszerekkel indítunk, de ezek nem biztos, hogy találnak megfelelő trajektóriát, amely esetben váltunk a költségesebb módszerekre.</p>
+<p>A hosszú távú tervezés adatvesztés vagy a tervezett úttól nagy mértékű eltérés (pl. sok elkerülőmanőver miatt) esetén újratervez, a korábbi útvonalhoz visszatérés helyett a jelenlegi pozícióból tervez egy új, a központi rendszerrel egyeztetett utat. </p>
+<p>A mozgás megtervezéséhez kapcsolódó részfunkciók kódja (kék pöttyel jelölve) a repülés irányító ECU-n fut. Mivel ezen funkciók működése vészhelyzeti leszálláshoz is elengedhetetlen, ezen ECU-ból egy tartalékot is beépítünk. Mindkét példányon a gyártó által beépített HW ellenőrzések futnak induláskor és az alacsonyabb költségűek működés közben folyamatosan, emellett operációs rendszer szintű általános ellenőrzéseket is futtatunk – amennyiben ezen ellenőrzések hibát jeleznek, az ECU kikapcsol. A működő ECU-k folyamatosan életjelet küldenek egy heartbeat monitornak. A monitor jelzi egy tartalékra átállásért felelős komponensnek, ha az elsődleges ECU leállt. A rendszer tartalmaz egy helyreállítási adatbázist, melybe az elsődleges ECU rendszeresen menti az állapotát, így az átállás esetén átmozgatható a másodlagosba.</p>
+<p>A hosszútávú tervezés és a küldetéskövetés egy magasszintű feladatokért felelős ECU-n fut, a GPU-t igénylő akadálydetekció pedig a vizuális feladatokért felelő ECU-n. Ezek is rendszeresen mentik az állapotukat, és adatvesztés esetén visszaállnak, amennyiben nem túl régi a legutóbbi mentés. Amennyiben már helytelen működést veszélye állna fenn a viszaállítással, a magasszintű ECU ehelyett újra egyezteti a küldetést a központi rendszerrel és újratervezi az útvonalat, a vizuális ECU pedig újrainicializál, elfelejtve az eddig felismert akadályokat.</p>
+<p>Egy interakció logger komponens a drón buszhálózatán hallgatózik, és logol minden üzenetet a többi komponens között.</p>
+<ol>
+<li>Hol alkalmazták az architektúra tervezői az egycsatornás architektúra beépített önellenőrzéssel mintát? Milyen alkalmazás-független önellenőrzéseket használunk? Milyen alkalmazás-specifikus önellenőrzéseket használunk?</li>
+<li>Hol alkalmazták a kétcsatornás architektúra összehasonlítással mintát? Az alkalmazási példák közül melyikben szerepel diverzitás, és melyik egyszerű duplikáció?</li>
+<li>Hol alkalmazták a kétcsatornás architektúra biztonsági ellenőrzéssel mintát?</li>
+<li>Hasonlítsuk össze az előzőekben említett 3 minta előnyeit és hátrányait! Az egyes példák esetében használható lett-e volna egy másik minta a választott helyett? Ha igen, hogyan, és milyen előnyei/hátrányai lettek volna ennek a konkrét esetben? Tudnánk-e az egyes példák esetében akár kombinálni a mintákat?</li>
+<li>Hol találunk példát ebben a tervben a hardware-hibák elleni hibatűrésre többszörözéssel? Mely esetekben látunk duplikálást diagnosztikával, és hol látunk tripla-moduláris redundanciát?</li>
+<li>Amennyiben SIL 2-es mikrokontrollereket használunk egy 10-8 1/h hibarátájú szavazókomponenssel, mekkora a valószínűsége, hogy az aktuátorvezérlésért felelős részrendszer 10 év alatt működésképtelen lesz vagy helytelen vezérlőjelet ad (csak a hardware-t figyelembe véve, hibátlan szoftvert feltételezve)? Hogyan lehetne ezt tovább csökkenteni csak ugyanilyen hibarátájú alkatrészeket felhasználva?</li>
+<li>Hol találunk példát tranziens hibák elleni hibatűrésre helyreállítással? Hogyan és milyen késleltetéssel tudjuk detektálni az adott hibát? Hogyan kezeljük a hibaterjedést? A helyreállítás melyik típusát (előre, vissza, kompenzáció) alkalmazzuk mely esetekben? Alkalmazható lenne másik típus?</li>
+<li>Hol találunk példát szoftver hibák tűrésére? Melyik esetben használunk n-verziós programozást, és melyik esetben helyreállítási blokkokat? Alkalmas lenne-e az adott célra a másik minta is?</li>
+</ol>
+<p>Opcionális feladatok:</p>
+<ol>
+<li>A rendszertervező csapat egy tagja felvetette, hogy mivel úgyis van már a rendszerben egy kamera és egy LiDAR, ezeket is be lehetne csatornázni a mozgás érzékelésébe (vizuális odometria, optical flow). Milyen előnyei és hátrányai lennének ennek?</li>
+<li>Mi történne, ha a vezérlőjel kiszámításához a bemenetekben is független lenne a 3 csatorna? Mi változna, ha a 3 CPU-n különböző szabályzókat akarnánk futtatni diverzitási céllal?</li>
+<li>A korábban megadott adatokkal számolva mennyi a várható értéke annak az időnek, mire a 3. csatornából az egyik meghibásodik? Mekkora a várható értéke annak az időnek, mire 2 csatorna is hibás lesz?</li>
+<li>Milyen egyéb hibatűrési mechanizmusokat lenne indokolt bevezetni a már feltüntetetteken kívül?</li>
+</ol>
+</article>
+</div>
+</div>
+</main>
+<footer class="md-footer">
+<nav aria-label="Footer" class="md-footer__inner md-grid">
+<a aria-label="Previous: Laboratory Exercise 2" class="md-footer__link md-footer__link--prev" href="../lab2/" rel="prev">
+<div class="md-footer__button md-icon">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"></path></svg>
+</div>
+<div class="md-footer__title">
+<div class="md-ellipsis">
+<span class="md-footer__direction">
+                Previous
+              </span>
+              Laboratory Exercise 2
+            </div>
+</div>
+</a>
+<a aria-label="Next: Laboratory Exercise 4" class="md-footer__link md-footer__link--next" href="../lab4/" rel="next">
+<div class="md-footer__title">
+<div class="md-ellipsis">
+<span class="md-footer__direction">
+                Next
+              </span>
+              Laboratory Exercise 4
+            </div>
+</div>
+<div class="md-footer__button md-icon">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4Z"></path></svg>
+</div>
+</a>
+</nav>
+<div class="md-footer-meta md-typeset">
+<div class="md-footer-meta__inner md-grid">
+<div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" rel="noopener" target="_blank">
+      Material for MkDocs
+    </a>
+</div>
+</div>
+</div>
+</footer>
+</div>
+<div class="md-dialog" data-md-component="dialog">
+<div class="md-dialog__inner md-typeset"></div>
+</div>
+<script id="__config" type="application/json">{"base": "..", "features": [], "search": "../assets/javascripts/workers/search.b97dbffb.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version.title": "Select version"}}</script>
+<script src="../assets/javascripts/bundle.6c7ad80a.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script>document$.subscribe(() => {const lightbox = GLightbox({"touchNavigation": true, "loop": false, "width": "10vw", "height": "10vw", "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom"});})</script></body>
+</html>
