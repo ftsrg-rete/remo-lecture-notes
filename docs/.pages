@@ -29,3 +29,4 @@ nav:
         - lab11.md
     - 'Modeling Tutorials':
         - ea-tooling-req-uc.md
+        - ea-tooling-structure.md

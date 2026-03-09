@@ -6,6 +6,8 @@ header: System Modeling (VIMIAD03)
 
 # Prequisites
 
+
+
 The following steps must be executed before this excercise:
   - Install EA 17.1
   - Run EA 
@@ -30,7 +32,11 @@ The following steps must be executed before this excercise:
   - Arrange the windows by dragging them into a position where you can intuitively find them:
   ![alt text](figs/ea-tooling-structure/image-2.png)
 
+
+
 # Package structure
+
+
 
 Create a package for system context, functional architecture, physical architecture, interface and value type modeling:
   - Right click on the "Steering Wheel Heating System" pachake and select "New Package" OR Press CTRL+W
@@ -46,9 +52,15 @@ Create a package for system context, functional architecture, physical architect
   - In the "Layout" menu select "Diagram Layout/Apply Default Layout":
   ![alt text](figs/ea-tooling-structure/image-8.png)
 
+
+
 # Value Type Modeling
 
+
+
 ## Create Enums
+
+
 
 Create enums in the "Value Types" package:
   - Open the "Value Types" BDD
@@ -59,7 +71,11 @@ Create enums in the "Value Types" package:
     - In the Attributes tab of the Features window write "Successful" and "Error" to the New Attribute field
   ![alt text](figs/ea-tooling-structure/image-16.png)
 
+
+
 ## Create Value Types
+
+
 
 Create enums in the "Value Types" package:
   - Open the "Value Types" BDD
@@ -76,7 +92,11 @@ Create enums in the "Value Types" package:
 
 # Interface Modeling
 
+
+
 ## SysPhS Interfaces
+
+
 
 Import the SysPhS interface, physical interaction and value type library using the "Model Builder":
   - Right click on the "Steering Wheel Heating System" pachake and select "Model Builder" OR Press CTRL+SHIFT+M
@@ -85,7 +105,11 @@ Import the SysPhS interface, physical interaction and value type library using t
   - Click on "Create Model"
   - Inspect the models in the newly imported library
 
+
+
 ## Create Interfaces
+
+
 
 In the interface package create command interface:
   - Open the "Interfaces" BDD
@@ -112,7 +136,11 @@ In the interface package create command interface:
     ![alt text](figs/ea-tooling-structure/image-22.png)
 
 
+
+
 ## Create Interface Blocks
+
+
 
 In the Interfaces BDD create interface blocks for the system context diagram:
   - Open the "Interfaces" BDD
@@ -149,7 +177,11 @@ In the Interfaces BDD create interface blocks for the system context diagram:
   ![alt text](figs/ea-tooling-structure/image-34.png)
 
 
+
+
 ## Create Association Block
+
+
 
 In the Interfaces BDD create association blocks for the battery wire:
   - Open the "Interfaces" BDD
@@ -170,6 +202,8 @@ In the Interfaces BDD create association blocks for the battery wire:
 
 # Composition Modeling
 
+
+
 Create the composition structure of the system context:
   - Open the System Context BDD
   - Create the "Steering Wheel", "Steering Wheel Heating System", "Steering Wheel Heating System System Context",  "Vehicle Battery", "Vehicle Infotainment System", "Steering Wheel Frame", "Vehicle Network Subsystem", "Vehicle Subsystem List"
@@ -186,6 +220,8 @@ Create the composition structure of the system context:
   ![alt text](figs/ea-tooling-structure/image-50.png)
   - Name the property to "maxBatteryPower" and visually delete the property
   ![alt text](figs/ea-tooling-structure/image-51.png)
+
+
 
 # Internal Structure Modeling
 
@@ -220,3 +256,5 @@ Create IBD for the System Context:
   ![alt text](figs/ea-tooling-structure/image-62.png)
   - In the other "veh bus" port create the required interface counterparts
   ![alt text](figs/ea-tooling-structure/image-63.png)
+
+
