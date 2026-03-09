@@ -189,6 +189,7 @@ Create the composition structure of the system context:
 
 # Internal Structure Modeling
 
+
 Create IBD for the System Context:
   - Open the "System Context" BDD
   - Right click on the "System Context" and click on "New Child Diagram/Internal Block Diagram"
