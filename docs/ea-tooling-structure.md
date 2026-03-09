@@ -9,26 +9,44 @@ header: System Modeling (VIMIAD03)
 
 
 The following steps must be executed before this excercise:
+
   - Install EA 17.1
+
   - Run EA 
+
   - Open the tutorial model available here: [MODEL_LINK](https://bmeedu.sharepoint.com/:u:/s/InformatikaiRendszertervezsdemonstrtorok/IQBMJKDA3HzkRpd1W9qKrukSAaFQNY93LFjlE6dEBaLjvAs?e=ulRmKP)
+
   - Set the perspecitve (in the right-top corner) to "SysML"
  ![alt text](figs/lab1-tooling/req-uc-modeling.pdf-image-000.png)
+
   - Make shure that the following windows are open:
+
     - Explore/Model Browser
+
     - Explore/Inspect
+
     - Explore/Focus
+
     - Properties/Properties
+
     - Properties/Notes
+
     - Properties/Tagged Values
+
     - Properties/Features
+
     - Properties/Requirements
+
     - Trace/Traceability
+
     - Trace/Relationships
+
   - If some windows is not visble than click on "Portals/Windows" and click on the window names (after that right click on windows and select auto-hide):
   ![alt text](figs/ea-tooling-structure/image.png)
+
   - Make sure that the toolbox is visible:
   ![alt text](figs/ea-tooling-structure/image-1.png)
+
   - Arrange the windows by dragging them into a position where you can intuitively find them:
   ![alt text](figs/ea-tooling-structure/image-2.png)
 
@@ -39,16 +57,23 @@ The following steps must be executed before this excercise:
 
 
 Create a package for system context, functional architecture, physical architecture, interface and value type modeling:
+
   - Right click on the "Steering Wheel Heating System" pachake and select "New Package" OR Press CTRL+W
+
   - Set the name to "Interfaces"
+
   - Select "Create Diagram" 
   ![alt text](figs/ea-tooling-structure/image-3.png)
+
   - Create a BDD diagram
   ![alt text](figs/ea-tooling-structure/image-4.png)
+
   - Repeat these steps and create packages and BDDs for system context, functional architecture, physical architecture, interface and value type modeling:
   ![alt text](figs/ea-tooling-structure/image-6.png)
+
   - Drag and drop all packages as a Package Element into the "Steering Wheel Heating System" package:
   ![alt text](figs/ea-tooling-structure/image-7.png)
+
   - In the "Layout" menu select "Diagram Layout/Apply Default Layout":
   ![alt text](figs/ea-tooling-structure/image-8.png)
 
@@ -64,10 +89,13 @@ Create a package for system context, functional architecture, physical architect
 
 Create enums in the "Value Types" package:
   - Open the "Value Types" BDD
+
   - Create the "ConfigurationStatus" Enum using the Toolbox:
   ![alt text](figs/ea-tooling-structure/image-15.png)
   - Create enum literals
+
     - Click on the enum
+
     - In the Attributes tab of the Features window write "Successful" and "Error" to the New Attribute field
   ![alt text](figs/ea-tooling-structure/image-16.png)
 
@@ -79,13 +107,18 @@ Create enums in the "Value Types" package:
 
 Create enums in the "Value Types" package:
   - Open the "Value Types" BDD
+
   - Create the "Power" Value Type, the "Watt" Unit and the "Power" Quantity Kind  using the Toolbox:
   ![alt text](figs/ea-tooling-structure/image-17.png)
+
   - Select the Power value type and in the Element tab of the Propties window set the unit and quantityKind stereotype attributes (click on the "..." button in the right side of the fields):
   ![alt text](figs/ea-tooling-structure/image-18.png)
+
   - Set the symbol and quantity kind of the watt unit
+
     - Click on the unit and press CTRL+SHIFT+R OR right click on the unit and select "Features/Set Attribute Values"
     ![alt text](figs/ea-tooling-structure/image-19.png)
+
     - In the pop-up menu set the attributes
     ![alt text](figs/ea-tooling-structure/image-20.png)
     
@@ -100,9 +133,12 @@ Create enums in the "Value Types" package:
 
 Import the SysPhS interface, physical interaction and value type library using the "Model Builder":
   - Right click on the "Steering Wheel Heating System" pachake and select "Model Builder" OR Press CTRL+SHIFT+M
+
   - Select "SysPhS/SysPhS Library"
   ![alt text](figs/ea-tooling-structure/image-5.png)
+
   - Click on "Create Model"
+
   - Inspect the models in the newly imported library
 
 
@@ -113,18 +149,26 @@ Import the SysPhS interface, physical interaction and value type library using t
 
 In the interface package create command interface:
   - Open the "Interfaces" BDD
+
   - Using the Toolbox create the following Signals: "Start", "Stop", "SetTemperature"
   ![alt text](figs/ea-tooling-structure/image-9.png)
-  Using the interface create the "CommandInterface" and the "ConfigurationInterface":
+
+  - Using the interface create the "CommandInterface" and the "ConfigurationInterface":
   ![alt text](figs/ea-tooling-structure/image-14.png)
+
   - Create a "referenceTemperature" parameter in the "SetTemperature" Signal
+
     - Click on the Signal
+
     - In the Attributes tab of the Features window write "referenceTemperature" to the New Attribute and set the type to "Temperature" value type and the Scope to Public 
     ![alt text](figs/ea-tooling-structure/image-11.png)
+
     - To change the type of an attibute click into the type field and after that click on the small (downward pointing) triangle and click on "Select Type" and in the pop-up window select the type of the attribute
     ![alt text](figs/ea-tooling-structure/image-13.png)
+
   - Drop all signals into the "CommandInterface"
   ![alt text](figs/ea-tooling-structure/image-12.png)
+
   - Create the "configure" operation in the "ConfigurationInterface"
     - Click on the interface
     - In the Operations tab of the Features window write "configure" to the New Operation and set the Scope to Public
