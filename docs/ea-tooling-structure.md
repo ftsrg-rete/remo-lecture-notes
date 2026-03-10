@@ -68,10 +68,10 @@ Create a package for system context, functional architecture, physical architect
   - Create a BDD diagram
   ![alt text](figs/ea-tooling-structure/image-4.png)
 
-  - Repeat these steps and create packages and BDDs for system context, functional architecture, physical architecture, interface, and value type modeling:
+  - Repeat these steps and create packages and BDDs for system context, functional architecture, physical architecture, and value type modeling:
   ![alt text](figs/ea-tooling-structure/image-6.png)
 
-  - Drag and drop all packages as a Package Element into the "Steering Wheel Heating System" package:
+  - Drag and drop all packages as a Package Element into the "Steering Wheel Heating System" package (you don't have the SysPhS Library package yet; it will be created later):
   ![alt text](figs/ea-tooling-structure/image-7.png)
 
   - In the "Layout" menu, select "Diagram Layout/Apply Default Layout":
