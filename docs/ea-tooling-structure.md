@@ -14,7 +14,7 @@ The following steps must be executed before this exercise:
 
   - Run EA 
 
-  - Open the tutorial model available here: [MODEL_LINK](https://bmeedu.sharepoint.com/:u:/s/InformatikaiRendszertervezsdemonstrtorok/IQBMJKDA3HzkRpd1W9qKrukSAaFQNY93LFjlE6dEBaLjvAs?e=ulRmKP)
+  - Open the tutorial model available here: [MODEL_LINK](https://github.com/ftsrg-rete/remo-lecture-notes/blob/master/docs/assets/remo-tutorial-models.qeax)
 
   - Set the perspective (in the top right corner) to "SysML"
  ![alt text](figs/lab1-tooling/req-uc-modeling.pdf-image-000.png)
