@@ -88,6 +88,7 @@ Create a package for system context, functional architecture, physical architect
 
 
 Create enums in the "Value Types" package:
+
   - Open the "Value Types" BDD
 
   - Create the "ConfigurationStatus" Enum using the Toolbox:
@@ -105,7 +106,8 @@ Create enums in the "Value Types" package:
 
 
 
-Create enums in the "Value Types" package:
+Create value types, units and quantity kinds in the "Value Types" package:
+
   - Open the "Value Types" BDD
 
   - Create the "Power" Value Type, the "Watt" Unit, and the "Power" Quantity Kind  using the Toolbox:
@@ -116,7 +118,7 @@ Create enums in the "Value Types" package:
 
   - Set the symbol and quantity kind of the watt unit
 
-    - Click on the unit and press CTRL+SHIFT+R, OR right-click on the unit and select "Features/Set Attribute Values"
+    - Click on the unit and press CTRL+SHIFT+R, OR right-click on the unit and select "Features/Set Run State"
     ![alt text](figs/ea-tooling-structure/image-19.png)
 
     - In the pop-up menu, set the attributes
@@ -132,9 +134,10 @@ Create enums in the "Value Types" package:
 
 
 Import the SysPhS interface, physical interaction, and value type library using the "Model Builder":
+
   - Right click on the "Steering Wheel Heating System" package and select "Model Builder" OR Press CTRL+SHIFT+M
 
-  - Select "SysPhS/SysPhS Library"
+  - Select "SysPhS/SysPhS Library" (you might need to switch the perspective to "All" above the list if SysPhS is not shown)
   ![alt text](figs/ea-tooling-structure/image-5.png)
 
   - Click on "Create Model"
