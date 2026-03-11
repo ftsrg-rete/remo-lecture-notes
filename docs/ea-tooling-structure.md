@@ -14,7 +14,7 @@ The following steps must be executed before this exercise:
 
   - Run EA 
 
-  - Open the tutorial model available here: [MODEL_LINK](https://github.com/ftsrg-rete/remo-lecture-notes/blob/master/docs/assets/remo-tutorial-models.qeax)
+  - Open the tutorial model available here: [MODEL_LINK](https://github.com/ftsrg-rete/remo-lecture-notes/raw/refs/heads/master/docs/assets/remo-tutorial-models.qeax)
 
   - Set the perspective (in the top right corner) to "SysML"
  ![alt text](figs/lab1-tooling/req-uc-modeling.pdf-image-000.png)
