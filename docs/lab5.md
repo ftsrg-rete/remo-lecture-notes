@@ -4,25 +4,24 @@ subtitle: System Modeling (VIMIAD03)
 header: System Modeling (VIMIAD03)
 ---
 
-# Tool Usage
+A laboron használt kiinduló modell: [struct-method-lab-initial.qeax](https://github.com/ftsrg-rete/remo-lecture-notes/raw/refs/heads/master/docs/assets/struct-method-lab-initial.qeax)
 
-Detailed guide on how to use Enterprise Architect for activity modeling: [Activity modeling](https://ftsrg-rete.github.io/remo-lecture-notes/behavior-modeling-guide/#Activity-modeling)
+# Rendszerspecifikáció
 
-# Modeling Exercises
+Egy adaptív sebességtartó rendszert (adaptive cruise control, ACC) tervezünk. A kiadott modell a sebességmérésre és ez alapján a motor vezérlésére fókuszál.
 
-Refine the System Context of the ACC system with Activity Diagrams. Model the behavior of the Human-Machine Interface (HMI) and the Distance Sensor.
+A sebességet két különböző módon mérjük egyszerre: 1) egy 3DM-GX5-10 IMU (Inertial Measurement Unit) közvetlenül mozgásadatokat szolgáltat a belső szenzorai alapján, míg 2) a négy kerék mozgását függetlenül mérjük enkóderekkel, egyel-egyel minden kerékhez. Az enkóderek adatait egy mikrokontrollerbe vezetjük, amely a 4 enkóder méréséből állít elő egyetlen értéket a jármű sebességére. 
 
-1. Download the initial model of the ACC with the system context, interfaces, and use cases [here](https://github.com/ftsrg-rete/remo-lecture-notes/raw/refs/heads/master/docs/assets/Lab4-initial.qea).
-1. Model the behavior of the human-machine interface (HMI) and the distance sensor.
-    1. Create an Activity Diagram under the System Context block.
-    2. Add the participants as partitions* by dragging the blocks of the System Context block onto the diagram.
-    3. Model the *cyclic* behavior of the user using the HMI:
-        1. The user can turn the ACC on (by sending a signal) and set the current speed, or 
-        2. the user can turn the ACC off (by sending a signal).
-    4. Model the *cyclic* behavior of the Distance Sensor:
-        1. The Distance Sensor measures the distance from the vehicle before the ego vehicle.
-        2. The Distance Sensor can *send a signal* if the vehicle before the ego vehicle is too close.
-        3. Model the data flow between the steps and the decision.
-    4. _Extra:_ Modify the behavior of the Distance Sensor such that it can be interrupted if the user decides to turn off the ACC, in which case its behavior is terminated.
+A mikrokontrollerből származó aggregált adatok a fő logikai egységbe mennek tovább. A két sebességmérést az ACC fő logikai egysége dolgozza fel, amely szintén egy mikrokontroller. A kimenet egy parancs, hogy gyorsítson, lassítson vagy tartsa a jármű a sebességet. Az egyszeres hibapont (SPoF) kiküszöbölése érdekében a fő logikai egység meg van kettőzve. 
 
-*In Enterprise Architect you cannot add _part properties_ as partitions. In this exercise, it is sufficient to add _blocks_ as partitions. Otherwise, you can add partitions to the model and set _part properties_ in the Properties > ActivityPartition > Represents settings.
+Egy FPGA szavazót használunk védelemként, hogy a rendszer a végső parancsot kiadja-e, vagy pedig biztonságos vészhelyzeti leállást kezdeményezzen. Az FPGA szavazó is duplikálva van, de a kettőzés nem egy külön szavazóval van megvalósítva, hanem az FPGA szavazók megkapják a másik FPGA kimenetét és folyamatosan összevetik a saját kimenetükkel, hogy amint eltérést észlelnek, a biztonságos vészhelyzeti leállítást kezdeményezzék. 
+
+Minden mikrokontroller áramellátását a fő tápegység biztosítja egy-egy dedikált 5V-os tápszabályzón keresztül (minden mikrokontrollernek van saját tápszabályzója).
+
+# Ismerkedés az ACC modellel
+
+Ismerkedjen meg a kiinduló modellel! A modell struktúrájának átlátásában segít az overview package diagram – ebben találhatóak linkek a különböző diagramokra és megjegyzések a szerepükről.
+
+# A modell kiegészítése
+
+Egy adaptív sebességtartónak nem szimplán a sebességtartás a feladata: az adaptivitás azt jelenti, hogy figyelnie kell, nincs-e túl közel a jármű az előtte haladóhoz, és amennyiben igen, akkor lassítania kell, akkor is, ha a jármű a célsebességnél lassabban halad. Ehhez szükség van a távolság mérésére is, ami még nem szerepel a modellben (bár pár azzal kapcsolatos jegyzet már bekerült, és a tartandó távolság beállítására is szerepel már modellelem). A távolságmérést a hibatűrés jegyében az alábbi módon tervezzük megvalósítani: egy radart és egy lézeres távolságmérő szenzort is használunk egyszerre, mindkettő folyamatosan méri a távolságot, a mérésüket pedig egy dedikált mikrokontroller dolgozza fel, és egyetlen fúzionált értéket továbbít a vezérlésért felelős komponensnek. Egészítse ki a modellt távolságméréssel! A modellben már szereplő funkciók és platform komponensek mintájára vegye fel a szükséges új elemeket a funkcionális és platform modellben is, majd végezze el az allokációt, és ennek megfelelően egészítse ki a rendszerarchitektúra modellt! Ne felejtse el a létező komponensek interakciós pontjait (portok és ezek interfészei) is megfelelően bővíteni!
