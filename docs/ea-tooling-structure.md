@@ -301,7 +301,7 @@ Create IBD for the System Context:
 
   - Open the "System Context" BDD
 
-  - Right-click on the "System Context" and click on "New Child Diagram/Internal Block Diagram"
+  - Right-click on the "Steering Wheel Heating System System Context" block and click on "New Child Diagram/Internal Block Diagram"
 
   - Right-click anywhere on the diagram and select "Synchronize Structural Elements" 
   ![alt text](figs/ea-tooling-structure/image-47.png)
