@@ -164,7 +164,7 @@ In the interface package, create the command interface:
 
     - Click on the Signal
 
-    - In the Attributes tab of the Features window, write "referenceTemperature" in the New Attribute field and set the type to "Temperature" value type and the Scope to Public 
+    - In the Attributes tab of the Features window, write "referenceTemperature" in the New Attribute field and set the type to "Temperature" value type (from the SysPhS library) and the Scope to Public 
     ![alt text](figs/ea-tooling-structure/image-11.png)
 
     - To change the type of an attribute, click into the type field, and after that, click on the small (downward pointing) triangle and click "Select Type", and in the pop-up window, select the type of the attribute
@@ -221,7 +221,7 @@ In the Interfaces BDD, create interface blocks for the system context diagram:
   - Draw a "Realization" relationship from the "Vehicle Communication IF" to the "ConfigurationInterface" and to the "CommandInterface"
   ![alt text](figs/ea-tooling-structure/image-31.png)
 
-  - Right click on the "" and click on "Features/Show Realized Interfaces" 
+  - Right click on the "Vehicle Communication IF" and click on "Features/Show Realized Interfaces" 
   ![alt text](figs/ea-tooling-structure/image-32.png)
 
   - Draw the "Power" value type to "Mechanical Connection IF" and drop as a "Flow Property"
@@ -243,7 +243,7 @@ In the Interfaces BDD, create association blocks for the battery wire:
 
   - Open the "Interfaces" BDD
 
-  - Create "Battery Wire" "Association Block" between the Battery IF
+  - Create "Battery Wire" "Association Block" from the Battery IF interface block to itself
   ![alt text](figs/ea-tooling-structure/image-40.png)
 
   - Name the connector of the battery wire to "Battery Wire" 
