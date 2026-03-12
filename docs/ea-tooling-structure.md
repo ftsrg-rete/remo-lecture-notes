@@ -283,7 +283,7 @@ Create the composition structure of the system context:
   - Create "Reference Association" between "Vehicle Network Subsystem" and "Vehicle Subsystem List"
 
   ![alt text](figs/ea-tooling-structure/image-38.png)
-  - Set the direction source of the reference association to "source to target" in the properties window
+  - Set the direction source of the reference association to "source to destination" in the properties window
 
   ![alt text](figs/ea-tooling-structure/image-39.png)
   - Drag the Power value type to the Vehicle Battery block and drop as "Property"
