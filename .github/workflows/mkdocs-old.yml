@@ -1,9 +1,9 @@
 name: mkdocs (old)
 
 on:
-  push:
-    branches:
-      - master
+  # push:
+  #   branches:
+  #     - master
 
 jobs:
   deploy:
