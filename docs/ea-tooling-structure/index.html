@@ -1,0 +1,743 @@
+
+<!DOCTYPE html>
+
+<html class="no-js" lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width,initial-scale=1" name="viewport"/>
+<link href="../assets/images/favicon.png" rel="icon"/>
+<meta content="mkdocs-1.3.0, mkdocs-material-8.3.9" name="generator"/>
+<title>EA Tooling Structure Modeling - ReMo Lecture Notes</title>
+<link href="../assets/stylesheets/main.1d29e8d0.min.css" rel="stylesheet"/>
+<link href="../assets/stylesheets/palette.cbb835fc.min.css" rel="stylesheet"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&amp;display=fallback" rel="stylesheet"/>
+<style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+<link href="../mkdocs.css" rel="stylesheet"/>
+<script>__md_scope=new URL("..",location),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+<link href="../assets/stylesheets/glightbox.min.css" rel="stylesheet"/><style>html.glightbox-open { overflow: initial; height: 100%; }</style><script src="../assets/javascripts/glightbox.min.js"></script></head>
+<body data-md-color-accent="none" data-md-color-primary="none" data-md-color-scheme="" dir="ltr">
+<input autocomplete="off" class="md-toggle" data-md-toggle="drawer" id="__drawer" type="checkbox"/>
+<input autocomplete="off" class="md-toggle" data-md-toggle="search" id="__search" type="checkbox"/>
+<label class="md-overlay" for="__drawer"></label>
+<div data-md-component="skip">
+<a class="md-skip" href="#prerequisites">
+          Skip to content
+        </a>
+</div>
+<div data-md-component="announce">
+</div>
+<header class="md-header" data-md-component="header">
+<nav aria-label="Header" class="md-header__inner md-grid">
+<a aria-label="ReMo Lecture Notes" class="md-header__button md-logo" data-md-component="logo" href=".." title="ReMo Lecture Notes">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"></path></svg>
+</a>
+<label class="md-header__button md-icon" for="__drawer">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"></path></svg>
+</label>
+<div class="md-header__title" data-md-component="header-title">
+<div class="md-header__ellipsis">
+<div class="md-header__topic">
+<span class="md-ellipsis">
+            ReMo Lecture Notes
+          </span>
+</div>
+<div class="md-header__topic" data-md-component="header-topic">
+<span class="md-ellipsis">
+            
+              EA Tooling Structure Modeling
+            
+          </span>
+</div>
+</div>
+</div>
+<label class="md-header__button md-icon" for="__search">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"></path></svg>
+</label>
+<div class="md-search" data-md-component="search" role="dialog">
+<label class="md-search__overlay" for="__search"></label>
+<div class="md-search__inner" role="search">
+<form class="md-search__form" name="search">
+<input aria-label="Search" autocapitalize="off" autocomplete="off" autocorrect="off" class="md-search__input" data-md-component="search-query" name="query" placeholder="Search" required="" spellcheck="false" type="text"/>
+<label class="md-search__icon md-icon" for="__search">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"></path></svg>
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"></path></svg>
+</label>
+<nav aria-label="Search" class="md-search__options">
+<button aria-label="Clear" class="md-search__icon md-icon" tabindex="-1" type="reset">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"></path></svg>
+</button>
+</nav>
+</form>
+<div class="md-search__output">
+<div class="md-search__scrollwrap" data-md-scrollfix="">
+<div class="md-search-result" data-md-component="search-result">
+<div class="md-search-result__meta">
+            Initializing search
+          </div>
+<ol class="md-search-result__list"></ol>
+</div>
+</div>
+</div>
+</div>
+</div>
+</nav>
+</header>
+<div class="md-container" data-md-component="container">
+<main class="md-main" data-md-component="main">
+<div class="md-main__inner md-grid">
+<div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation">
+<div class="md-sidebar__scrollwrap">
+<div class="md-sidebar__inner">
+<nav aria-label="Navigation" class="md-nav md-nav--primary" data-md-level="0">
+<label class="md-nav__title" for="__drawer">
+<a aria-label="ReMo Lecture Notes" class="md-nav__button md-logo" data-md-component="logo" href=".." title="ReMo Lecture Notes">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"></path></svg>
+</a>
+    ReMo Lecture Notes
+  </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1" id="__nav_1" type="checkbox"/>
+<label class="md-nav__link" for="__nav_1">
+          Installation &amp; Basics
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="Installation &amp; Basics" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_1">
+<span class="md-nav__icon md-icon"></span>
+          Installation &amp; Basics
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../rete-install-basics-en/">
+        Installation Guidebook
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2" id="__nav_2" type="checkbox"/>
+<label class="md-nav__link" for="__nav_2">
+          Modeling Guides
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="Modeling Guides" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_2">
+<span class="md-nav__icon md-icon"></span>
+          Modeling Guides
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="..">
+        Enterprise Architect Tutorial
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../general-modeling-guide/">
+        General introduction to modeling in Enterprise Architect
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../first-project/">
+        First steps using Enterprise Architect
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../usecase-and-requirement-guide/">
+        Requirement and use case modeling using Enterprise Architect
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../data-and-interface-modeling-guide/">
+        Data and interface modeling using Enterprise Architect
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../composition-modeling-guide/">
+        Composition modeling using Enterprise Architect
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../structural-modeling-guide/">
+        Structural modeling using Enterprise Architect
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../allocation-modeling-guide/">
+        Allocation modeling using Enterprise Architect
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../behavior-modeling-guide/">
+        Behavior modeling using Enterprise Architect
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../parametric-modeling-guide/">
+        Parametric modeling using Enterprise Architect
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../safest/">
+        SAFEST - Fault Tree Editing tool
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../ftedit/">
+        FTEdit - Fault Tree Editing tool
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../SmartGit/">
+        SmartGit FAQ
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3" id="__nav_3" type="checkbox"/>
+<label class="md-nav__link" for="__nav_3">
+          Laboratory Exercises
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="Laboratory Exercises" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_3">
+<span class="md-nav__icon md-icon"></span>
+          Laboratory Exercises
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../lab1/">
+        Laboratory Exercise 1
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../lab2/">
+        Laboratory Exercise 2
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../lab3/">
+        Laboratory Exercise 3
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../lab4/">
+        Laboratory Exercise 4
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../lab5/">
+        Laboratory Exercise 5
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../lab6/">
+        Laboratory Exercise 6
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../lab7/">
+        Laboratory Exercise 7
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../lab8/">
+        Laboratory Exercise 8
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../lab9/">
+        Laboratory Exercise 9
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../lab10/">
+        Laboratory Exercise 10
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../lab11/">
+        Laboratory Exercise 11
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--active md-nav__item--nested">
+<input checked="" class="md-nav__toggle md-toggle" data-md-toggle="__nav_4" id="__nav_4" type="checkbox"/>
+<label class="md-nav__link" for="__nav_4">
+          Modeling Tutorials
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="Modeling Tutorials" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_4">
+<span class="md-nav__icon md-icon"></span>
+          Modeling Tutorials
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../ea-tooling-req-uc/">
+        EA Tooling Requirement Modeling and Use Cases
+      </a>
+</li>
+<li class="md-nav__item md-nav__item--active">
+<input class="md-nav__toggle md-toggle" data-md-toggle="toc" id="__toc" type="checkbox"/>
+<a class="md-nav__link md-nav__link--active" href="./">
+        EA Tooling Structure Modeling
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</div>
+</div>
+</div>
+<div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc">
+<div class="md-sidebar__scrollwrap">
+<div class="md-sidebar__inner">
+<nav aria-label="Table of contents" class="md-nav md-nav--secondary">
+</nav>
+</div>
+</div>
+</div>
+<div class="md-content" data-md-component="content">
+<article class="md-content__inner md-typeset">
+<h1 id="prerequisites">Prerequisites</h1>
+<p>The following steps must be executed before this exercise:</p>
+<ul>
+<li>
+<p>Install EA 17.1</p>
+</li>
+<li>
+<p>Run EA </p>
+</li>
+<li>
+<p>Open the tutorial model available here: <a href="https://github.com/ftsrg-rete/remo-lecture-notes/raw/refs/heads/master/docs/assets/remo-tutorial-models.qeax">MODEL_LINK</a></p>
+</li>
+<li>
+<p>Set the perspective (in the top right corner) to "SysML"
+ <a class="glightbox" href="../figs/lab1-tooling/req-uc-modeling.pdf-image-000.png"><img alt="alt text" src="../figs/lab1-tooling/req-uc-modeling.pdf-image-000.png"/></a></p>
+</li>
+<li>
+<p>Make sure that the following windows are open:</p>
+<ul>
+<li>
+<p>Explore/Model Browser</p>
+</li>
+<li>
+<p>Explore/Inspect</p>
+</li>
+<li>
+<p>Explore/Focus</p>
+</li>
+<li>
+<p>Properties/Properties</p>
+</li>
+<li>
+<p>Properties/Notes</p>
+</li>
+<li>
+<p>Properties/Tagged Values</p>
+</li>
+<li>
+<p>Properties/Features</p>
+</li>
+<li>
+<p>Properties/Requirements</p>
+</li>
+<li>
+<p>Trace/Traceability</p>
+</li>
+<li>
+<p>Trace/Relationships</p>
+</li>
+</ul>
+</li>
+<li>
+<p>If some windows are not visible, then click on "Portals/Windows" and click on the window names (after that, right click on the windows and select auto-hide):
+  <a class="glightbox" href="../figs/ea-tooling-structure/image.png"><img alt="alt text" src="../figs/ea-tooling-structure/image.png"/></a></p>
+</li>
+<li>
+<p>Make sure that the toolbox is visible:
+  <a class="glightbox" href="../figs/ea-tooling-structure/image-1.png"><img alt="alt text" src="../figs/ea-tooling-structure/image-1.png"/></a></p>
+</li>
+<li>
+<p>Arrange the windows by dragging them into a position where you can intuitively find them:
+  <a class="glightbox" href="../figs/ea-tooling-structure/image-2.png"><img alt="alt text" src="../figs/ea-tooling-structure/image-2.png"/></a></p>
+</li>
+</ul>
+<h1 id="package-structure">Package structure</h1>
+<p>Create a package for system context, functional architecture, physical architecture, interface and value type modeling:</p>
+<ul>
+<li>
+<p>Right click on the "Steering Wheel Heating System" package and select "New Package" OR Press CTRL+W</p>
+</li>
+<li>
+<p>Set the name to "Interfaces"</p>
+</li>
+<li>
+<p>Select "Create Diagram" 
+  <a class="glightbox" href="../figs/ea-tooling-structure/image-3.png"><img alt="alt text" src="../figs/ea-tooling-structure/image-3.png"/></a></p>
+</li>
+<li>
+<p>Create a BDD diagram
+  <a class="glightbox" href="../figs/ea-tooling-structure/image-4.png"><img alt="alt text" src="../figs/ea-tooling-structure/image-4.png"/></a></p>
+</li>
+<li>
+<p>Repeat these steps and create packages and BDDs for system context, functional architecture, physical architecture, and value type modeling:
+  <a class="glightbox" href="../figs/ea-tooling-structure/image-6.png"><img alt="alt text" src="../figs/ea-tooling-structure/image-6.png"/></a></p>
+</li>
+<li>
+<p>Drag and drop all packages as a Package Element into the "Steering Wheel Heating System" package (you don't have the SysPhS Library package yet; it will be created later):
+  <a class="glightbox" href="../figs/ea-tooling-structure/image-7.png"><img alt="alt text" src="../figs/ea-tooling-structure/image-7.png"/></a></p>
+</li>
+<li>
+<p>In the "Layout" menu, select "Diagram Layout/Apply Default Layout":
+  <a class="glightbox" href="../figs/ea-tooling-structure/image-8.png"><img alt="alt text" src="../figs/ea-tooling-structure/image-8.png"/></a></p>
+</li>
+</ul>
+<h1 id="value-type-modeling">Value Type Modeling</h1>
+<h2 id="create-enums">Create Enums</h2>
+<p>Create enums in the "Value Types" package:</p>
+<ul>
+<li>
+<p>Open the "Value Types" BDD</p>
+</li>
+<li>
+<p>Create the "ConfigurationStatus" Enum using the Toolbox:
+  <a class="glightbox" href="../figs/ea-tooling-structure/image-15.png"><img alt="alt text" src="../figs/ea-tooling-structure/image-15.png"/></a></p>
+</li>
+<li>
+<p>Create enum literals</p>
+<ul>
+<li>
+<p>Click on the enum</p>
+</li>
+<li>
+<p>In the Attributes tab of the Features window, write "Successful" and "Error" in the New Attribute field
+  <a class="glightbox" href="../figs/ea-tooling-structure/image-16.png"><img alt="alt text" src="../figs/ea-tooling-structure/image-16.png"/></a></p>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="create-value-types">Create Value Types</h2>
+<p>Create value types, units and quantity kinds in the "Value Types" package:</p>
+<ul>
+<li>
+<p>Open the "Value Types" BDD</p>
+</li>
+<li>
+<p>Create the "Power" Value Type, the "Watt" Unit, and the "Power" Quantity Kind  using the Toolbox:
+  <a class="glightbox" href="../figs/ea-tooling-structure/image-17.png"><img alt="alt text" src="../figs/ea-tooling-structure/image-17.png"/></a></p>
+</li>
+<li>
+<p>Select the Power value type and in the Element tab of the Properties window set the unit and quantityKind stereotype attributes (click on the "..." button in the right side of the fields):
+  <a class="glightbox" href="../figs/ea-tooling-structure/image-18.png"><img alt="alt text" src="../figs/ea-tooling-structure/image-18.png"/></a></p>
+</li>
+<li>
+<p>Set the symbol and quantity kind of the watt unit</p>
+<ul>
+<li>
+<p>Click on the unit and press CTRL+SHIFT+R, OR right-click on the unit and select "Features/Set Run State"
+<a class="glightbox" href="../figs/ea-tooling-structure/image-19.png"><img alt="alt text" src="../figs/ea-tooling-structure/image-19.png"/></a></p>
+</li>
+<li>
+<p>In the pop-up menu, set the attributes
+<a class="glightbox" href="../figs/ea-tooling-structure/image-20.png"><img alt="alt text" src="../figs/ea-tooling-structure/image-20.png"/></a></p>
+</li>
+</ul>
+</li>
+</ul>
+<h1 id="interface-modeling">Interface Modeling</h1>
+<h2 id="sysphs-interfaces">SysPhS Interfaces</h2>
+<p>Import the SysPhS interface, physical interaction, and value type library using the "Model Builder":</p>
+<ul>
+<li>
+<p>Right click on the "Steering Wheel Heating System" package and select "Model Builder" OR Press CTRL+SHIFT+M</p>
+</li>
+<li>
+<p>Select "SysPhS/SysPhS Library" (you might need to switch the perspective to "All" above the list if SysPhS is not shown)
+  <a class="glightbox" href="../figs/ea-tooling-structure/image-5.png"><img alt="alt text" src="../figs/ea-tooling-structure/image-5.png"/></a></p>
+</li>
+<li>
+<p>Click on "Create Model"</p>
+</li>
+<li>
+<p>Inspect the models in the newly imported library</p>
+</li>
+</ul>
+<h2 id="create-interfaces">Create Interfaces</h2>
+<p>In the interface package, create the command interface:</p>
+<ul>
+<li>
+<p>Open the "Interfaces" BDD</p>
+</li>
+<li>
+<p>Using the Toolbox, create the following Signals: "Start", "Stop", "SetTemperature"
+  <a class="glightbox" href="../figs/ea-tooling-structure/image-9.png"><img alt="alt text" src="../figs/ea-tooling-structure/image-9.png"/></a></p>
+</li>
+<li>
+<p>Using the interface, create the "CommandInterface" and the "ConfigurationInterface":
+  <a class="glightbox" href="../figs/ea-tooling-structure/image-14.png"><img alt="alt text" src="../figs/ea-tooling-structure/image-14.png"/></a></p>
+</li>
+<li>
+<p>Create a "referenceTemperature" parameter in the "SetTemperature" Signal</p>
+<ul>
+<li>
+<p>Click on the Signal</p>
+</li>
+<li>
+<p>In the Attributes tab of the Features window, write "referenceTemperature" in the New Attribute field and set the type to "Temperature" value type (from the SysPhS library) and the Scope to Public 
+<a class="glightbox" href="../figs/ea-tooling-structure/image-11.png"><img alt="alt text" src="../figs/ea-tooling-structure/image-11.png"/></a></p>
+</li>
+<li>
+<p>To change the type of an attribute, click into the type field, and after that, click on the small (downward pointing) triangle and click "Select Type", and in the pop-up window, select the type of the attribute
+<a class="glightbox" href="../figs/ea-tooling-structure/image-13.png"><img alt="alt text" src="../figs/ea-tooling-structure/image-13.png"/></a></p>
+</li>
+</ul>
+</li>
+<li>
+<p>Drop all signals into the "CommandInterface"
+  <a class="glightbox" href="../figs/ea-tooling-structure/image-12.png"><img alt="alt text" src="../figs/ea-tooling-structure/image-12.png"/></a></p>
+</li>
+<li>
+<p>Create the "configure" operation in the "ConfigurationInterface"</p>
+<ul>
+<li>Click on the interface</li>
+<li>In the Operations tab of the Features window, write "configure" in the New Operation field, and set the Scope to Public</li>
+<li>Double click on the operation <strong>in the diagram</strong> and set the parameters and the return type</li>
+<li>in parameter defaultTemperature : Temperature</li>
+<li>in parameter maxHeatingPower : Power</li>
+<li>in parameter heatByDefault : Boolean</li>
+<li>return value ConfigurationStatus
+<a class="glightbox" href="../figs/ea-tooling-structure/image-22.png"><img alt="alt text" src="../figs/ea-tooling-structure/image-22.png"/></a></li>
+</ul>
+</li>
+</ul>
+<h2 id="create-interface-blocks">Create Interface Blocks</h2>
+<p>In the Interfaces BDD, create interface blocks for the system context diagram:</p>
+<ul>
+<li>
+<p>Open the "Interfaces" BDD</p>
+</li>
+<li>
+<p>Create "Battery IF", "Vehicle Communication IF", "Mechanical Connection IF" interface blocks
+  <a class="glightbox" href="../figs/ea-tooling-structure/image-23.png"><img alt="alt text" src="../figs/ea-tooling-structure/image-23.png"/></a></p>
+</li>
+<li>
+<p>Drag "ChargeFlowElement" (from the SysPhS physical interaction library) as a port to the "Battery IF"
+  <a class="glightbox" href="../figs/ea-tooling-structure/image-24.png"><img alt="alt text" src="../figs/ea-tooling-structure/image-24.png"/></a></p>
+</li>
+<li>
+<p>This way, create the following ports:
+  <a class="glightbox" href="../figs/ea-tooling-structure/image-25.png"><img alt="alt text" src="../figs/ea-tooling-structure/image-25.png"/></a></p>
+</li>
+<li>
+<p><strong>Visually delete</strong> the ports using SHIFT+Del
+  <a class="glightbox" href="../figs/ea-tooling-structure/image-26.png"><img alt="alt text" src="../figs/ea-tooling-structure/image-26.png"/></a></p>
+</li>
+<li>
+<p>Drop the "EntropyFlowElement" to the diagram as a Link
+  <a class="glightbox" href="../figs/ea-tooling-structure/image-27.png"><img alt="alt text" src="../figs/ea-tooling-structure/image-27.png"/></a></p>
+</li>
+<li>
+<p>Draw a "Generalisation" relationship from the "Mechanical Connection IF" to the "EntropyFlowElement"
+  <a class="glightbox" href="../figs/ea-tooling-structure/image-28.png"><img alt="alt text" src="../figs/ea-tooling-structure/image-28.png"/></a></p>
+</li>
+<li>
+<p>Select the "Mechanical Connection IF" and in the "Part/Properties" tab of the "Features" window, click on the "Show Inherited" checkbox and click on the checkbox near the "sF" flow property 
+  <a class="glightbox" href="../figs/ea-tooling-structure/image-29.png"><img alt="alt text" src="../figs/ea-tooling-structure/image-29.png"/></a></p>
+</li>
+<li>
+<p><strong>Visually delete</strong> the sF flow property
+  <a class="glightbox" href="../figs/ea-tooling-structure/image-30.png"><img alt="alt text" src="../figs/ea-tooling-structure/image-30.png"/></a></p>
+</li>
+<li>
+<p>Draw a "Realization" relationship from the "Vehicle Communication IF" to the "ConfigurationInterface" and to the "CommandInterface"
+  <a class="glightbox" href="../figs/ea-tooling-structure/image-31.png"><img alt="alt text" src="../figs/ea-tooling-structure/image-31.png"/></a></p>
+</li>
+<li>
+<p>Right click on the "Vehicle Communication IF" and click on "Features/Show Realized Interfaces" 
+  <a class="glightbox" href="../figs/ea-tooling-structure/image-32.png"><img alt="alt text" src="../figs/ea-tooling-structure/image-32.png"/></a></p>
+</li>
+<li>
+<p>Draw the "Power" value type to "Mechanical Connection IF" and drop as a "Flow Property"</p>
+</li>
+<li>
+<p>Select the flow property and in the Properties window set the direction to "in" and set the name to "vibration"
+  <a class="glightbox" href="../figs/ea-tooling-structure/image-33.png"><img alt="alt text" src="../figs/ea-tooling-structure/image-33.png"/></a></p>
+</li>
+<li>
+<p>Visually delete the flow property 
+  <a class="glightbox" href="../figs/ea-tooling-structure/image-34.png"><img alt="alt text" src="../figs/ea-tooling-structure/image-34.png"/></a></p>
+</li>
+</ul>
+<h2 id="create-association-block">Create Association Block</h2>
+<p>In the Interfaces BDD, create association blocks for the battery wire:</p>
+<ul>
+<li>
+<p>Open the "Interfaces" BDD</p>
+</li>
+<li>
+<p>Create "Battery Wire" "Association Block" from the Battery IF interface block to itself
+  <a class="glightbox" href="../figs/ea-tooling-structure/image-40.png"><img alt="alt text" src="../figs/ea-tooling-structure/image-40.png"/></a></p>
+</li>
+<li>
+<p>Name the connector of the battery wire to "Battery Wire" 
+  <a class="glightbox" href="../figs/ea-tooling-structure/image-41.png"><img alt="alt text" src="../figs/ea-tooling-structure/image-41.png"/></a></p>
+</li>
+<li>
+<p>Right-click on the "Battery Wire" and click on "New Child Diagram/Internal Block Diagram"
+  <a class="glightbox" href="../figs/ea-tooling-structure/image-43.png"><img alt="alt text" src="../figs/ea-tooling-structure/image-43.png"/></a></p>
+</li>
+<li>
+<p>Right-click anywhere on the diagram and select "Synchronize Structural Elements" 
+  <a class="glightbox" href="../figs/ea-tooling-structure/image-44.png"><img alt="alt text" src="../figs/ea-tooling-structure/image-44.png"/></a></p>
+</li>
+<li>
+<p>In the "Interaction Points" tab of the "Features" window, click on the "All" button to visualize the ports
+  <a class="glightbox" href="../figs/ea-tooling-structure/image-45.png"><img alt="alt text" src="../figs/ea-tooling-structure/image-45.png"/></a></p>
+</li>
+<li>
+<p>Arrange and connect the ports using the connector
+  <a class="glightbox" href="../figs/ea-tooling-structure/image-46.png"><img alt="alt text" src="../figs/ea-tooling-structure/image-46.png"/></a></p>
+</li>
+</ul>
+<h1 id="composition-modeling">Composition Modeling</h1>
+<p>Create the composition structure of the system context:</p>
+<ul>
+<li>
+<p>Open the System Context BDD</p>
+</li>
+<li>
+<p>Create the "Steering Wheel", "Steering Wheel Heating System", "Steering Wheel Heating System System Context",  "Vehicle Battery", "Vehicle Infotainment System", "Steering Wheel Frame", "Vehicle Network Subsystem", "Vehicle Subsystem List"
+  <a class="glightbox" href="../figs/ea-tooling-structure/image-35.png"><img alt="alt text" src="../figs/ea-tooling-structure/image-35.png"/></a></p>
+</li>
+<li>
+<p>Create "Part Associations" between system context-related and Steering Wheel-related elements </p>
+</li>
+</ul>
+<p><a class="glightbox" href="../figs/ea-tooling-structure/image-36.png"><img alt="alt text" src="../figs/ea-tooling-structure/image-36.png"/></a>
+  - Create "Shared Associations" between Vehicle Network Subsystem-related elements</p>
+<p><a class="glightbox" href="../figs/ea-tooling-structure/image-37.png"><img alt="alt text" src="../figs/ea-tooling-structure/image-37.png"/></a>
+  - Create "Reference Association" between "Vehicle Network Subsystem" and "Vehicle Subsystem List"</p>
+<p><a class="glightbox" href="../figs/ea-tooling-structure/image-38.png"><img alt="alt text" src="../figs/ea-tooling-structure/image-38.png"/></a>
+  - Set the direction source of the reference association to "source to destination" in the properties window</p>
+<p><a class="glightbox" href="../figs/ea-tooling-structure/image-39.png"><img alt="alt text" src="../figs/ea-tooling-structure/image-39.png"/></a>
+  - Drag the Power value type to the Vehicle Battery block and drop as "Property"
+  <a class="glightbox" href="../figs/ea-tooling-structure/image-50.png"><img alt="alt text" src="../figs/ea-tooling-structure/image-50.png"/></a></p>
+<ul>
+<li>Name the property to "maxBatteryPower" and visually delete the property
+  <a class="glightbox" href="../figs/ea-tooling-structure/image-51.png"><img alt="alt text" src="../figs/ea-tooling-structure/image-51.png"/></a></li>
+</ul>
+<h1 id="internal-structure-modeling">Internal Structure Modeling</h1>
+<p>Create IBD for the System Context:</p>
+<ul>
+<li>
+<p>Open the "System Context" BDD</p>
+</li>
+<li>
+<p>Right-click on the "Steering Wheel Heating System System Context" block and click on "New Child Diagram/Internal Block Diagram"</p>
+</li>
+<li>
+<p>Right-click anywhere on the diagram and select "Synchronize Structural Elements" 
+  <a class="glightbox" href="../figs/ea-tooling-structure/image-47.png"><img alt="alt text" src="../figs/ea-tooling-structure/image-47.png"/></a></p>
+</li>
+<li>
+<p>Name and arrange the elements
+  <a class="glightbox" href="../figs/ea-tooling-structure/image-48.png"><img alt="alt text" src="../figs/ea-tooling-structure/image-48.png"/></a></p>
+</li>
+<li>
+<p>In the properties window, set the multiplicity of the battery to [1..2]
+  <a class="glightbox" href="../figs/ea-tooling-structure/image-49.png"><img alt="alt text" src="../figs/ea-tooling-structure/image-49.png"/></a></p>
+</li>
+<li>
+<p>Drag the "Battery IF", "Vehicle Communication IF", and "Mechanical Connection IF" to the properties and drop as ports. After that, name the ports. 
+  <a class="glightbox" href="../figs/ea-tooling-structure/image-53.png"><img alt="alt text" src="../figs/ea-tooling-structure/image-53.png"/></a></p>
+</li>
+<li>
+<p>Change the "Conjugated" attribute of the ports of the battery and the infotainment in the "Properties" window
+  <a class="glightbox" href="../figs/ea-tooling-structure/image-54.png"><img alt="alt text" src="../figs/ea-tooling-structure/image-54.png"/></a></p>
+</li>
+<li>
+<p>Connect the ports
+  <a class="glightbox" href="../figs/ea-tooling-structure/image-55.png"><img alt="alt text" src="../figs/ea-tooling-structure/image-55.png"/></a></p>
+</li>
+<li>
+<p>Select the connector of the battery, name it, and press CTRL+L and select the Battery Wire
+  <a class="glightbox" href="../figs/ea-tooling-structure/image-56.png"><img alt="alt text" src="../figs/ea-tooling-structure/image-56.png"/></a>
+<a class="glightbox" href="../figs/ea-tooling-structure/image-57.png"><img alt="alt text" src="../figs/ea-tooling-structure/image-57.png"/></a></p>
+</li>
+<li>
+<p>Create an item flow between the veh bus ports (after the pop-up window appears, press ESC)</p>
+</li>
+<li>
+<p>Drag the Signals over the item flow (after the pop-up window appears, click OK)
+  <a class="glightbox" href="../figs/ea-tooling-structure/image-58.png"><img alt="alt text" src="../figs/ea-tooling-structure/image-58.png"/></a></p>
+</li>
+<li>
+<p>Right-click on the veh bus connector and select "Advanced/Information Flow Realized"
+  <a class="glightbox" href="../figs/ea-tooling-structure/image-59.png"><img alt="alt text" src="../figs/ea-tooling-structure/image-59.png"/></a>
+<a class="glightbox" href="../figs/ea-tooling-structure/image-60.png"><img alt="alt text" src="../figs/ea-tooling-structure/image-60.png"/></a></p>
+</li>
+<li>
+<p>Right click on the "veh bus" port of the system and select "New Child Element/Provided Interface", double click on it, and in the pop-up window select the "Command Interface" 
+  <a class="glightbox" href="../figs/ea-tooling-structure/image-61.png"><img alt="alt text" src="../figs/ea-tooling-structure/image-61.png"/></a></p>
+</li>
+<li>
+<p>Repeat the previous step and create another provided interface child element
+  <a class="glightbox" href="../figs/ea-tooling-structure/image-62.png"><img alt="alt text" src="../figs/ea-tooling-structure/image-62.png"/></a></p>
+</li>
+<li>
+<p>In the other "veh bus" port, create the required interface counterparts
+  <a class="glightbox" href="../figs/ea-tooling-structure/image-63.png"><img alt="alt text" src="../figs/ea-tooling-structure/image-63.png"/></a></p>
+</li>
+</ul>
+</article>
+</div>
+</div>
+</main>
+<footer class="md-footer">
+<nav aria-label="Footer" class="md-footer__inner md-grid">
+<a aria-label="Previous: EA Tooling Requirement Modeling and Use Cases" class="md-footer__link md-footer__link--prev" href="../ea-tooling-req-uc/" rel="prev">
+<div class="md-footer__button md-icon">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"></path></svg>
+</div>
+<div class="md-footer__title">
+<div class="md-ellipsis">
+<span class="md-footer__direction">
+                Previous
+              </span>
+              EA Tooling Requirement Modeling and Use Cases
+            </div>
+</div>
+</a>
+</nav>
+<div class="md-footer-meta md-typeset">
+<div class="md-footer-meta__inner md-grid">
+<div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" rel="noopener" target="_blank">
+      Material for MkDocs
+    </a>
+</div>
+</div>
+</div>
+</footer>
+</div>
+<div class="md-dialog" data-md-component="dialog">
+<div class="md-dialog__inner md-typeset"></div>
+</div>
+<script id="__config" type="application/json">{"base": "..", "features": [], "search": "../assets/javascripts/workers/search.b97dbffb.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version.title": "Select version"}}</script>
+<script src="../assets/javascripts/bundle.6c7ad80a.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script>document$.subscribe(() => {const lightbox = GLightbox({"touchNavigation": true, "loop": false, "width": "10vw", "height": "10vw", "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom"});})</script></body>
+</html>
