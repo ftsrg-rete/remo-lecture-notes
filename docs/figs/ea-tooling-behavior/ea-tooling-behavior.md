@@ -120,6 +120,60 @@ Interactions are behavior models, which define the communication of two or more 
   - Add a "loop" fragment and another signal message to the diagram the following way (don't forget to select "Activations/End source activation"):
   ![alt text](image-21.png)
 
+  - Right click on the new message and select "Attach note or constraint":
+  ![alt text](image-22.png)
+
+  - Right click on the new message and select "Timing details". In the pop-up window set the "Duration Constraint" to "< 100 us":
+  ![alt text](image-23.png)
+
+# Activity Modeling
+
+This section shows you how you can create activity diagrams. In this tutorial, we will create activities for the "Steering Wheel Heating System".
+
+  - Right click on the "Steering Wheel Heating System" and select "Add/New Diagram":
+  ![alt text](image-24.png)
+
+  - In the pop-up window select Activity and click on "Create". We will use this diagram to define the main activities of the system. 
+  ![alt text](image-25.png)
+
+  - **Visually** delete the ports in the diagram (SHIFT+Del).
+
+  - Use the "SysML Activities" toolbox page to create an Activity namely, "Configure System".
+  ![alt text](image-26.png)
+
+
+# Statemachine Modeling
+
+In this section, we will create the statemachine of the "Steering Wheel Heating System".
+
+- Right click on the "Steering Wheel Heating System" and select "Add/Statemachine", name the statemachine to "System Statemachine" and click OK:
+![alt text](image-27.png)
+
+- Use the "SysML State" toolbox page to create an initial state and three states namely, "Off" and "On": 
+![alt text](image-28.png)
+
+- Use the "SysML State Relationships" toolbox page to create two transitions between the states:
+![alt text](image-29.png)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
