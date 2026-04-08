@@ -155,7 +155,29 @@ In this section, we will create the statemachine of the "Steering Wheel Heating 
 - Use the "SysML State Relationships" toolbox page to create two transitions between the states:
 ![alt text](image-29.png)
 
+- Select the second transition (between On and Off states) an in the "Constraints" tab of the Properties window set the guard to "batt.V_BAT.v > 10 V":
+![alt text](image-30.png)
 
+- Thereafter, in the Triggers section of the "Constraints" tab of the Properties window create new trigger:
+  - Name: "start"
+  - Type: "Signal"
+  - Specification: "Start" (click the "SET" button near the specification field and select the "*Start*" signal)
+
+- After the configuration click to save:
+![alt text](image-31.png)
+
+- Select the "On" state and in the "Regions" tab of the Properties window create a region, by writing "main" into the name field and click to "Add":
+![alt text](image-32.png)
+
+- In the internal region of the On state create some states and transitions:
+![alt text](image-36.png)
+
+
+- Create a new call trigger by selecting the "configure" operation of the "ConfigurationInterface":
+![alt text](image-37.png)
+
+- Select the effect is a behavior checkboxand select the "Configure System" activity as an effect:
+![alt text](image-35.png)
 
 
 
