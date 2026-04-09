@@ -169,7 +169,7 @@ In this section, we will create the statemachine of the "Steering Wheel Heating 
 - Select the "On" state and in the "Regions" tab of the Properties window create a region, by writing "main" into the name field and click to "Add":
 ![alt text](image-32.png)
 
-- In the internal region of the On state create some states and transitions:
+- In the internal region of the On state create some states and transitions (this way you can define any number of orthogonal regions):
 ![alt text](image-36.png)
 
 
@@ -179,23 +179,55 @@ In this section, we will create the statemachine of the "Steering Wheel Heating 
 - Select the effect is a behavior checkboxand select the "Configure System" activity as an effect:
 ![alt text](image-35.png)
 
+- Within the browser, you can select the triggers. Thereafter, in the Trigger tab of the properties window set the "Port" to "veh bus":
+![alt text](image-38.png)
+
+- Select the "Operational" state and in the properties window select the "Statemachine" behavior of the state. Thereafter, in the pop-up window select the system and click on new:
+![alt text](image-39.png)
+
+- Move the new statemachine under the system. Select the "Operational" state and in the Regions tab of the properties window set the "*Instance Classifier*" to the "Operational Statemachine".
+![alt text](image-41.png)
+
+- Open the statemachine diagram of the "Operational Statemachine" and create the following states and transitions:
+![alt text](image-40.png)
+
+- Create the "tooHot" and "tooCold" change triggers with "when(referenceTemperature < temperature)" and "when(referenceTemperature > temperature)" specification respectively.
+![alt text](image-42.png)
+
+- Select the "Heating" state and in the properties window set the entry and exit action to "Activate Heating" and "Deactivate Heating" actrivities respectively:
+![alt text](image-43.png)
+
+- In the browser right click the "Operational Statemachine" and select "Add/Entry Point":
+![alt text](image-44.png)
+
+- This way create two entry point and one exit point and drop them from the browser to the diagram:
+![alt text](image-45.png)
+
+- Connect the entry and exit points to the states using transitions and add a time trigger to the transition  the following way:
+![alt text](image-46.png) 
+
+- Open the "System Statemachine". Select the "Operational" state and create the same entry. Right click in the "Connection Points" tab of the Features window and select "Add New". In the pop-up window select all entry point, name the reference to "Heating" and click "OK".
+![alt text](image-48.png)
 
 
+- Repeat this process for the other entry and the exit points.
+![alt text](image-49.png)
 
 
+- Create a "Choice" pseudostate and a normal state the following way:
+![alt text](image-50.png)
 
+- Add transitions and modify the existing incoming transition of the Opational state the following way:
+![alt text](image-51.png)
 
+- Define the guard of the outgoing transitions of the "Choice" pseudostate the following way:
+![alt text](image-52.png)
 
+- Select "Operational" state and in the "Internal Trigger" tab of the Features window right click select the "New Internal Trigger..."
+![alt text](image-53.png)
 
-
-
-
-
-
-
-
-
-
+- Select the new internal trigger in the Features window and in the properties window specify the trigger and its effect as it was normal transition:
+![alt text](image-54.png)
 
 
 
