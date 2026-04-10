@@ -30,3 +30,4 @@ nav:
     - 'Modeling Tutorials':
         - ea-tooling-req-uc.md
         - ea-tooling-structure.md
+        - ea-tooling-behavior.md

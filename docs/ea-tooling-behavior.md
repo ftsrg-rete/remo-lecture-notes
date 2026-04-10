@@ -302,7 +302,10 @@ In this section, we will create the statemachine of the "Steering Wheel Heating 
 - Select the new internal trigger in the Features window and in the properties window specify the trigger and its effect as it was normal transition:
 ![alt text](figs/ea-tooling-behavior/image-54.png)
 
-- Finally, create a transition from the On state to the Off state add two triggers to this tranition the following way:
+- Create a transition from the On state to the Off state add two triggers to this tranition the following way:
 ![alt text](figs/ea-tooling-behavior/image-55.png)
+
+- Finally, in the browser select the triggers and in the "Trigger" tab of the properties window add the "veh com" port of the system to the trigger:
+![alt text](figs/ea-tooling-behavior/image-90.png)
 
 
