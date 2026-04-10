@@ -1,0 +1,759 @@
+
+<!DOCTYPE html>
+
+<html class="no-js" lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width,initial-scale=1" name="viewport"/>
+<link href="../assets/images/favicon.png" rel="icon"/>
+<meta content="mkdocs-1.3.0, mkdocs-material-8.3.9" name="generator"/>
+<title>EA Tooling Behavior Modeling - ReMo Lecture Notes</title>
+<link href="../assets/stylesheets/main.1d29e8d0.min.css" rel="stylesheet"/>
+<link href="../assets/stylesheets/palette.cbb835fc.min.css" rel="stylesheet"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&amp;display=fallback" rel="stylesheet"/>
+<style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+<link href="../mkdocs.css" rel="stylesheet"/>
+<script>__md_scope=new URL("..",location),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+<link href="../assets/stylesheets/glightbox.min.css" rel="stylesheet"/><style>html.glightbox-open { overflow: initial; height: 100%; }</style><script src="../assets/javascripts/glightbox.min.js"></script></head>
+<body data-md-color-accent="none" data-md-color-primary="none" data-md-color-scheme="" dir="ltr">
+<input autocomplete="off" class="md-toggle" data-md-toggle="drawer" id="__drawer" type="checkbox"/>
+<input autocomplete="off" class="md-toggle" data-md-toggle="search" id="__search" type="checkbox"/>
+<label class="md-overlay" for="__drawer"></label>
+<div data-md-component="skip">
+<a class="md-skip" href="#prerequisites">
+          Skip to content
+        </a>
+</div>
+<div data-md-component="announce">
+</div>
+<header class="md-header" data-md-component="header">
+<nav aria-label="Header" class="md-header__inner md-grid">
+<a aria-label="ReMo Lecture Notes" class="md-header__button md-logo" data-md-component="logo" href=".." title="ReMo Lecture Notes">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"></path></svg>
+</a>
+<label class="md-header__button md-icon" for="__drawer">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"></path></svg>
+</label>
+<div class="md-header__title" data-md-component="header-title">
+<div class="md-header__ellipsis">
+<div class="md-header__topic">
+<span class="md-ellipsis">
+            ReMo Lecture Notes
+          </span>
+</div>
+<div class="md-header__topic" data-md-component="header-topic">
+<span class="md-ellipsis">
+            
+              EA Tooling Behavior Modeling
+            
+          </span>
+</div>
+</div>
+</div>
+<label class="md-header__button md-icon" for="__search">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"></path></svg>
+</label>
+<div class="md-search" data-md-component="search" role="dialog">
+<label class="md-search__overlay" for="__search"></label>
+<div class="md-search__inner" role="search">
+<form class="md-search__form" name="search">
+<input aria-label="Search" autocapitalize="off" autocomplete="off" autocorrect="off" class="md-search__input" data-md-component="search-query" name="query" placeholder="Search" required="" spellcheck="false" type="text"/>
+<label class="md-search__icon md-icon" for="__search">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"></path></svg>
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"></path></svg>
+</label>
+<nav aria-label="Search" class="md-search__options">
+<button aria-label="Clear" class="md-search__icon md-icon" tabindex="-1" type="reset">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"></path></svg>
+</button>
+</nav>
+</form>
+<div class="md-search__output">
+<div class="md-search__scrollwrap" data-md-scrollfix="">
+<div class="md-search-result" data-md-component="search-result">
+<div class="md-search-result__meta">
+            Initializing search
+          </div>
+<ol class="md-search-result__list"></ol>
+</div>
+</div>
+</div>
+</div>
+</div>
+</nav>
+</header>
+<div class="md-container" data-md-component="container">
+<main class="md-main" data-md-component="main">
+<div class="md-main__inner md-grid">
+<div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation">
+<div class="md-sidebar__scrollwrap">
+<div class="md-sidebar__inner">
+<nav aria-label="Navigation" class="md-nav md-nav--primary" data-md-level="0">
+<label class="md-nav__title" for="__drawer">
+<a aria-label="ReMo Lecture Notes" class="md-nav__button md-logo" data-md-component="logo" href=".." title="ReMo Lecture Notes">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"></path></svg>
+</a>
+    ReMo Lecture Notes
+  </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1" id="__nav_1" type="checkbox"/>
+<label class="md-nav__link" for="__nav_1">
+          Installation &amp; Basics
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="Installation &amp; Basics" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_1">
+<span class="md-nav__icon md-icon"></span>
+          Installation &amp; Basics
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../rete-install-basics-en/">
+        Installation Guidebook
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2" id="__nav_2" type="checkbox"/>
+<label class="md-nav__link" for="__nav_2">
+          Modeling Guides
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="Modeling Guides" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_2">
+<span class="md-nav__icon md-icon"></span>
+          Modeling Guides
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="..">
+        Enterprise Architect Tutorial
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../general-modeling-guide/">
+        General introduction to modeling in Enterprise Architect
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../first-project/">
+        First steps using Enterprise Architect
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../usecase-and-requirement-guide/">
+        Requirement and use case modeling using Enterprise Architect
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../data-and-interface-modeling-guide/">
+        Data and interface modeling using Enterprise Architect
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../composition-modeling-guide/">
+        Composition modeling using Enterprise Architect
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../structural-modeling-guide/">
+        Structural modeling using Enterprise Architect
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../allocation-modeling-guide/">
+        Allocation modeling using Enterprise Architect
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../behavior-modeling-guide/">
+        Behavior modeling using Enterprise Architect
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../parametric-modeling-guide/">
+        Parametric modeling using Enterprise Architect
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../safest/">
+        SAFEST - Fault Tree Editing tool
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../ftedit/">
+        FTEdit - Fault Tree Editing tool
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../SmartGit/">
+        SmartGit FAQ
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3" id="__nav_3" type="checkbox"/>
+<label class="md-nav__link" for="__nav_3">
+          Laboratory Exercises
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="Laboratory Exercises" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_3">
+<span class="md-nav__icon md-icon"></span>
+          Laboratory Exercises
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../lab1/">
+        Laboratory Exercise 1
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../lab2/">
+        Laboratory Exercise 2
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../lab3/">
+        Laboratory Exercise 3
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../lab4/">
+        Laboratory Exercise 4
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../lab5/">
+        Laboratory Exercise 5
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../lab6/">
+        Laboratory Exercise 6
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../lab7/">
+        Laboratory Exercise 7
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../lab8/">
+        Laboratory Exercise 8
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../lab9/">
+        Laboratory Exercise 9
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../lab10/">
+        Laboratory Exercise 10
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../lab11/">
+        Laboratory Exercise 11
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--active md-nav__item--nested">
+<input checked="" class="md-nav__toggle md-toggle" data-md-toggle="__nav_4" id="__nav_4" type="checkbox"/>
+<label class="md-nav__link" for="__nav_4">
+          Modeling Tutorials
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="Modeling Tutorials" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_4">
+<span class="md-nav__icon md-icon"></span>
+          Modeling Tutorials
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../ea-tooling-req-uc/">
+        EA Tooling Requirement Modeling and Use Cases
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../ea-tooling-structure/">
+        EA Tooling Structure Modeling
+      </a>
+</li>
+<li class="md-nav__item md-nav__item--active">
+<input class="md-nav__toggle md-toggle" data-md-toggle="toc" id="__toc" type="checkbox"/>
+<a class="md-nav__link md-nav__link--active" href="./">
+        EA Tooling Behavior Modeling
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</div>
+</div>
+</div>
+<div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc">
+<div class="md-sidebar__scrollwrap">
+<div class="md-sidebar__inner">
+<nav aria-label="Table of contents" class="md-nav md-nav--secondary">
+</nav>
+</div>
+</div>
+</div>
+<div class="md-content" data-md-component="content">
+<article class="md-content__inner md-typeset">
+<h1 id="prerequisites">Prerequisites</h1>
+<p>The following steps must be executed before this exercise:</p>
+<ul>
+<li>
+<p>Install EA 17.1</p>
+</li>
+<li>
+<p>Run EA </p>
+</li>
+<li>
+<p>Open the tutorial model available here: <a href="https://github.com/ftsrg-rete/remo-lecture-notes/raw/refs/heads/master/docs/assets/remo-tutorial-models-2.qeax">MODEL_LINK</a></p>
+</li>
+<li>
+<p>Set the perspective (in the top right corner) to "SysML"
+ <a class="glightbox" href="../figs/lab1-tooling/req-uc-modeling.pdf-image-000.png"><img alt="alt text" src="../figs/lab1-tooling/req-uc-modeling.pdf-image-000.png"/></a></p>
+</li>
+<li>
+<p>In the "Settings" menu open "Options" and in the "General" tab select the "Dashed line for control flow" option:
+  <a class="glightbox" href="../figs/ea-tooling-behavior/image-69.png"><img alt="alt text" src="../figs/ea-tooling-behavior/image-69.png"/></a></p>
+</li>
+<li>
+<p>Make sure that the following windows are open:</p>
+<ul>
+<li>
+<p>Explore/Model Browser</p>
+</li>
+<li>
+<p>Explore/Inspect</p>
+</li>
+<li>
+<p>Explore/Focus</p>
+</li>
+<li>
+<p>Properties/Properties</p>
+</li>
+<li>
+<p>Properties/Notes</p>
+</li>
+<li>
+<p>Properties/Tagged Values</p>
+</li>
+<li>
+<p>Properties/Features</p>
+</li>
+<li>
+<p>Properties/Requirements</p>
+</li>
+<li>
+<p>Trace/Traceability</p>
+</li>
+<li>
+<p>Trace/Relationships</p>
+</li>
+</ul>
+</li>
+<li>
+<p>If some windows are not visible, then click on "Portals/Windows" and click on the window names (after that, right click on the windows and select auto-hide):
+  <a class="glightbox" href="../figs/ea-tooling-structure/image.png"><img alt="alt text" src="../figs/ea-tooling-structure/image.png"/></a></p>
+</li>
+<li>
+<p>Make sure that the toolbox is visible:
+  <a class="glightbox" href="../figs/ea-tooling-structure/image-1.png"><img alt="alt text" src="../figs/ea-tooling-structure/image-1.png"/></a></p>
+</li>
+<li>
+<p>Arrange the windows by dragging them into a position where you can intuitively find them:
+  <a class="glightbox" href="../figs/ea-tooling-structure/image-2.png"><img alt="alt text" src="../figs/ea-tooling-structure/image-2.png"/></a></p>
+</li>
+</ul>
+<h1 id="interaction-modeling">Interaction Modeling</h1>
+<p>Interactions are behavior models, which define the communication of two or more components using sequence diagrams. This tutorial shows how you can define the interaction at the system boundary.</p>
+<ul>
+<li>
+<p>Right click on the "<em>Steering Wheel Heating System System Context</em>" and select "Add/Interaction/with Sequence Diagram":
+  <a class="glightbox" href="../figs/ea-tooling-behavior/image.png"><img alt="alt text" src="../figs/ea-tooling-behavior/image.png"/></a></p>
+</li>
+<li>
+<p>Name it to "Configuration Interaction" and click "OK":
+  <a class="glightbox" href="../figs/ea-tooling-behavior/image-1.png"><img alt="alt text" src="../figs/ea-tooling-behavior/image-1.png"/></a></p>
+</li>
+<li>
+<p>Drag and drop the "system" and "infotainment" part properties into the diagram as <strong>links</strong>, then press OK.
+  <a class="glightbox" href="../figs/ea-tooling-behavior/image-2.png"><img alt="alt text" src="../figs/ea-tooling-behavior/image-2.png"/></a></p>
+</li>
+<li>
+<p>Arrange the properties the following way:
+  <a class="glightbox" href="../figs/ea-tooling-behavior/image-3.png"><img alt="alt text" src="../figs/ea-tooling-behavior/image-3.png"/></a></p>
+</li>
+<li>
+<p>Use the Message relation in the "SysML Interaction Relationships" toolbox page to create two Messages bettween the infotainment and system parts (in both directions):
+  <a class="glightbox" href="../figs/ea-tooling-behavior/image-4.png"><img alt="alt text" src="../figs/ea-tooling-behavior/image-4.png"/></a></p>
+</li>
+<li>
+<p>Select the first message and in the Properties window select the "configure" operation:
+  <a class="glightbox" href="../figs/ea-tooling-behavior/image-5.png"><img alt="alt text" src="../figs/ea-tooling-behavior/image-5.png"/></a></p>
+</li>
+<li>
+<p>Delete the return value of the first message, then select the second message and in the propeties window set the return type to "ConfigurationStatus.Successful". Thereafter select the "Is Return" option:
+  <a class="glightbox" href="../figs/ea-tooling-behavior/image-6.png"><img alt="alt text" src="../figs/ea-tooling-behavior/image-6.png"/></a></p>
+</li>
+<li>
+<p>Right click the second message and select "Timing details"
+  <a class="glightbox" href="../figs/ea-tooling-behavior/image-7.png"><img alt="alt text" src="../figs/ea-tooling-behavior/image-7.png"/></a></p>
+</li>
+<li>
+<p>Set the "Duration between messages" to "&lt; 10 ms"
+  <a class="glightbox" href="../figs/ea-tooling-behavior/image-8.png"><img alt="alt text" src="../figs/ea-tooling-behavior/image-8.png"/></a></p>
+</li>
+<li>
+<p>Move the constraint into the correct position:
+  <a class="glightbox" href="../figs/ea-tooling-behavior/image-9.png"><img alt="alt text" src="../figs/ea-tooling-behavior/image-9.png"/></a></p>
+</li>
+<li>
+<p>Drop a fragment into the diagram:
+  <a class="glightbox" href="../figs/ea-tooling-behavior/image-10.png"><img alt="alt text" src="../figs/ea-tooling-behavior/image-10.png"/></a></p>
+</li>
+<li>
+<p>Select the fragment and in the "Combined Fragment" tab of the Properties window. Set the type to "alt", set the name to "ConfigurationCheck" and add a new condition "(maxHeatingPower &gt; 0.0 W) and (defaultTemperature &lt; 35°C)" and press save. Thereafter create another condition by pressing "New" and set the condition to "else" (and press save):
+  <a class="glightbox" href="../figs/ea-tooling-behavior/image-11.png"><img alt="alt text" src="../figs/ea-tooling-behavior/image-11.png"/></a></p>
+</li>
+<li>
+<p>Arrange the modeling elements the following way:
+  <a class="glightbox" href="../figs/ea-tooling-behavior/image-12.png"><img alt="alt text" src="../figs/ea-tooling-behavior/image-12.png"/></a></p>
+</li>
+<li>
+<p>Create another return message the following way:
+  <a class="glightbox" href="../figs/ea-tooling-behavior/image-13.png"><img alt="alt text" src="../figs/ea-tooling-behavior/image-13.png"/></a></p>
+</li>
+<li>
+<p>Create another interaction with sequence diagram in the system context called "Main Operation":
+  <a class="glightbox" href="../figs/ea-tooling-behavior/image-14.png"><img alt="alt text" src="../figs/ea-tooling-behavior/image-14.png"/></a></p>
+</li>
+<li>
+<p>Drop the system and the infotainment parts into the diagram as links and create two messages the following way:
+  <a class="glightbox" href="../figs/ea-tooling-behavior/image-15.png"><img alt="alt text" src="../figs/ea-tooling-behavior/image-15.png"/></a></p>
+</li>
+<li>
+<p>Select the messages and in the properties window set the Kind to "Signal" and Sync to "Asynchronous":
+  <a class="glightbox" href="../figs/ea-tooling-behavior/image-16.png"><img alt="alt text" src="../figs/ea-tooling-behavior/image-16.png"/></a></p>
+</li>
+<li>
+<p>In the Message field of the properties window select the signals to "Start" and "Stop" for the two messages:
+  <a class="glightbox" href="../figs/ea-tooling-behavior/image-17.png"><img alt="alt text" src="../figs/ea-tooling-behavior/image-17.png"/></a></p>
+</li>
+<li>
+<p>Right click on the first message and select "Activations/End source activation":
+  <a class="glightbox" href="../figs/ea-tooling-behavior/image-18.png"><img alt="alt text" src="../figs/ea-tooling-behavior/image-18.png"/></a></p>
+</li>
+<li>
+<p>Drop the "Configuration Interaction" into the diagram as <strong>Link</strong>:
+  <a class="glightbox" href="../figs/ea-tooling-behavior/image-19.png"><img alt="alt text" src="../figs/ea-tooling-behavior/image-19.png"/></a></p>
+</li>
+<li>
+<p>Use the "SysML Interactions" toolbox page to add two "State/Continuation" to the diagram the following way:
+  <a class="glightbox" href="../figs/ea-tooling-behavior/image-20.png"><img alt="alt text" src="../figs/ea-tooling-behavior/image-20.png"/></a></p>
+</li>
+<li>
+<p>Add a "loop" fragment and another signal message to the diagram the following way (don't forget to select "Activations/End source activation"):
+  <a class="glightbox" href="../figs/ea-tooling-behavior/image-21.png"><img alt="alt text" src="../figs/ea-tooling-behavior/image-21.png"/></a></p>
+</li>
+<li>
+<p>Right click on the new message and select "Attach note or constraint":
+  <a class="glightbox" href="../figs/ea-tooling-behavior/image-22.png"><img alt="alt text" src="../figs/ea-tooling-behavior/image-22.png"/></a></p>
+</li>
+<li>
+<p>Right click on the new message and select "Timing details". In the pop-up window set the "Duration Constraint" to "&lt; 100 us":
+  <a class="glightbox" href="../figs/ea-tooling-behavior/image-23.png"><img alt="alt text" src="../figs/ea-tooling-behavior/image-23.png"/></a></p>
+</li>
+</ul>
+<h1 id="activity-modeling">Activity Modeling</h1>
+<p>This section shows you how you can create activity diagrams. In this tutorial, we will create activities for the "Steering Wheel Heating System".</p>
+<ul>
+<li>
+<p>Right click on the "Steering Wheel Heating System" and select "Add/New Diagram":
+  <a class="glightbox" href="../figs/ea-tooling-behavior/image-24.png"><img alt="alt text" src="../figs/ea-tooling-behavior/image-24.png"/></a></p>
+</li>
+<li>
+<p>In the pop-up window select Activity and click on "Create". We will use this diagram to define the main activities of the system. 
+  <a class="glightbox" href="../figs/ea-tooling-behavior/image-25.png"><img alt="alt text" src="../figs/ea-tooling-behavior/image-25.png"/></a></p>
+</li>
+<li>
+<p><strong>Visually</strong> delete the ports in the diagram (SHIFT+Del).</p>
+</li>
+<li>
+<p>Use the "SysML Activities" toolbox page to create five Structured Activities (in the pop-up window select other and in the other pop-up window select "Structured Activity") namely, "Configure System", "Set Reference Temperature", "Activate Heating", "Deactivate Heating", and "Safe Reference Setting".
+  <a class="glightbox" href="../figs/ea-tooling-behavior/image-57.png"><img alt="alt text" src="../figs/ea-tooling-behavior/image-57.png"/></a></p>
+</li>
+<li>
+<p>Open the diagram of the "Safe Reference Setting" and use the "SysML Activities" toolbox page to create two parameters:
+  <a class="glightbox" href="../figs/ea-tooling-behavior/image-58.png"><img alt="alt text" src="../figs/ea-tooling-behavior/image-58.png"/></a> </p>
+</li>
+<li>
+<p>Select the properties and in the "Element" tab of the properties window name the parameters to "tempRef" and "isInRange".</p>
+</li>
+<li>
+<p>In the "Parameter" tab of the set the type and direction of the parameters. refTemp is input and its type is Temperature. isInRange is output and its type is Boolean.
+  <a class="glightbox" href="../figs/ea-tooling-behavior/image-59.png"><img alt="alt text" src="../figs/ea-tooling-behavior/image-59.png"/></a></p>
+</li>
+<li>
+<p>Create a "Decision" node and connect it to the refTemp input parameter with an object flow:
+  <a class="glightbox" href="../figs/ea-tooling-behavior/image-60.png"><img alt="alt text" src="../figs/ea-tooling-behavior/image-60.png"/></a></p>
+</li>
+<li>
+<p>Create Actions using the "SysML Activities" toolbox page. In the pop-up window select "Atomic":
+  <a class="glightbox" href="../figs/ea-tooling-behavior/image-61.png"><img alt="alt text" src="../figs/ea-tooling-behavior/image-61.png"/></a></p>
+</li>
+<li>
+<p>Create two-two activity pins of the two atomic actions:
+  <a class="glightbox" href="../figs/ea-tooling-behavior/image-62.png"><img alt="alt text" src="../figs/ea-tooling-behavior/image-62.png"/></a></p>
+</li>
+<li>
+<p>Similarly to parameters set the direction, type and name of the action pins:
+  <a class="glightbox" href="../figs/ea-tooling-behavior/image-63.png"><img alt="alt text" src="../figs/ea-tooling-behavior/image-63.png"/></a></p>
+</li>
+<li>
+<p>Create a merge node and connect the elements with object flow:
+  <a class="glightbox" href="../figs/ea-tooling-behavior/image-64.png"><img alt="alt text" src="../figs/ea-tooling-behavior/image-64.png"/></a></p>
+</li>
+<li>
+<p>Define the guard of the incoming flow of "Action 1" in the "Constraints" tab of the "Properties" window:
+  <a class="glightbox" href="../figs/ea-tooling-behavior/image-65.png"><img alt="alt text" src="../figs/ea-tooling-behavior/image-65.png"/></a></p>
+</li>
+<li>
+<p>Select the atomic actions and in the "Action" tab of the properties window define the effect of the actions. Thereafter, select the "Show Effect in Diagram" option.
+  <a class="glightbox" href="../figs/ea-tooling-behavior/image-66.png"><img alt="alt text" src="../figs/ea-tooling-behavior/image-66.png"/></a> </p>
+</li>
+<li>
+<p>Open the diagram of the "Configure System" activity and create an Activtiy Initial and a (vertical) Fork node:
+ <a class="glightbox" href="../figs/ea-tooling-behavior/image-68.png"><img alt="alt text" src="../figs/ea-tooling-behavior/image-68.png"/></a></p>
+</li>
+<li>
+<p>Drag and drop the "Set Reference Temperature" Activity to the diagram and drop as "Invocation Action":
+ <a class="glightbox" href="../figs/ea-tooling-behavior/image-70.png"><img alt="alt text" src="../figs/ea-tooling-behavior/image-70.png"/></a></p>
+</li>
+<li>
+<p>Create six atomic actions with action pins:
+ <a class="glightbox" href="../figs/ea-tooling-behavior/image-73.png"><img alt="alt text" src="../figs/ea-tooling-behavior/image-73.png"/></a></p>
+</li>
+<li>
+<p>Create two object nodes and set their name and classifier in the properties window:
+<a class="glightbox" href="../figs/ea-tooling-behavior/image-74.png"><img alt="alt text" src="../figs/ea-tooling-behavior/image-74.png"/></a></p>
+</li>
+<li>
+<p>Create a "Reply" action and in the "Interaction Points" tab of the Features window visualize its action pin and set its type to the "ConfigurationStatus" enum:
+<a class="glightbox" href="../figs/ea-tooling-behavior/image-75.png"><img alt="alt text" src="../figs/ea-tooling-behavior/image-75.png"/></a></p>
+</li>
+<li>
+<p>Creare a (vertical) "Fork/Join" and a final activity node:
+<a class="glightbox" href="../figs/ea-tooling-behavior/image-76.png"><img alt="alt text" src="../figs/ea-tooling-behavior/image-76.png"/></a></p>
+</li>
+<li>
+<p>Create control flows:
+<a class="glightbox" href="../figs/ea-tooling-behavior/image-77.png"><img alt="alt text" src="../figs/ea-tooling-behavior/image-77.png"/></a></p>
+</li>
+<li>
+<p>Create object flows:
+<a class="glightbox" href="../figs/ea-tooling-behavior/image-78.png"><img alt="alt text" src="../figs/ea-tooling-behavior/image-78.png"/></a></p>
+</li>
+<li>
+<p>Create an "Interruptible Region" around the actions:
+<a class="glightbox" href="../figs/ea-tooling-behavior/image-79.png"><img alt="alt text" src="../figs/ea-tooling-behavior/image-79.png"/></a></p>
+</li>
+<li>
+<p>Create a copy of the reply action (CTRL+Drag is the fastest way) and create an Accept Event Action and a Flow Final activity node:
+<a class="glightbox" href="../figs/ea-tooling-behavior/image-80.png"><img alt="alt text" src="../figs/ea-tooling-behavior/image-80.png"/></a></p>
+</li>
+<li>
+<p>Create a "Value Specification" action:
+<a class="glightbox" href="../figs/ea-tooling-behavior/image-81.png"><img alt="alt text" src="../figs/ea-tooling-behavior/image-81.png"/></a></p>
+</li>
+<li>
+<p>Select the value specification and in the Properties window set the value to "ConfigurationStatus.Error" and in the "Interaction Point" tab of the Features window visualize its action pin and set its type to "ConfigurationStatus".
+<a class="glightbox" href="../figs/ea-tooling-behavior/image-82.png"><img alt="alt text" src="../figs/ea-tooling-behavior/image-82.png"/></a></p>
+</li>
+<li>
+<p>Connect the Accept Event actio to the value specificationwith an "Interrupt Flow":
+<a class="glightbox" href="../figs/ea-tooling-behavior/image-83.png"><img alt="alt text" src="../figs/ea-tooling-behavior/image-83.png"/></a></p>
+</li>
+<li>
+<p>Add an object and a control flow and finish the diagram:
+<a class="glightbox" href="../figs/ea-tooling-behavior/image-84.png"><img alt="alt text" src="../figs/ea-tooling-behavior/image-84.png"/></a></p>
+</li>
+</ul>
+<h1 id="statemachine-modeling">Statemachine Modeling</h1>
+<p>In this section, we will create the statemachine of the "Steering Wheel Heating System".</p>
+<ul>
+<li>
+<p>Right click on the "Steering Wheel Heating System" and select "Add/Statemachine", name the statemachine to "System Statemachine" and click OK:
+<a class="glightbox" href="../figs/ea-tooling-behavior/image-27.png"><img alt="alt text" src="../figs/ea-tooling-behavior/image-27.png"/></a></p>
+</li>
+<li>
+<p>Use the "SysML State" toolbox page to create an initial state and three states namely, "Off" and "On": 
+<a class="glightbox" href="../figs/ea-tooling-behavior/image-28.png"><img alt="alt text" src="../figs/ea-tooling-behavior/image-28.png"/></a></p>
+</li>
+<li>
+<p>Use the "SysML State Relationships" toolbox page to create two transitions between the states:
+<a class="glightbox" href="../figs/ea-tooling-behavior/image-29.png"><img alt="alt text" src="../figs/ea-tooling-behavior/image-29.png"/></a></p>
+</li>
+<li>
+<p>Select the second transition (between On and Off states) an in the "Constraints" tab of the Properties window set the guard to "batt.V_BAT.v &gt; 10 V":
+<a class="glightbox" href="../figs/ea-tooling-behavior/image-30.png"><img alt="alt text" src="../figs/ea-tooling-behavior/image-30.png"/></a></p>
+</li>
+<li>
+<p>Thereafter, in the Triggers section of the "Constraints" tab of the Properties window create new trigger:</p>
+</li>
+<li>Name: "start"</li>
+<li>Type: "Signal"</li>
+<li>
+<p>Specification: "Start" (click the "SET" button near the specification field and select the "<em>Start</em>" signal)</p>
+</li>
+<li>
+<p>After the configuration click to save:
+<a class="glightbox" href="../figs/ea-tooling-behavior/image-31.png"><img alt="alt text" src="../figs/ea-tooling-behavior/image-31.png"/></a></p>
+</li>
+<li>
+<p>Select the "On" state and in the "Regions" tab of the Properties window create a region, by writing "main" into the name field and click to "Add":
+<a class="glightbox" href="../figs/ea-tooling-behavior/image-32.png"><img alt="alt text" src="../figs/ea-tooling-behavior/image-32.png"/></a></p>
+</li>
+<li>
+<p>In the internal region of the On state create some states and transitions (this way you can define any number of orthogonal regions):
+<a class="glightbox" href="../figs/ea-tooling-behavior/image-36.png"><img alt="alt text" src="../figs/ea-tooling-behavior/image-36.png"/></a></p>
+</li>
+<li>
+<p>Create a new call trigger by selecting the "configure" operation of the "ConfigurationInterface":
+<a class="glightbox" href="../figs/ea-tooling-behavior/image-37.png"><img alt="alt text" src="../figs/ea-tooling-behavior/image-37.png"/></a></p>
+</li>
+<li>
+<p>Select the effect is a behavior checkboxand select the "Configure System" activity as an effect:
+<a class="glightbox" href="../figs/ea-tooling-behavior/image-35.png"><img alt="alt text" src="../figs/ea-tooling-behavior/image-35.png"/></a></p>
+</li>
+<li>
+<p>Within the browser, you can select the triggers. Thereafter, in the Trigger tab of the properties window set the "Port" to "veh bus":
+<a class="glightbox" href="../figs/ea-tooling-behavior/image-38.png"><img alt="alt text" src="../figs/ea-tooling-behavior/image-38.png"/></a></p>
+</li>
+<li>
+<p>Select the "Operational" state and in the properties window select the "Statemachine" behavior of the state. Thereafter, in the pop-up window select the system and click on new:
+<a class="glightbox" href="../figs/ea-tooling-behavior/image-39.png"><img alt="alt text" src="../figs/ea-tooling-behavior/image-39.png"/></a></p>
+</li>
+<li>
+<p>Move the new statemachine under the system. Select the "Operational" state and in the Regions tab of the properties window set the "<em>Instance Classifier</em>" to the "Operational Statemachine".
+<a class="glightbox" href="../figs/ea-tooling-behavior/image-41.png"><img alt="alt text" src="../figs/ea-tooling-behavior/image-41.png"/></a></p>
+</li>
+<li>
+<p>Open the statemachine diagram of the "Operational Statemachine" and create the following states and transitions:
+<a class="glightbox" href="../figs/ea-tooling-behavior/image-40.png"><img alt="alt text" src="../figs/ea-tooling-behavior/image-40.png"/></a></p>
+</li>
+<li>
+<p>Create the "tooHot" and "tooCold" change triggers with "when(referenceTemperature &lt; temperature)" and "when(referenceTemperature &gt; temperature)" specification respectively.
+<a class="glightbox" href="../figs/ea-tooling-behavior/image-42.png"><img alt="alt text" src="../figs/ea-tooling-behavior/image-42.png"/></a></p>
+</li>
+<li>
+<p>Select the "Heating" state and in the properties window set the entry and exit action to "Activate Heating" and "Deactivate Heating" actrivities respectively:
+<a class="glightbox" href="../figs/ea-tooling-behavior/image-43.png"><img alt="alt text" src="../figs/ea-tooling-behavior/image-43.png"/></a></p>
+</li>
+<li>
+<p>In the browser right click the "Operational Statemachine" and select "Add/Entry Point":
+<a class="glightbox" href="../figs/ea-tooling-behavior/image-44.png"><img alt="alt text" src="../figs/ea-tooling-behavior/image-44.png"/></a></p>
+</li>
+<li>
+<p>This way create two entry point and one exit point and drop them from the browser to the diagram:
+<a class="glightbox" href="../figs/ea-tooling-behavior/image-45.png"><img alt="alt text" src="../figs/ea-tooling-behavior/image-45.png"/></a></p>
+</li>
+<li>
+<p>Connect the entry and exit points to the states using transitions and add a time trigger to the transition  the following way:
+<a class="glightbox" href="../figs/ea-tooling-behavior/image-46.png"><img alt="alt text" src="../figs/ea-tooling-behavior/image-46.png"/></a> </p>
+</li>
+<li>
+<p>Open the "System Statemachine". Select the "Operational" state and create the same entry. Right click in the "Connection Points" tab of the Features window and select "Add New". In the pop-up window select all entry point, name the reference to "Heating" and click "OK".
+<a class="glightbox" href="../figs/ea-tooling-behavior/image-48.png"><img alt="alt text" src="../figs/ea-tooling-behavior/image-48.png"/></a></p>
+</li>
+<li>
+<p>Repeat this process for the other entry and the exit points.
+<a class="glightbox" href="../figs/ea-tooling-behavior/image-49.png"><img alt="alt text" src="../figs/ea-tooling-behavior/image-49.png"/></a></p>
+</li>
+<li>
+<p>Create a "Choice" pseudostate and a normal state the following way:
+<a class="glightbox" href="../figs/ea-tooling-behavior/image-50.png"><img alt="alt text" src="../figs/ea-tooling-behavior/image-50.png"/></a></p>
+</li>
+<li>
+<p>Add transitions and modify the existing incoming transition of the Opational state the following way:
+<a class="glightbox" href="../figs/ea-tooling-behavior/image-51.png"><img alt="alt text" src="../figs/ea-tooling-behavior/image-51.png"/></a></p>
+</li>
+<li>
+<p>Define the guard of the outgoing transitions of the "Choice" pseudostate the following way:
+<a class="glightbox" href="../figs/ea-tooling-behavior/image-52.png"><img alt="alt text" src="../figs/ea-tooling-behavior/image-52.png"/></a></p>
+</li>
+<li>
+<p>Select "Operational" state and in the "Internal Trigger" tab of the Features window right click select the "New Internal Trigger..."
+<a class="glightbox" href="../figs/ea-tooling-behavior/image-53.png"><img alt="alt text" src="../figs/ea-tooling-behavior/image-53.png"/></a></p>
+</li>
+<li>
+<p>Select the new internal trigger in the Features window and in the properties window specify the trigger and its effect as it was normal transition:
+<a class="glightbox" href="../figs/ea-tooling-behavior/image-54.png"><img alt="alt text" src="../figs/ea-tooling-behavior/image-54.png"/></a></p>
+</li>
+<li>
+<p>Create a transition from the On state to the Off state add two triggers to this tranition the following way:
+<a class="glightbox" href="../figs/ea-tooling-behavior/image-55.png"><img alt="alt text" src="../figs/ea-tooling-behavior/image-55.png"/></a></p>
+</li>
+<li>
+<p>Finally, in the browser select the triggers and in the "Trigger" tab of the properties window add the "veh com" port of the system to the trigger:
+<a class="glightbox" href="../figs/ea-tooling-behavior/image-90.png"><img alt="alt text" src="../figs/ea-tooling-behavior/image-90.png"/></a></p>
+</li>
+</ul>
+</article>
+</div>
+</div>
+</main>
+<footer class="md-footer">
+<nav aria-label="Footer" class="md-footer__inner md-grid">
+<a aria-label="Previous: EA Tooling Structure Modeling" class="md-footer__link md-footer__link--prev" href="../ea-tooling-structure/" rel="prev">
+<div class="md-footer__button md-icon">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"></path></svg>
+</div>
+<div class="md-footer__title">
+<div class="md-ellipsis">
+<span class="md-footer__direction">
+                Previous
+              </span>
+              EA Tooling Structure Modeling
+            </div>
+</div>
+</a>
+</nav>
+<div class="md-footer-meta md-typeset">
+<div class="md-footer-meta__inner md-grid">
+<div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" rel="noopener" target="_blank">
+      Material for MkDocs
+    </a>
+</div>
+</div>
+</div>
+</footer>
+</div>
+<div class="md-dialog" data-md-component="dialog">
+<div class="md-dialog__inner md-typeset"></div>
+</div>
+<script id="__config" type="application/json">{"base": "..", "features": [], "search": "../assets/javascripts/workers/search.b97dbffb.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version.title": "Select version"}}</script>
+<script src="../assets/javascripts/bundle.6c7ad80a.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script>document$.subscribe(() => {const lightbox = GLightbox({"touchNavigation": true, "loop": false, "width": "10vw", "height": "10vw", "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom"});})</script></body>
+</html>
