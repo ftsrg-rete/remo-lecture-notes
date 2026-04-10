@@ -19,6 +19,9 @@ The following steps must be executed before this exercise:
   - Set the perspective (in the top right corner) to "SysML"
  ![alt text](figs/lab1-tooling/req-uc-modeling.pdf-image-000.png)
 
+  - In the "Settings" menu open "Options" and in the "General" tab select the "Dashed line for control flow" option:
+  ![alt text](image-69.png)
+
   - Make sure that the following windows are open:
 
     - Explore/Model Browser
@@ -138,9 +141,79 @@ This section shows you how you can create activity diagrams. In this tutorial, w
 
   - **Visually** delete the ports in the diagram (SHIFT+Del).
 
-  - Use the "SysML Activities" toolbox page to create an Activity namely, "Configure System".
-  ![alt text](image-26.png)
+  - Use the "SysML Activities" toolbox page to create five Structured Activities (in the pop-up window select other and in the other pop-up window select "Structured Activity") namely, "Configure System", "Set Reference Temperature", "Activate Heating", "Deactivate Heating", and "Safe Reference Setting".
+  ![alt text](image-57.png)
 
+  - Open the diagram of the "Safe Reference Setting" and use the "SysML Activities" toolbox page to create two parameters:
+  ![alt text](image-58.png) 
+
+  - Select the properties and in the "Element" tab of the properties window name the parameters to "tempRef" and "isInRange".
+  
+  - In the "Parameter" tab of the set the type and direction of the parameters. refTemp is input and its type is Temperature. isInRange is output and its type is Boolean.
+  ![alt text](image-59.png)
+
+  - Create a "Decision" node and connect it to the refTemp input parameter with an object flow:
+  ![alt text](image-60.png)
+
+  - Create Actions using the "SysML Activities" toolbox page. In the pop-up window select "Atomic":
+  ![alt text](image-61.png)
+
+  - Create two-two activity pins of the two atomic actions:
+  ![alt text](image-62.png)
+
+  - Similarly to parameters set the direction, type and name of the action pins:
+  ![alt text](image-63.png)
+
+  - Create a merge node and connect the elements with object flow:
+  ![alt text](image-64.png)
+
+  - Define the guard of the incoming flow of "Action 1" in the "Constraints" tab of the "Properties" window:
+  ![alt text](image-65.png)
+
+  - Select the atomic actions and in the "Action" tab of the properties window define the effect of the actions. Thereafter, select the "Show Effect in Diagram" option.
+  ![alt text](image-66.png) 
+
+ - Open the diagram of the "Configure System" activity and create an Activtiy Initial and a (vertical) Fork node:
+ ![alt text](image-68.png)
+
+ - Drag and drop the "Set Reference Temperature" Activity to the diagram and drop as "Invocation Action":
+ ![alt text](image-70.png)
+
+ - Create six atomic actions with action pins:
+ ![alt text](image-73.png)
+
+ - Create two object nodes and set their name and classifier in the properties window:
+![alt text](image-74.png)
+
+- Create a "Reply" action and in the "Interaction Points" tab of the Features window visualize its action pin and set its type to the "ConfigurationStatus" enum:
+![alt text](image-75.png)
+
+- Creare a (vertical) "Fork/Join" and a final activity node:
+![alt text](image-76.png)
+
+- Create control flows:
+![alt text](image-77.png)
+
+- Create object flows:
+![alt text](image-78.png)
+
+- Create an "Interruptible Region" around the actions:
+![alt text](image-79.png)
+
+- Create a copy of the reply action (CTRL+Drag is the fastest way) and create an Accept Event Action and a Flow Final activity node:
+![alt text](image-80.png)
+
+- Create a "Value Specification" action:
+![alt text](image-81.png)
+
+- Select the value specification and in the Properties window set the value to "ConfigurationStatus.Error" and in the "Interaction Point" tab of the Features window visualize its action pin and set its type to "ConfigurationStatus".
+![alt text](image-82.png)
+
+- Connect the Accept Event actio to the value specificationwith an "Interrupt Flow":
+![alt text](image-83.png)
+
+- Add an object and a control flow and finish the diagram:
+![alt text](image-84.png)
 
 # Statemachine Modeling
 
@@ -229,7 +302,8 @@ In this section, we will create the statemachine of the "Steering Wheel Heating 
 - Select the new internal trigger in the Features window and in the properties window specify the trigger and its effect as it was normal transition:
 ![alt text](image-54.png)
 
-
+- Finally, create a transition from the On state to the Off state add two triggers to this tranition the following way:
+![alt text](image-55.png)
 
 
 
