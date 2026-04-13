@@ -76,7 +76,7 @@ Interactions are behavioral models that define the communication of two or more 
   - Select the first message and in the Properties window select the "configure" operation:
   ![alt text](figs/ea-tooling-behavior/image-5.png)
 
-  - Delete the return value of the first message, then select the second message, and in the properties window, set the return type to "ConfigurationStatus.Successful". Thereafter, select the "Is Return" option:
+  - Delete the return value of the first message, then select the second message, and in the properties window, set the return value to "ConfigurationStatus.Successful". Thereafter, select the "Is Return" option:
   ![alt text](figs/ea-tooling-behavior/image-6.png)
 
   - Right-click the second message and select "Timing details"
@@ -91,10 +91,14 @@ Interactions are behavioral models that define the communication of two or more 
   - Drop a fragment into the diagram:
   ![alt text](figs/ea-tooling-behavior/image-10.png)
 
-  - Select the fragment. In the "Combined Fragment" tab of the Properties window, set the type to "alt", set the name to "ConfigurationCheck", add a new condition "(maxHeatingPower > 0.0 W) and (defaultTemperature < 35°C)", and press save. Thereafter, create another condition by pressing "New" and set the condition to "else" (and press save):
+  - Select the fragment. In the "Combined Fragment" tab of the Properties window, set the type to "alt", set the name to "ConfigurationCheck", and press "Save" (pressing "New" in the Interaction Operands before pressing Save can reset the name). Add a new condition "(maxHeatingPower > 0.0 W) and (defaultTemperature < 35°C)", and press "Save". Thereafter, create another condition by pressing "New" and set the condition to "else", and press "Save" (the new condition will appear in the list only after clicking "Save", not instantly after "New"; "New" basically makes sure that no condition is selected, but the actual addition is done by saving):
   ![alt text](figs/ea-tooling-behavior/image-11.png)
 
-  - Arrange the modeling elements in the following way:
+  - Arrange the modeling elements in the way shown in the picture below. *Tips for arranging messages in a sequence diagram*:
+    - By default, moving a *message* up and down also moves the elements below it to keep the ordering, but holding shift or alt while enables moving it freely
+    - Holding shift or alt is also needed to move a message into a fragment
+    - Moving *fragments* behaves differently: moving freely is the default, and to change this, instead of holding shift/alt, you need to toggle the "Move Freely" mode on/off, which is the last icon to the right of a selected fragment.
+    - Changing the source/target of a message by dragging the ends can be difficult as EA often starts moving the lifeline instead of the message end. Use right-click/Advanced/Set Source and Target instead.
   ![alt text](figs/ea-tooling-behavior/image-12.png)
 
   - Create another return message in the following way:
@@ -109,7 +113,7 @@ Interactions are behavioral models that define the communication of two or more 
   - Select the messages and in the properties window set the Kind to "Signal" and Sync to "Asynchronous":
   ![alt text](figs/ea-tooling-behavior/image-16.png)
 
-  - In the Message field of the properties window, select the signals "Start" and "Stop" for the two messages:
+  - In the Message field of the properties window, select the signals "Start" and "Stop" (from the "Interfaces" package) for the two messages:
   ![alt text](figs/ea-tooling-behavior/image-17.png)
 
   - Right-click on the first message and select "Activations/End source activation":
@@ -118,9 +122,9 @@ Interactions are behavioral models that define the communication of two or more 
   - Drop the "Configuration Interaction" into the diagram as **Link**:
   ![alt text](figs/ea-tooling-behavior/image-19.png)
     
-  - Use the "SysML Interactions" toolbox page to add two "State/Continuation" to the diagram the following way:
+  - Use the "SysML Interactions" toolbox page to add two "State/Continuation" to the diagram, in the following way:
   ![alt text](figs/ea-tooling-behavior/image-20.png)
-  - Add a "loop" fragment and another signal message to the diagram the following way (don't forget to select "Activations/End source activation"):
+  - Add a "loop" fragment and another signal message to the diagram, in the following way (don't forget to select "Activations/End source activation"):
   ![alt text](figs/ea-tooling-behavior/image-21.png)
 
   - Right-click on the new message and select "Attach note or constraint":
