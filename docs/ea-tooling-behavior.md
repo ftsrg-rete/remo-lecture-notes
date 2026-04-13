@@ -235,7 +235,7 @@ In this section, we will create the statemachine of the "Steering Wheel Heating 
 - Select the second transition (between On and Off states), and in the "Constraints" tab of the Properties window, set the guard to "batt.V_BAT.v > 10 V":
 ![alt text](figs/ea-tooling-behavior/image-30.png)
 
-- Thereafter, in the Triggers section of the "Constraints" tab of the Properties window, create a new trigger:
+- Thereafter, in the Triggers section of the "Constraints" tab of the Properties window, create a new trigger (just like before in the case of Combined Fragment conditions, the "New" button does not add a new trigger to the list yet; it appears after pressing "Save"):
   - Name: "start"
   - Type: "Signal"
   - Specification: "Start" (click the "SET" button near the specification field and select the "*Start*" signal)
@@ -243,26 +243,26 @@ In this section, we will create the statemachine of the "Steering Wheel Heating 
 - After the configuration, click save:
 ![alt text](figs/ea-tooling-behavior/image-31.png)
 
-- Select the "On" state and in the "Regions" tab of the Properties window, create a region by writing "main" in the name field and clicking "Add":
+- Select the "On" state and in the "Regions" tab of the Properties window, create a region by writing "main" in the name field and clicking "Add" (this way, you can define any number of orthogonal regions):
 ![alt text](figs/ea-tooling-behavior/image-32.png)
 
-- In the internal region of the On state, create some states and transitions (this way, you can define any number of orthogonal regions):
+- In the internal region of the On state, create some states and transitions :
 ![alt text](figs/ea-tooling-behavior/image-36.png)
 
 
 - Create a new call trigger by selecting the "configure" operation of the "ConfigurationInterface":
 ![alt text](figs/ea-tooling-behavior/image-37.png)
 
-- Select the effect is a behavior checkboxand select the "Configure System" activity as an effect:
+- Select the effect is a behavior checkbox, and select the "Configure System" activity (created in the previous part of this tutorial as an activity of the Steering Wheel Heating System) as an effect:
 ![alt text](figs/ea-tooling-behavior/image-35.png)
 
-- Within the browser, you can select the triggers. Thereafter, in the Trigger tab of the properties window, set the "Port" to "veh bus":
+- Within the browser, you can select the triggers. Thereafter, in the Trigger tab of the properties window, set the "Port" to the "veh bus" port of the Steering Wheel Heating System:
 ![alt text](figs/ea-tooling-behavior/image-38.png)
 
-- Select the "Operational" state and in the properties window select the "Statemachine" behavior of the state. Thereafter, in the pop-up window, select the system and click "Add New". Set the name to "Operation Statemachine" and the Type to "State Machine", and click "Save":
+- Select the "Operational" state and in the properties window select the "Submachine" behavior of the state. Thereafter, in the pop-up window, select the system and click "Add New". Set the name to "Operation Statemachine" and the Type to "State Machine", and click "Save":
 ![alt text](figs/ea-tooling-behavior/image-39.png)
 
-- Move the new statemachine under the system. Select the "Operational" state and in the Regions tab of the properties window set the "*Instance Classifier*" to the "Operational Statemachine".
+- Move the new statemachine under the system in the project browser. Select the "Operational" state and in the Regions tab of the properties window set the "*Instance Classifier*" to the "Operational Statemachine".
 ![alt text](figs/ea-tooling-behavior/image-41.png)
 
 - Open the statemachine diagram of the "Operational Statemachine" and create the following states and transitions:
@@ -283,7 +283,7 @@ In this section, we will create the statemachine of the "Steering Wheel Heating 
 - Connect the entry and exit points to the states using transitions and add a time trigger to the transition, in the following way:
 ![alt text](figs/ea-tooling-behavior/image-46.png) 
 
-- Open the "System Statemachine". Select the "Operational" state and create the same entry. Right-click in the "Connection Points" tab of the Features window and select "Add New". In the pop-up window, select all entry points, name the reference to "Heating", and click "OK".
+- Open the "System Statemachine". Select the "Operational" state. Right-click in the "Connection Points" tab of the Features window and select "Add New". In the pop-up window, select the "Heating" entry point, name the reference to "Heating", and click "OK".
 ![alt text](figs/ea-tooling-behavior/image-48.png)
 
 
@@ -303,7 +303,7 @@ In this section, we will create the statemachine of the "Steering Wheel Heating 
 - Select "Operational" state and in the "Internal Trigger" tab of the Features window, right-click and select "New Internal Trigger..."
 ![alt text](figs/ea-tooling-behavior/image-53.png)
 
-- Select the new internal trigger in the Features window and in the properties window specify the trigger and its effect as it was normal transition:
+- Select the new internal trigger in the Features window and in the properties window specify the trigger and its effect as if it was normal transition:
 ![alt text](figs/ea-tooling-behavior/image-54.png)
 
 - Create a transition from the On state to the Off state, and add two triggers to this tranition the following way:
