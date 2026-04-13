@@ -140,20 +140,20 @@ This section shows you how you can create activity diagrams. In this tutorial, w
   - Right-click on the "Steering Wheel Heating System" and select "Add/New Diagram":
   ![alt text](figs/ea-tooling-behavior/image-24.png)
 
-  - In the pop-up window, select Activity and click on "Create". We will use this diagram to define the main activities of the system. 
+  - In the pop-up window, select Activity and click on "Create Diagram". We will use this diagram to define the main activities of the system. 
   ![alt text](figs/ea-tooling-behavior/image-25.png)
 
   - **Visually** delete the ports in the diagram (SHIFT+Del).
 
-  - Use the "SysML Activities" toolbox page to create five Structured Activities (in the pop-up window select other and in the other pop-up window select "Structured Activity"), namely, "Configure System", "Set Reference Temperature", "Activate Heating", "Deactivate Heating", and "Safe Reference Setting".
+  - Use the "SysML Activities" toolbox page to create five Structured Activities (in the pop-up window select other and in the other pop-up window select "Structured Activity Node"), namely, "Configure System", "Set Reference Temperature", "Activate Heating", "Deactivate Heating", and "Safe Reference Setting".
   ![alt text](figs/ea-tooling-behavior/image-57.png)
 
-  - Open the diagram of the "Safe Reference Setting" and use the "SysML Activities" toolbox page to create two parameters:
+  - Open the diagram of the "Safe Reference Setting" and use the "SysML Activities" toolbox page to create two parameters (if EA doesn't let you create them directly on the left side of the border, create them on other parts of the border and move them):
   ![alt text](figs/ea-tooling-behavior/image-58.png) 
 
   - Select the properties, and in the "Element" tab of the properties window, name the parameters to "tempRef" and "isInRange".
   
-  - In the "Parameter" tab of the properties window, set the type and direction of the parameters. refTemp is an input, and its type is Temperature. isInRange is an output, and its type is Boolean.
+  - In the "Parameter" tab of the properties window, set the type and direction of the parameters. refTemp is an input, and its type is Temperature (from the "SysPhs Library\Value Types and Units" package). isInRange is an output, and its type is Boolean.
   ![alt text](figs/ea-tooling-behavior/image-59.png)
 
   - Create a "Decision" node and connect it to the refTemp input parameter with an object flow:
@@ -162,7 +162,7 @@ This section shows you how you can create activity diagrams. In this tutorial, w
   - Create Actions using the "SysML Activities" toolbox page. In the pop-up window, select "Atomic":
   ![alt text](figs/ea-tooling-behavior/image-61.png)
 
-  - Create two activity pins for each of the two atomic actions:
+  - Create two action pins (with no stereotype) for each of the two atomic actions:
   ![alt text](figs/ea-tooling-behavior/image-62.png)
 
   - Similarly to the parameters, set the direction, type, and name of the action pins:
@@ -183,7 +183,7 @@ This section shows you how you can create activity diagrams. In this tutorial, w
  - Drag and drop the "Set Reference Temperature" Activity to the diagram and drop it as "Invocation Action":
  ![alt text](figs/ea-tooling-behavior/image-70.png)
 
- - Create six atomic actions with action pins:
+ - Create six atomic actions with action pins (*Tip*: to speed this up, you can use Ctrl+Click on blank parts of the diagram to create a new element of the same type as the last; unfortunately, this does not work for the pins):
  ![alt text](figs/ea-tooling-behavior/image-73.png)
 
  - Create two object nodes and set their name and classifier in the properties window:
@@ -201,10 +201,10 @@ This section shows you how you can create activity diagrams. In this tutorial, w
 - Create object flows:
 ![alt text](figs/ea-tooling-behavior/image-78.png)
 
-- Create an "Interruptible Region" around the actions:
+- Create an "Interruptible Region" around the actions (*Tip:* moving an interruptible activity region moves everything in it with it; holding alt enables moving it freely instead):
 ![alt text](figs/ea-tooling-behavior/image-79.png)
 
-- Create a copy of the reply action (CTRL+Drag is the fastest way) and create an Accept Event Action and a Flow Final activity node:
+- Create a copy of the reply action (CTRL+Drag is the fastest way, but make sure to select the pin as well) and create an Accept Event Action and a Flow Final activity node:
 ![alt text](figs/ea-tooling-behavior/image-80.png)
 
 - Create a "Value Specification" action:
