@@ -183,41 +183,37 @@ This section shows you how you can create activity diagrams. In this tutorial, w
  - Drag and drop the "Set Reference Temperature" Activity to the diagram and drop it as "Invocation Action":
  ![alt text](figs/ea-tooling-behavior/image-70.png)
 
- - Create six atomic actions with action pins (*Tip*: to speed this up, you can use Ctrl+Click on blank parts of the diagram to create a new element of the same type as the last; unfortunately, this does not work for the pins):
- ![alt text](figs/ea-tooling-behavior/image-73.png)
+ - Create seven atomic actions with action pins (*Tip*: to speed this up, you can use Ctrl+Click on blank parts of the diagram to create a new element of the same type as the last; unfortunately, this does not work for the pins):
+![alt text](figs/ea-tooling-behavior/image-86.png)
 
  - Create two object nodes and set their name and classifier in the properties window:
 ![alt text](figs/ea-tooling-behavior/image-74.png)
 
-- Create a "Reply" action and in the "Interaction Points" tab of the Features window visualize its action pin and set its type to the "ConfigurationStatus" enum:
-![alt text](figs/ea-tooling-behavior/image-75.png)
 
-- Create a (vertical) "Fork/Join" and a final activity node:
-![alt text](figs/ea-tooling-behavior/image-76.png)
+- Create a (vertical) "Fork/Join" and a flow final activity node:
+![alt text](figs/ea-tooling-behavior/image-87.png)
 
-- Create control flows:
-![alt text](figs/ea-tooling-behavior/image-77.png)
-
-- Create object flows:
-![alt text](figs/ea-tooling-behavior/image-78.png)
+- Create control and object flows:
+![alt text](figs/ea-tooling-behavior/image-88.png)
 
 - Create an "Interruptible Region" around the actions (*Tip:* moving an interruptible activity region moves everything in it with it; holding alt enables moving it freely instead):
+![alt text](figs/ea-tooling-behavior/image-89.png)
 ![alt text](figs/ea-tooling-behavior/image-79.png)
 
-- Create a copy of the reply action (CTRL+Drag is the fastest way, but make sure to select the pin as well) and create an Accept Event Action and a Flow Final activity node:
-![alt text](figs/ea-tooling-behavior/image-80.png)
+- Create a copy of the Reply1 action (CTRL+Drag is the fastest way, but make sure to select the pin as well) and create an Accept Timer Action and a Final activity node.Select the Accept Timer action and in the Trigger tab of the properties window create a new Time trigger with the following specification: "after 10 us".
+![alt text](figs/ea-tooling-behavior/image-92.png)
 
 - Create a "Value Specification" action:
-![alt text](figs/ea-tooling-behavior/image-81.png)
+![alt text](figs/ea-tooling-behavior/image-93.png)
 
 - Select the value specification and in the Properties window set the value to "ConfigurationStatus.Error" and in the "Interaction Point" tab of the Features window visualize its action pin and set its type to "ConfigurationStatus".
-![alt text](figs/ea-tooling-behavior/image-82.png)
+![alt text](figs/ea-tooling-behavior/image-94.png)
 
 - Connect the Accept Event Action to the value specification with an "Interrupt Flow":
-![alt text](figs/ea-tooling-behavior/image-83.png)
+![alt text](figs/ea-tooling-behavior/image-95.png)
 
 - Add an object and a control flow and finish the diagram:
-![alt text](figs/ea-tooling-behavior/image-84.png)
+![alt text](figs/ea-tooling-behavior/image-96.png)
 
 # Statemachine Modeling
 
