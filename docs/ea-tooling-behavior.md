@@ -145,7 +145,7 @@ This section shows you how you can create activity diagrams. In this tutorial, w
 
   - **Visually** delete the ports in the diagram (SHIFT+Del).
 
-  - Use the "SysML Activities" toolbox page to create five Structured Activities (in the pop-up window select other and in the other pop-up window select "Structured Activity Node"), namely, "Configure System", "Set Reference Temperature", "Activate Heating", "Deactivate Heating", and "Safe Reference Setting".
+  - Use the "SysML Activities" toolbox page to create five Structured Activities (in the pop-up window select other and in the other pop-up window select "Simple Compos..."), namely, "Configure System", "Set Reference Temperature", "Activate Heating", "Deactivate Heating", and "Safe Reference Setting".
   ![alt text](figs/ea-tooling-behavior/image-57.png)
 
   - Open the diagram of the "Safe Reference Setting" and use the "SysML Activities" toolbox page to create two parameters (if EA doesn't let you create them directly on the left side of the border, create them on other parts of the border and move them):
