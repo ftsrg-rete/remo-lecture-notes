@@ -24,8 +24,8 @@ Now that you are familiar with all three diagrams for behavior modeling, complet
     Name the states based on the elements of the Activity Diagram, and name the Activity Diagram elements based on the states of the State Machine.
 
 2. Based on the behavior of the two components (we would use the State Machines, but you have *a lot of* choices now), complete the sequence diagram below by replacing the MySolution interaction with an actual sequence diagram fragment that precisely describes one specific valid execution. Assume that:
-   - the execution satisfies the elements already present in the diagram, and 
-   - no additional messages are lost due to range limitations. 
+    - the execution satisfies the elements already present in the diagram, and 
+    - no additional messages are lost due to range limitations. 
  
     As before, use messages, timing constraints, and state invariants.
 
