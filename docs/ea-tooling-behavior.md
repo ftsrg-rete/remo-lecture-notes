@@ -222,6 +222,8 @@ In this section, we will create the statemachine of the "Steering Wheel Heating 
 - Right click on the "Steering Wheel Heating System" and select "Add/Statemachine", name the statemachine to "System Statemachine" and click OK:
 ![alt text](figs/ea-tooling-behavior/image-27.png)
 
+- Select the "Steering Wheel Heating System" block, and set "System Statemachine" as its Classifier Behavior in the Properties window.
+
 - Use the "SysML State" toolbox page to create an initial state and three states, namely, "Off" and "On": 
 ![alt text](figs/ea-tooling-behavior/image-28.png)
 
