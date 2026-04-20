@@ -30,3 +30,5 @@ Now that you are familiar with all three diagrams for behavior modeling, complet
     As before, use messages, timing constraints, and state invariants.
 
 ![Sequence Diagram to Complete](figs/lab8-seq.png)
+
+*Please note that this scenario is intended for educational purposes. Refer to the lecture for best practices in behavior modeling, and always choose the diagram best suited to the task.*
