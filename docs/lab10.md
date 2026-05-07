@@ -4,63 +4,82 @@ subtitle: System Modeling (VIMIAD03)
 header: System Modeling (VIMIAD03)
 ---
 
-Ez a labor a teljesítménymodellezés alkalmazásait fogja bemutatni. A laborfeladatok ezúttal magyarul lesznek, megoldásukhoz csak papírra és tollra, esetleg számológépre lesz szükség.
+This lab focuses on evaluating the safety and availability of a candidate hardware architecture for the Adaptive Cruise Control system using fault trees.
 
+# Tool Usage
+We will use FTEdit, for which you can find a guide [here](https://ftsrg-rete.github.io/remo-lecture-notes/ftedit/).
 
+# Architecture description
 
-# Feladatok
+The speed is measured using two different methods simultaneously:
+1. A 3DM-GX5-10 *IMU* (Inertial Measurement Unit) provides movement data directly based on its internal sensors.
+2. The movement of the four wheels is measured independently using *encoders*, one for each wheel. The data from the encoders is fed into a *microcontroller*, which runs an algorithm that provides usable speed data if at least half of the encoders are working correctly.
 
-## Diszk teljesítménye
+The aggregated data from this microcontroller is then sent to the main logic unit. The system does not stop if the output of an encoder differs from the others, as this difference can easily be transient, and the different wheels can sometimes really move with different speeds.
 
-Egy diszk 50 kérést szolgál ki másodpercenként. Minden kérés kiszolgálása 0,005 másodpercet vesz igénybe. A rendszerben nincs átlapolódás.
+The two speed measurements are processed by the *main logic unit* of the ACC, which is another microcontroller. The **maximum** of the two measurements is used to increase safety. The output is the command to accelerate, decelerate, or maintain speed. To eliminate single points of failure, the *main logic unit* is duplicated.
 
-1. Mekkora a maximálisan kiszolgálható terhelés (érkezési ráta)?
-2. Mekkora a kihasználtság?
+A small *voter FPGA* is used as a shield to derive the final command or initiate a safe emergency shutdown of the system. Currently, if the commands from the two main logic units are the same, the final command will be that; otherwise, the system shuts down. In any potential improved design, this FPGA may be used to implement more sophisticated comparisons and selection strategies (see task *d*).
 
-## Zárthelyi megtekintése
+The voter FPGA is also duplicated, but their comparison is not realized by a separate voter — instead, they receive the output of the other FPGA and constantly check their own output against it to initiate a safe emergency shutdown when they see any discrepancy.
 
- A zárthelyik megtekintése során a hallgatóknak lehetőségük van reklamálni esetleges javítási hibák miatt. Sikeres reklamáció esetén a pontszámuk módosításra kerül. Az első nagyfeladatból (F1) óránként 10 darabot képes átnézni egy javító, a második nagyfeladatból (F2) pedig 20 darabot. Mindkét feladathoz tartozik 1-1 javító, akik az adott feladatot javították. A továbbiakban készítsünk minden kérdéshez egy-egy folyamatmodellt és határozzuk meg, hogy óránként hány hallgató dolgozatát sikerül átnézni az egyes esetekben!
+In case of an emergency shutdown, as the problem might be transient, the system is automatically restarted.  
+**Note:** The failure rates in this task include only permanent failures, but the functional logic of the system must consider the possibility of transient failures too. In the final implementation, this will be replaced with a better solution to reliably detect permanent faults, but for the prototype, this will suffice. A practical consequence of this is that both voters can become faulty, in which case they might produce the *same erroneous output*.
 
-1. A hallgatók először az F1, majd az F2 feladatot nézetik át a javítóval.
-2. A leleményes hallgatók a két feladatot külön-külön már egyszerre két javítónak adják oda, mivel külön lapra voltak írva. Mit nyerünk a párhuzamosítással?
-3. A nagy tömeg miatt a hallgatók csak az egyik feladatukat nézetik át, mégpedig azt, amelyiknek a javítója éppen szabad.
-4. Híre ment, hogy a második feladat javítója sokkal kevésbé szigorú, így a hallgatók 80%-a inkább kivárja ennél a javítónál a sort. A maradék 20% a másik javítónál reklamál az első feladattal kapcsolatban.
-5. A hallgatók 10%-ának a reklamáció után már csak 1-2 pont kellene a jobb jegyhez, ezért újra és újra megpróbálkoznak a reklamációval. Feltételezhetjük, hogy a hallgatók az a) részben leírt reklamációs stratégiát használják.
-6. Mi történne másként, ha bármelyik javító bármelyik feladatot hajlandó átnézni (de az egyes feladatok átnézése változatlan ideig tart), és így szeretnék a hallgatók az eredeti tervnek megfelelően először az F1, majd az F2 feladatot átnézetni a javítóval?
+In the whole system, communication through wires or channels is assumed to be either reliable or the probability of communication faults is already considered in the reliability metrics of the receiving component.
 
-## Kétrétegű architektúra
+Each microcontroller’s power is provided by the single *main power supply* through a dedicated *5V power regulator* (each microcontroller has its own regulator). If the corresponding regulator fails to provide the correct voltage, the microcontroller may start to operate outside of the rated working range, which leads to non-deterministic behavior. Every other component that needs external power is supplied from the main power supply without any additional regulator in the power chain.
 
-Adott egy webszerver (WS) és két fürtözött adatbázisszerver (DB1, DB2). A két adatbázis szerver közt súlyozott round robin terheléselosztás alapján választunk, 1:2 arányban. Minden felhasználói kérés kiszolgálása során mindkét fajta erőforrást használjuk. A csúcsidőszakban 30 percig monitorozzuk a rendszert, ezalatt 9000 kérést szolgál ki. A szerveken mért foglaltsági idők: WS– 1350 s CPU idő; DB1– 810 s, DB2– 1320 s diszk IO idő.
+**Note:** If voltage conversion would be logically needed for such components, you can treat it as already being included in the component's failure rate.  
+**The failure of the main power supply can be ignored in the current design phase.**
 
-1. Készítsünk folyamatmodellt a kérések feldolgozásáról a szöveg alapján!
-2. Mekkora az egyes szerverek jelenlegi átbocsátása?
-3. Mennyi időt töltenek egy-egy hozzájuk beérkezett kérés kiszolgálásával a szerverek?
-4. Mekkora a rendszer maximális áteresztőképessége?
-5. Miért nem egy féle foglaltsági időt vettünk figyelembe a két erőforrástípusnál?
-6. Hol csal még így is a modell?
+At the end of each day (treat a day as 24h, regardless of the actual duration of active operation), the vehicles return to the maintenance station for *full maintenance*. We can assume for now that this maintenance leads to full recovery, meaning that the vehicles start each day as if they were new.
 
-## Mikroszolgáltatás
+### Component Failure Rates
 
-Mikroszolgáltatásunk egy közelítő algoritmust implementál, melyet más szolgáltatások hálózaton keresztül építőkockaként felhasználhatnak a saját funkciójuk megvalósításához. Mivel sok egyforma kérés érkezik, a szolgáltatás gyorsítótárazza a válaszokat, így a korábban kiszámolt eredmények gyorsan visszaküldhetők. Maga a számítás egy igen költséges iteratív folyamat, amelyet addig kell ismételni, amíg a megoldás kellően precíz nem lesz.
+| Component Type | Failure Rate (FIT) |
+|----------------|--------------------|
+| Encoder        | 580                |
+| FPGA           | 11                 |
+| 5V Regulator   | 15                 |
 
-Az alábbi modell a kísérleti futtatás tapasztalatait összegzi. Megfigyeléseink szerint a kérések 80%-a gyorsítótárból kiszolgálható, míg egy iteratív számítási lépés végén átlagosan 10% eséllyel lesz elég precíz a megoldás. A kétféle tevékenységhez megmértük az egyes erőforrások átlagos foglaltsági idejét is, ezt az alábbi ábrán a lépések felett tüntettük fel (csak a nem elhanyagolható ideig használt erőforrásokra).
+We do not know the exact failure rate of the microcontrollers, but they are *SIL2 certified*, and are used in a *continuous operation mode*. The reliability properties of the IMU can be found in its public *datasheet* (note that in practice, vendors often use MTBF instead of MTTF because repair time is negligible).
 
-A méréshez az élesben is használt szervert használtuk, amely 2 CPU-val, 1 RAM modullal és 1 diszkkel rendelkezik.
+---
 
-![Microservice](figs/microservice.png)
+# Tasks
 
-1. Ha mindegyik lépés esetén csak a leghosszabban használt erőforrást vesszük figyelembe, mekkora lehet a rendszer átbocsátóképessége?
-2. Ha csak a mindkét lépés által jelentősebben használt, egyetlen közös diszk erőforrást tekintjük, akkor mekkora lehet a rendszer átbocsátóképessége?
-3. Mekkora ez alapján a rendszer tényleges átbocsátóképessége? Melyik erőforrás (fel)skálázásával lehetne még tovább növelni?
-4. Ha a kihasználtság 50%-os, és egy kérés beérkezésétől az eredmény visszaküldéséig (várakozással együtt) átlagosan 100~ms telik el, akkor átlagosan hány olyan kérés van a rendszerben, amelynek a feldolgozása még nem fejeződött be?
+## Safety Analysis
 
-##  Sziget közlekedési hálózata
+1. Draw a *fault tree model* of the ACC with the event  
+   **"The ACC commands the vehicle to accelerate when it should not"** as the top event.
+2. **Qualitative analysis:** What are the minimal cut sets? Are there any Single Points of Failure (SPoFs)?
+3. **Quantitative analysis:**  
+   - Calculate the probability that the top event happens before the daily maintenance on a given day.  
+   - To give a conservative estimate, assume that a faulty component has the worst possible behavior.  
+   - Based on this, what is the probability that the top event happens in the **4-year mission time** of a bus?  
+   - *Hint:* Probabilities of the basic events should be computed based on the fault rates of the components, assuming an exponential distribution. Fault rates may have to be derived from other metrics.
+4. The target probability for the 4-year mission time is $10^{-6}$.  
+   Introduce **new redundancies** to the system (as few as possible) so that the target is reached and provide a fault tree for the new architecture.  
+   *If the newly introduced components provide redundant data, describe how the final value is derived and how this affects the fault tree.*
 
-Egy sziget lakói minden reggel munkába menet átkelnek a szigetet ölelő tavon. Észak felé híd vezet, dél felé autóskomp. Az irányonként egysávos híd 200 m hosszú, és 60 km/h sebességgel szabad rajta haladni, a követési távolság (hátsó lámpától hátsó lámpáig 30 m) betartása mellett. A négy komphajó egyenként 15 percenként teszi meg a sziget-szárazföld-sziget kört, és így óránként négyen együtt legfeljebb 800 autót tudnak átvinni a szárazföldre.
+## Availability Analysis
 
-1. Mekkora a híd átbocsátóképessége (észak felé)?
-2. Hány autó fér el egy kompban?
-3. A reggeli csúcsforgalomban mekkora a szigetet elhagyó két útvonal együttes átbocsátóképessége?
-4. Ha délben a szárazföldi főutat baleset miatt lezárták, és a szigeten keresztül (a hídon, majd a kompon átkelve) terelik a forgalmat, mekkora a terelőútvonal átbocsátóképessége?
-5. Valamelyik reggel 7:00 és 8:30 között 900 autó hagyta el a szigetet komppal. Mennyi volt ebben az időszakban a kompok átbocsátása és kihasználtsága?
-6. A fenti mérésben átlagosan hány autó állt sorba egyszerre a parton, ha az autók jól időzítve, átlagosan fél perccel a beszállásuk előtt érkeztek kompkikötőhöz?
+5. Draw a *fault tree model* of the original ACC design with the event  
+   **"The ACC is unavailable for some reason"** as the top event.  
+   Unlike in the previous part, this includes the safe error states.  
+   **Unavailability** here means that the system cannot perform its function as expected, not only when it does not answer at all.  
+   *Note: If the system is in an undetected dangerous state (as described in the previous task), it may seem available, but the chance of this is negligible. We suggest to ignore these cases while computing availability.*
+6. **Quantitative analysis:**  
+   What is the **availability value** of the ACC?  
+   To give a conservative estimate, assume that a faulty component is not available.  
+   *Hint:* The availability of a component with exponential failure time and deterministic maintenance periods can be computed as:
+
+   \[
+   	\mathit{Availability} = \frac{1 - e^{-\lambda \cdot M}}{\lambda \cdot M}
+   \]
+
+   Where:
+
+   - \( M \) is the length of a maintenance period.
+   - \( \lambda \) is the failure rate of the component.
